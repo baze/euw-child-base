@@ -1,0 +1,41 @@
+._snippet-pagination{
+	@extend %clear;
+
+  a {
+	display: block;
+	text-decoration: none;
+	padding: 0.25em 0.5em;
+	background: lighten($primary-color, 95%);
+
+	&:hover {
+	  text-decoration: none;
+	}
+
+	&:active {
+
+	}
+  }
+
+  .prev,
+  .next {
+	@include span(2 of 12);
+	text-align: center;
+  }
+
+  .next {
+	@include last;
+  }
+
+  ul {
+	@extend %reset;
+	@include span(8 of 12);
+	text-align: center;
+
+	li {
+	  @include span(2 of 12);
+	  display: inline-block;
+	  float: none;
+	}
+  }
+
+}

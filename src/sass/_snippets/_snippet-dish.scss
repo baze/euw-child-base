@@ -1,0 +1,30 @@
+.post.dish {
+
+  @include breakpoint($breakpoint-medium) {
+
+    ._module-highlights & {
+
+      &:nth-child(2n+1),
+      &:nth-child(2n+2) {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+      }
+
+    }
+
+  }
+
+  @include breakpoint($breakpoint-huge) {
+
+    ._global-main & {
+      &.post--small,
+      &.post--med {
+        @include gallery(4 of 12);
+      }
+    }
+
+  }
+
+}

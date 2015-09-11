@@ -1,0 +1,204 @@
+%clear{
+    &:before, &:after {
+        content: "\0020";
+        display: block;
+        height: 0;
+        overflow: hidden;
+    }
+    &:after {
+        clear: both;
+    }
+}
+
+@mixin linkTextOffscreen() {
+    text-indent: -9999px;
+    overflow: hidden;
+    text-decoration: none;
+    display: block;
+    font-size: 0;
+    text-align: start;
+}
+
+@mixin hoverActiveFocus($property, $value) {
+    &:hover, &:active, &:focus {
+        #{$property}: $value;
+    }
+}
+
+//rem-fallback
+@function strip-unit($num) {
+  @return $num / ($num * 0 + 1);
+}
+
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $pxValues: #{$pxValues + $value*16}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-unit(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+  
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+%reset{
+  margin: 0; padding: 0;
+}
+
+//horizontal centering
+%center{
+  display: block;
+  margin: 0 auto;
+}
+
+%padding{
+  padding: 0 1.5em;
+}
+
+%box-shadow{
+  box-shadow: 0 2px 0.25em 0 rgba(0,0,0,0.15);
+}
+
+@mixin box-shadow($x: 0, $y: 2px, $spread: 0.25em, $color: rgba(0, 0, 0, 0.15)) {
+  box-shadow: $x $y $spread $color;
+}
+
+@mixin text-shadow($x:0, $y:2px, $spread:0.25em, $color:rgba(0, 0, 0, 0.15)) {
+  text-shadow: $x $y $spread $color;
+}
+
+%box-shadow-hover{
+  &:hover{ box-shadow: 0 4px 0.45em 0 rgba(0,0,0,0.15); }
+}
+
+%transition{
+  transition: all 185ms ease-in-out;
+}
+
+%border-radius{
+  border-radius: 0.15em;
+}
+
+%fleximage {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+%card {
+  @extend %clear;
+  @extend %box-shadow;
+  background: $white;
+  padding: 2em;
+}
+
+@mixin button($background-color:$highlight-color-1, $text-color: white, $border-color:$background-color) {
+//  &:hover {
+//    box-shadow: 0 4px 0.45em 0 rgba(0, 0, 0, 0.15);
+//  }
+
+  cursor: pointer;
+  font-family: $secondary-font;
+
+  //font-size: 75%;
+  //letter-spacing: 0.1em;
+
+  background: $background-color;
+  border-color: $border-color;
+  border-radius: 0;
+  border-style: solid;
+  border-width: 1px;
+  color: $text-color !important;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: inline-block;
+  height: 100%;
+  text-align: center;
+  padding: 0.25em 1em 0.3em;
+  //font-weight: $font-weight-normal;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &[data-viewtype]:not(.active) {
+    //color: $background-color !important;
+    background-color: transparent;
+    //background-color: $white;
+    text-decoration: underline;
+  }
+
+  &:hover {
+    //background-color: transparentize($background-color, 0.8) !important;
+  }
+
+  &[disabled],
+  &:disabled,
+  &.button-primary-disabled,
+  &.disabled {
+    text-shadow: none !important;
+  }
+
+}
+
+@mixin drop-caps() {
+    &:first-letter {
+      float: left;
+      font-size: 75px;
+      line-height: 60px;
+      padding-top: 4px;
+      padding-right: 8px;
+      padding-left: 3px;
+      font-family: $secondary-font;
+//      color: $primary-color;
+    }
+}
+
+@mixin icon($code) {
+  display: inline;
+  font-family: $icon-font;
+  margin-right: 0.25em;
+  content: $code;
+}
+
+%form-reset {
+  border: none;
+  border-image-width: 0;
+  outline: none;
+  -webkit-appearance: none !important;
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  appearance: none !important;
+  box-sizing: border-box !important;
+}
+
+%link-reset {
+  display: block;
+  min-width: 100%;
+  min-height: 100%;
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+%disable-link-desktop {
+  @include breakpoint($breakpoint-small-medium) {
+    pointer-events: none;
+  }
+}

@@ -1,0 +1,9 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content-page _content-gerichte">
+
+        {% include('_modules/_module-categories.twig') with { 'categories' : dish_categories } %}
+
+    </section>
+{% endblock %}

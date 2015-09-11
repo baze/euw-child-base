@@ -1,0 +1,53 @@
+._module-services-list {
+  @extend %clear;
+
+  .service--small {
+    @extend %article;
+    padding: 1em;
+
+    p {
+      font-size: 75%;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(1 of 2);
+
+      &:nth-child(even) {
+        @include last;
+      }
+
+      &:last-child {
+        margin: auto;
+        float: none;
+      }
+    }
+
+    &:last-child {
+      clear: both;
+    }
+  }
+
+
+  .service--full {
+    @extend %article;
+    padding: 1em;
+
+    &.has-image {
+      .service-image {
+        @include span(1 of 6);
+
+        img {
+          @include span(100%);
+        }
+      }
+
+      .service-header,
+      .service-body {
+        @include span(5 of 6 last);
+        padding-left: 0.5em;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,16 @@
+{% set event = convertTo(post, 'EventPost') %}
+<article class="post post--small _snippet-post--small event event--small post-type-{{ event.post_type }}">
+    <h4 class="post-title"><a href="{{ event.link }}">{{ event.title }}</a></h4>
+
+    <div class="post-excerpt">
+        {% if event.start %}
+            <div class="event-date">{{ event.start.formatLocalized('%A %d %B %Y') }}</div>
+        {% endif %}
+
+        {% if event.location %}
+            <div class="event-location">{{ event.location }}</div>
+        {% endif %}
+    </div>
+
+    <a class="post-link btn" href="{{ event.link }}">{{ _e('Mehr erfahren') }}</a>
+</article>

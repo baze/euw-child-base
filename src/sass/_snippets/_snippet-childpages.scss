@@ -1,0 +1,39 @@
+._snippet-childpages{
+	
+	@include breakpoint($breakpoint-medium) {
+		max-width: 75%;
+		margin: 0 auto;
+	}
+
+	.inner-container{
+		padding: 1em;
+		padding-bottom: 0.25em;
+	background-color: lighten(#eee, 2.5%);
+	}
+
+	a{ text-decoration: none; }
+
+	.child-page{
+		
+		border: 1px solid #ddd;
+		padding: 0.75em 0;
+		margin-bottom: 1.25em;
+		transition: all 175ms ease-in-out;
+
+		h3{ text-align: center; }
+		
+		&:hover{
+			background-color: $white;
+			
+			h3{ color: $primary-color; }
+
+			@include breakpoint($breakpoint-medium) {
+				border: none;
+				transform: scale(1.1);
+				box-shadow: 0 0.25em 0.25em 0 rgba(0,0,0,0.15);
+			}	
+						
+		}
+	}
+
+}

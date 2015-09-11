@@ -1,0 +1,22 @@
+._global-main {
+
+  color: $white;
+  background-color: transparent;
+
+  .single &,
+  .page-template-default &,
+  .page-template-_template-contact &,
+  .page-template-_template-imprint &,
+  .page-template-_template-privacy-policy & {
+    color: $secondary-color;
+    background-color: transparentize($white, 0.16);
+  }
+
+  .archive &,
+  .page-template-_template-gerichte &,
+  .page-template-_template-news & {
+    width: 75%;
+  }
+
+}
+

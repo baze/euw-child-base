@@ -1,0 +1,48 @@
+._module-events-current {
+  @extend %clear;
+}
+
+._module-events-current--open,
+._module-events-current--closed {
+  background: $primary-color;
+  text-align: center;
+  padding: 1em;
+
+  h3 {
+    color: $white;
+  }
+
+  >p {
+    font-size: 75%;
+  }
+}
+
+._module-events-current--open {
+
+  margin-bottom: 1em;
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(1 of 2);
+    margin-bottom: 0;
+  }
+
+}
+
+._module-events-current--closed {
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(1 of 2 last);
+  }
+
+  article {
+    color: $white;
+    text-align: left;
+    h4 {
+      color: $white;
+    }
+
+    >p {
+      font-size: 75%;
+    }
+  }
+}

@@ -1,0 +1,61 @@
+.tutorial {
+
+  text-align: left;
+  position: relative;
+  overflow: hidden;
+
+  &.free {
+    &:before {
+      @include text-shadow();
+      @include box-shadow();
+      position: absolute;
+      content: "Free";
+      text-transform: uppercase;
+      color: $white;
+      font-weight: $font-weight-bold;
+      background: $highlight-color-1;
+      display: inline-block;
+      transform: rotate(45deg);
+      left: auto;
+      right: -6.5em;
+      top: -2em;
+      padding: 3em 6em 0.5em;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  figure {
+    @extend %reset;
+    border: none;
+  }
+
+  figcaption {
+    background: $highlight-color-1;
+  }
+
+
+}
+
+.tutorial--small {
+  @extend %box-shadow-hover;
+
+  .tutorial-title {
+    color: $white;
+    font-weight: $font-weight-normal;
+    text-transform: uppercase;
+  }
+
+  .tutorial-subtitle {
+    color: $white;
+  }
+
+}
+
+.tutorial--full {
+
+  @extend %single-post--full;
+
+}

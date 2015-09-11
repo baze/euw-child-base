@@ -1,0 +1,9 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% include ['_content/_content-lieferanten.twig', '_content/_content-page.twig'] %}
+{% endblock %}
+
+{% block optional_content %}
+    {% include('_modules/_module-highlights.twig') %}
+{% endblock %}

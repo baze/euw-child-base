@@ -1,0 +1,79 @@
+$logo-scale-factor: 1.25;
+$logo-width: #{151 * $logo-scale-factor}px;
+$logo-height: #{158 * $logo-scale-factor}px;
+$header-margin: 2em;
+$header-height: calc(#{$logo-height} + 2 * #{$header-margin} + #{$header-margin});
+
+._global-header {
+  @extend %z-layer-ui;
+  position: relative;
+
+  font-family: $secondary-font;
+  color: $primary-color;
+
+  a.nav-toggle {
+    color: $white;
+    font-size: 2em;
+    font-weight: $font-weight-bold;
+    padding: 0;
+
+    @include breakpoint($breakpoint-small-medium) {
+      margin-bottom: 1em;
+    }
+  }
+
+  h4 {
+    font-size: 1.33em;
+  }
+
+  .fa {
+    margin-right: 0.25em;
+  }
+
+  .nav-collapse-info {
+    text-align: center;
+    //display: none;
+
+    &.open {
+      //display: block;
+    }
+
+    > div {
+      @extend %clear;
+    }
+
+  }
+
+}
+
+._global-header-logo {
+  @extend %center;
+  @extend %clear;
+  @extend %transition;
+  text-align: center;
+  overflow: hidden;
+
+  min-height: $logo-height;
+
+  a {
+    @extend %clear;
+    display: block;
+  }
+
+  img {
+    @extend %transition;
+    display: inline-block;
+    width: $logo-width;
+    height: $logo-height;
+    margin-left: -2.25em;
+
+    @include breakpoint($breakpoint-small) {
+      transform: scale(0.8);
+    }
+  }
+
+  @include breakpoint($breakpoint-small-medium) {
+    margin-bottom: $header-margin;
+  }
+
+}

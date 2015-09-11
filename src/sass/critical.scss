@@ -1,0 +1,14 @@
+@import 'screen';
+
+@import "_globals/global-header";
+@import "_globals/global-navigation";
+@import "_modules/_module-businessinfo";
+@import "_modules/_module-openinghours";
+@import "_modules/_module-social";
+@import "_modules/_module-slider";
+@import "_snippets/_snippet-post";
+@import "_snippets/_snippet-dish";
+
+.wrapper {
+  background-image: url('{{theme.uri}}/dest/img/bg-body.jpg');
+}

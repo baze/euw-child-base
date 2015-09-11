@@ -1,0 +1,31 @@
+{
+  "name": "WP Starter Theme",
+  "version": "0.1.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {},
+  "dependencies": {
+    "SVGMagic": "~3.0.1",
+    "breakpoint-sass": "~2.6.1",
+    "flexslider": "*",
+    "font-awesome": "~4.4.0",
+    "headroom.js": "~0.7.0",
+    "mediaelement": "~2.18.0",
+    "modernizr": "~2.8.3",
+    "normalize-scss": "~3.0.1",
+    "respond": "~1.4.2",
+    "responsive-nav": "*",
+    "susy": "~2.2.2"
+  },
+  "resolutions": {
+    "SVGMagic": "~3.0.1",
+    "susy": "~2.2.2",
+    "font-awesome": "~4.4.0",
+    "breakpoint-sass": "~2.6.1"
+  }
+}

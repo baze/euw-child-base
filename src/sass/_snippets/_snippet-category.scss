@@ -1,0 +1,19 @@
+.category {
+
+  @extend %clear;
+  background: $white;
+  color: $secondary-color;
+  text-align: center;
+  padding: 3em 1em;
+
+  .category-name {
+    font-size: 4em;
+    margin-bottom: 0.25em;
+  }
+
+  .category-link {
+    font-family: $secondary-font;
+    font-size: 3em;
+    font-weight: $font-weight-normal;
+  }
+}

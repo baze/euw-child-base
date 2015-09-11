@@ -1,0 +1,29 @@
+._module-social {
+
+  ul {
+    @extend %reset;
+  }
+
+  li {
+    display: inline;
+    font-size: 2em;
+    line-height: 1.25;
+
+    &:not(:last-child) {
+      margin-right: 0.125em;
+
+      &:after {
+        content: '&';
+      }
+    }
+    
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .fa {
+    display: none;
+  }
+
+}

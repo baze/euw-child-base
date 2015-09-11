@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    {% include('_modules/_module-hero.twig') %}
+    {% include ['_content/_content-parent-' ~ post.id ~ '.twig',
+                '_content/_content-parent-' ~ post.slug ~ '.twig',
+                '_content/_content-page-parent.twig',
+                '_content/_content-' ~ post.id ~ '.twig',
+                '_content/_content-' ~ post.slug ~ '.twig',
+                '_content/_content-page.twig'] %}
+
+{% endblock %}

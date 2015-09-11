@@ -1,0 +1,17 @@
+._module-events-overview--events {
+
+  article {
+    @extend %article;
+    padding: 0.5em;
+
+    h4 {
+      text-align: center;
+    }
+
+    p {
+      padding: 0;
+      font-size: 75%;
+    }
+  }
+
+}

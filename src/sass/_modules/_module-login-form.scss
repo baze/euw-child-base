@@ -1,0 +1,12 @@
+._module-login-form {
+
+  .login-username label,
+  .login-password label {
+    @include span(3 of 12);
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+    }
+  }
+
+}

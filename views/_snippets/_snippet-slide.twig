@@ -1,0 +1,32 @@
+<div class="_snippet-slide">
+    <div class="slide-image-container">
+        {% if (slide.image) %}
+            <img class="slide-image" src="{{ TimberImage(slide.image) }}"
+                 alt=""/>
+        {% endif %}
+
+        {% if (slide.callout) %}
+            <img class="slide-callout" src="{{ TimberImage(slide.callout)|resize(160,160) }}"
+                 alt=""/>
+        {% endif %}
+    </div>
+    <div class="slide-content-container">
+        <div class="slide-content">
+            {% if (slide.title) %}
+                <h2 class="slide-title">{{ slide.title }}</h2>
+            {% elseif (slide.link) %}
+                <h2 class="slide-title">{{ TimberPost(slide.link).title }}</h2>
+            {% endif %}
+
+            {% if (slide.subtitle) %}
+                <p class="slide-subtitle">{{ slide.subtitle }}</p>
+            {% elseif (slide.link) %}
+                <p class="slide-subtitle">{{ TimberPost(slide.link).content|excerpt(50) }}</p>
+            {% endif %}
+
+            {% if (slide.link) %}
+                <h4 class="slide-link"><a href="{{ TimberPost(slide.link).link }}">{{ _e('Weiterlesen.') }}</a></h4>
+            {% endif %}
+        </div>
+    </div>
+</div>

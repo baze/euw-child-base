@@ -1,0 +1,51 @@
+._snippet-language-switcher{
+	
+
+	@extend %z-layer-modal;
+	position: relative;
+	max-width: $grid-max-width;
+	margin: 0 auto;
+	font-size: 75%;
+		
+	&:hover{
+		._snippet-language-switcher-list{
+		position: relative;
+		transform: translateY(0);
+		}
+	}
+
+}
+
+
+._snippet-language-switcher-list,
+._snippet-language-switcher-toggle{
+
+	
+}
+
+._snippet-language-switcher-list{
+		@extend %reset;
+		list-style: none;
+		padding: 1em 0.5em;
+	}
+
+._snippet-language-switcher-toggle{ 
+		
+		@extend %transition;
+
+		display: inline-block;
+		font-family: $primary-font;
+		content: "Languages";
+		cursor: pointer;
+		padding: 0.5em;
+		z-index:1050;
+}
+
+.lang-list {
+  @extend %reset;
+}
+
+.lang-item {
+  display: inline;
+  list-style: none;
+}

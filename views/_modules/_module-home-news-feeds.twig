@@ -1,0 +1,7 @@
+<section class="_module-home-posts _module-home-news-feeds">
+
+    {% for feed in news_feeds %}
+        {% include '_modules/_module-news-feed.twig' with {'feed': feed} %}
+    {% endfor %}
+
+</section>

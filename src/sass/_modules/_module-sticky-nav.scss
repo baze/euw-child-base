@@ -1,0 +1,49 @@
+.sticky-nav {
+  
+  display: none;
+  
+  @include breakpoint($breakpoint-medium) {
+    display: block;
+  }
+  
+  position: absolute;
+  top: 50%;
+  background: $primary-color;
+  background: #7ab0e0;
+  font-size: 1.5em;
+  line-height: 1em;
+
+  ul {
+    @extend %reset;
+  }
+
+  li {
+    padding: 0.125em 0.25em 0.125em 0.25em;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.sticky-nav-left {
+  text-align: left;
+  left: 0;
+  right: inherit;
+
+  li {
+    padding-left: 0.5em;
+    padding-right: 0.25em;
+  }
+}
+
+.sticky-nav-right {
+  text-align: right;
+  left: inherit;
+  right: 0;
+
+  li {
+    padding-left: 0.25em;
+    padding-right: 0.5em;
+  }
+}

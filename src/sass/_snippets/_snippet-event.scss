@@ -1,0 +1,23 @@
+.event--full {
+
+  .event-description {
+    @extend %card;
+    padding: 1em;
+  }
+
+  .event-body {
+    @extend %clear;
+
+    & > div {
+      @extend %card;
+      padding: 1em;
+      margin-bottom: 1em;
+
+      @include breakpoint($breakpoint-medium) {
+        @include gallery(4 of 12);
+      }
+
+    }
+  }
+
+}

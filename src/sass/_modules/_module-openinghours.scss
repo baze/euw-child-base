@@ -1,0 +1,19 @@
+._module-openinghours {
+
+  margin-bottom: 2em;
+
+  ul {
+    @extend %reset;
+    font-size: 3em;
+    line-height: 1.25em;
+  }
+
+  li {
+    display: block;
+  }
+
+}
+
+.openinghours-weekday {
+  font-weight: $font-weight-bold;
+}

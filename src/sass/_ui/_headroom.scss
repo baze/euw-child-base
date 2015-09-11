@@ -1,0 +1,41 @@
+@include breakpoint($breakpoint-medium) {
+
+  .headroom {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: transform 200ms linear;
+
+    background: transparentize($white, 0.05);
+    //background: cyan;
+  }
+
+  .headroom--top {
+    //background: violet;
+  }
+
+  .headroom--not-top {
+    //background: red;
+  }
+
+  .headroom--pinned {
+    //background: mediumpurple;
+  }
+
+  .home .headroom--pinned {
+    //background: greenyellow;
+  }
+
+  .headroom--unpinned {
+    //background: orange;
+
+    ._global-header-logo {
+      height: 0;
+    }
+
+    ._global-header-navigation-aux {
+      height: 0;
+    }
+  }
+
+}

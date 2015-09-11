@@ -1,0 +1,224 @@
+._module-flexible-content {
+  a {
+    text-decoration: none;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.flexible-content-layout {
+  margin-bottom: 1.5em;
+  @include container();
+  @extend %clear;
+}
+
+//flexible-content-layouts
+
+//flexible content field with infobox
+.flexible-content-info {
+}
+
+.flexible-content-info-main {
+
+  float: left;
+
+  @include breakpoint($breakpoint-small-medium) {
+    @include span(45%);
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(75%);
+  }
+}
+
+.flexible-content-info-aside {
+
+  float: right;
+  margin-right: 0 !important;
+
+  @include breakpoint($breakpoint-small-medium) {
+    @include span(45%);
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(21%);
+    float: right;
+  }
+
+  padding: 0.5em;
+  font-size: 85%;
+  background-color: $highlight-color-1;
+  color: $light-gray;
+}
+
+.flexible-content-info-link {
+
+  @extend %transition;
+
+  background-color: lighten($highlight-color-1, 15%);
+  border: 1px solid lighten($highlight-color-1, 15%);
+  text-decoration: none;
+  white-space: nowrap;
+  padding: 0.25em 0.5em;
+
+  &:hover {
+    background-color: none;
+    border: 1px solid $light-gray;
+    text-decoration: none;
+  }
+}
+
+// flexible content hero (med and big)
+
+.flexible-content-hero {
+  background-color: $primary-color;
+  color: $light-gray;
+
+  a {
+    text-decoration: none;
+  }
+}
+
+.flexible-content-hero--big {
+  @include span(100%);
+}
+
+.flexible-content-hero-med-row {
+  @extend %clear;
+}
+
+.flexible-content-hero-med article {
+  @extend %card;
+  padding: 1em;
+  margin-bottom: 1.5em;
+
+  @include breakpoint($breakpoint-small) {
+    margin-bottom: 1.5em;
+  }
+
+  @include breakpoint($breakpoint-small-medium, $breakpoint-medium) {
+    @include gallery(6 of 12);
+  }
+
+}
+
+.flexible-content-hero-headline {
+  background-color: $highlight-color-1;
+  color: $white;
+  text-align: center;
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  padding: 0.75em 0;
+}
+
+.flexible-content-hero-med-img,
+.flexible-content-hero-img {
+  img {
+    @extend %fleximage;
+    margin-bottom: 1em;
+  }
+}
+
+.flexible-content-hero-med-txt,
+.flexible-content-hero-txt {
+  line-height: 1.45;
+  margin-bottom: 1em;
+
+  @include breakpoint($breakpoint-small-medium, $breakpoint-medium) {
+    font-weight: 200;
+  }
+
+  a {
+    @extend .flexible-content-info-link;
+    @include breakpoint($breakpoint-small-medium) {
+      display: inline-block;
+      margin-top: 0.5em;
+    }
+  }
+}
+
+//flexible content grid
+.flexible-content-grid {
+  @extend %clear;
+  @include container(12);
+}
+
+.flexible-content-grid-entry {
+
+  @extend %transition;
+
+  margin-bottom: 1.5em;
+
+  a {
+    text-decoration: none;
+  }
+
+  &:hover {
+//    background-color: $highlight-color-1;
+    .flexible-content-grid-headline {
+//      color: $light-gray;
+    }
+  }
+
+  &.two-columns {
+    @include breakpoint($breakpoint-small-medium, $breakpoint-medium) {
+      @include span(6 of 12);
+      &:nth-child(2n) {
+//        @include last;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.three-columns {
+    @include breakpoint($breakpoint-small-medium) {
+      @include span(6 of 12);
+      &:nth-child(2n) {
+//        @include last;
+        margin-right: 0;
+      }
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(4 of 12);
+      &:nth-child(3n) {
+//        @include last;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &.four-columns {
+    @include breakpoint($breakpoint-small-medium) {
+      @include span(6 of 12);
+      &:nth-child(2n) {
+//        @include last;
+        margin-right: 0;
+      }
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(3 of 12);
+      &:nth-child(4n) {
+//        @include last;
+        margin-right: 0;
+      }
+    }
+  }
+
+}
+
+.flexible-content-grid-entry-img {
+  img {
+    @extend %fleximage;
+  }
+}
+
+.flexible-content-grid-headline {
+  font-weight: 400;
+  letter-spacing: 0.025em;
+
+  text-align: center;
+}

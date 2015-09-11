@@ -1,0 +1,58 @@
+@import 'screen';
+
+//Typographic styles
+@import "_typography/icomoon";
+
+$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts" !default;
+@import "../../bower_components/font-awesome/scss/font-awesome";
+
+// Wordpress-specific styles
+@import "_wordpress";
+
+//Globals (e.g. header, footer, menus, etc.)
+@import "globals";
+
+// JS-Plugins
+@import "plugins";
+
+//Modules (e.g. article meta, etc.)
+@import "modules";
+
+//Snippets (can occur everywhere)
+@import "snippets";
+
+//Content-Elements
+@import "content";
+
+//Shame (last minute adjustments before production)
+@import "shame";
+
+@import "vendor";
+
+
+.wrapper {
+  //background-image: url('../img/bg-body.jpg');
+}
+
+._global-header {
+  //background-image: url('../img/bg-header.jpg');
+}
+
+.phone {
+
+  body {
+    //background-image: none;
+  }
+
+  ._global-header {
+    //background-image: url('../img/bg-header-phone.jpg');
+  }
+}
+
+@font-face {
+  font-family: 'flexslider-icon';
+  src: url('../../bower_components/flexslider/fonts/flexslider-icon.eot');
+  src: url('../../bower_components/flexslider/fonts/flexslider-icon.eot?#iefix') format('embedded-opentype'), url('../../bower_components/flexslider/fonts/flexslider-icon.woff') format('woff'), url('../../bower_components/flexslider/fonts/flexslider-icon.ttf') format('truetype'), url('../../bower_components/flexslider/fonts/flexslider-icon.svg#flexslider-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

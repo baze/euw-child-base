@@ -1,0 +1,32 @@
+._module-hero {
+  background-color: $highlight-color-1;
+
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+
+  @include breakpoint($breakpoint-medium) {
+    //
+    //    background-size: contain, cover;
+    //    background-position: 10% top, center top;
+    //    background-repeat: no-repeat, no-repeat;
+    padding-top: 3em;
+    padding-bottom: 3em;
+  }
+  
+  .hero-title {
+    color: $white;
+    text-align: center;
+    font-weight: $font-weight-normal;
+    font-size: 4em;
+
+    @include breakpoint($breakpoint-medium) {
+      margin: 1.25em 0 1.75em;
+    }
+  }
+
+}
+

@@ -1,0 +1,16 @@
+<article class="post post--full _snippet-post--full {{ post.post_type }} {{ post.post_type }}--full _snippet-{{ post
+.post_type
+}}--full">
+
+    {% if post.image %}
+        <div class="post-image">
+            <a href="{{ post.link }}">
+                <img src="{{ TimberImage(post.image) }}" alt=""/>
+            </a>
+        </div>
+    {% endif %}
+
+    <h4 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h4>
+
+    <div class="post-excerpt">{{ post.description }}</div>
+</article>

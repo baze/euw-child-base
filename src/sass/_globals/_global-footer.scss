@@ -1,0 +1,19 @@
+._global-footer {
+  @extend %container-outer;
+  padding: 0 1em;
+
+  color: $white;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+}
+
+._global-footer-container {
+  @extend %clear;
+  //@extend %container-inner;
+
+  padding: 1em 0;
+
+}

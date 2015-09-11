@@ -1,0 +1,24 @@
+{% include 'header.twig' %}
+<body class="{{ body_class }}" itemscope itemtype="http://schema.org/WebPage">
+{#<span class="breakpoints"></span>#}
+<div class="wrapper">
+
+    {% include('_globals/_global-oldbrowser.twig') %}
+
+    <main class="_global-main _global-content {{ post.class }}" role="main" id="main">
+        {% block content %}
+            Sorry, no content
+        {% endblock %}
+    </main>
+
+    {% block optional_content %}
+    {% endblock %}
+
+    {% include('_globals/_global-header.twig') %}
+
+</div>
+{% include('non-critical-assets.twig') %}
+{% include '_snippets/_snippet-analytics.twig' %}
+{{ wp_footer }}
+</body>
+</html>

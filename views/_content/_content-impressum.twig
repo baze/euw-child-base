@@ -1,0 +1,12 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content-page _content-impressum">
+
+        <h1 class="content-title">{{ post.post_title }}</h1>
+
+        {% include('_modules/_module-impressum.twig') %}
+
+    </section>
+{% endblock %}
+

@@ -1,0 +1,54 @@
+<section class="_module-home-topic-pages">
+
+    <div class="row">
+
+    {% for topic in post.get_field('topic_pages') %}
+
+        {% set page = TimberPost(topic.topic_page) %}
+
+        <article class="topic">
+
+            {% if topic.custom_title %}
+                <h2 class="topic-title">{{ topic.custom_title }}</h2>
+            {% else %}
+                <h2 class="topic-title">{{ page.title }}</h2>
+            {% endif %}
+
+            <div class="post-image">
+                <img src="{{ TimberImage(topic.image | default(placeholder(800,600))) }}" alt=""/>
+            </div>
+            <div class="topic-description">{{ topic.intro_text }}</div>
+
+            {% if topic.show_posts %}
+                {% set myPosts = get_posts(topic.posts_type, topic.posts_count) %}
+                <div class="topic-posts topic-posts-{{ myPosts|length }}">
+                    {% for p in myPosts %}
+                        {% set p = TimberPost(p) %}
+                        {% include ['_snippets/_snippet-'~p.post_type~'--small.twig',
+                                    '_snippets/_snippet-post--small.twig'] with {'post': p} %}
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if topic.show_link %}
+                <a class="topic-link btn" href="{{ page.link }}">
+                    {% if topic.link_label %}
+                        {{ topic.link_label }}
+                    {% else %}
+                        {{ _e('Mehr erfahren') }}
+                    {% endif %}
+                </a>
+            {% endif %}
+
+        </article>
+
+        {% if loop.index is divisibleby(2) %}
+        </div>
+        <div class="row">
+        {% endif %}
+
+    {% endfor %}
+
+    </div>
+
+</section>

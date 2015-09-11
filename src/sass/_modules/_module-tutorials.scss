@@ -1,0 +1,50 @@
+._module-tutorials {
+
+}
+
+._module-tutorials-list {
+
+  @extend %clear;
+  text-align: center;
+
+  .tutorial {
+    @include gallery(6 of 12);
+    margin-bottom: 2em;
+
+    @include breakpoint($breakpoint-medium) {
+      @include gallery(4 of 12);
+
+      /*&:nth-child(3n+3):nth-last-child(3) {
+        outline: 4px solid yellow;
+
+        &:before, &:after {
+          content: "\0020";
+          display: block;
+          height: 0;
+          overflow: hidden;
+        }
+        &:after {
+          clear: both;
+        }
+      }
+
+      &:nth-child(3n + 1):nth-last-child(2) {
+        outline: 4px solid red;
+        float: none;
+        clear: both;
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 2em;
+      }
+
+      &:nth-child(3n + 2):last-child {
+        outline: 4px solid green;
+        float: none;
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 0;
+      }*/
+    }
+  }
+
+}

@@ -1,0 +1,42 @@
+<section class="_module-members-area members-area">
+
+    <h4>{{ _e('Verfasser: ') }} {{ user.display_name }} </h4>
+
+    {% set tabs = [
+    {
+    slug : 'netzwerk',
+    title : 'Netzwerk',
+    content : acf_form('netzwerk', 'pending', 'Netzwerk zur Prüfung einreichen', 'Vielen Dank, dass Sie ihr Netzwerk eingetragen haben. Nach kurzer Prüfung werden wir Ihre Daten veröffentlichen.')
+    },
+    {
+    slug : 'startup',
+    title : 'Startup',
+    content : acf_form('startup', 'pending', 'Startup zur Prüfung einreichen', 'Vielen Dank, dass Sie ihr Startup-Unternehmen eingetragen haben. Nach kurzer Prüfung werden wir Ihre Daten veröffentlichen.')
+    },
+    {
+    slug : 'unternehmen',
+    title : 'Unternehmen',
+    content : acf_form('unternehmen', 'pending', 'Unternehmen zur Prüfung einreichen', 'Vielen Dank, dass Sie ihr Unternehmen eingetragen haben. Nach kurzer Prüfung werden wir Ihre Daten veröffentlichen.')
+    },
+    {
+    slug : 'event',
+    title : 'Termin',
+    content : acf_form('event', 'pending', 'Termin zur Prüfung einreichen', 'Vielen Dank für das Einstellen Ihres Termins. Nach kurzer Prüfung werden wir die Veranstaltung in unserem Terminkalender veröffentlichen.')
+    }
+    ] %}
+
+    {% include '_modules/_module-tabs.twig' with {'tabs' : tabs} %}
+
+    <a href="{{ logout_url }}" class="btn">{{ _e('Abmelden') }}</a>
+
+    {{ function('acf_enqueue_uploader') }}
+    <script type="text/javascript">
+        (function ($) {
+
+            // setup fields
+            acf.do_action('append', $('#popup-id'));
+
+        })(jQuery);
+    </script>
+
+</section>

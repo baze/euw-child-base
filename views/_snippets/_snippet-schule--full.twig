@@ -1,0 +1,19 @@
+<article class="post post--full schule schule--full post-type-{{ post.post_type }}
+{% if post.get_thumbnail %}
+has-image
+{% endif %}
+" id="post-{{ post.ID }}">
+    <section class="article-content">
+
+        {% if post.get_thumbnail %}
+            <div class="post-image">
+                <img src="{{ TimberImage(post.get_thumbnail | default(placeholder(100,100))) }}" alt=""/>
+            </div>
+        {% endif %}
+
+        <div class="post-body">
+            {{ post.content }}
+        </div>
+    </section>
+
+</article>

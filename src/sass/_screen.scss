@@ -1,0 +1,39 @@
+//colors
+@import "_colors";
+
+//custom Breakpoint mixins
+@import "_breakpoints";
+
+//Grid based on susy and custom breakpoints
+@import "_grid";
+
+//Typographic styles
+@import "_typography";
+
+//mixins
+@import "_mixins";
+
+//normalize
+@import "../../bower_components/normalize-scss/normalize";
+figure {
+  @extend %reset;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+//UI-Elements
+@import "_ui";
+
+//Settings
+@import "_settings";
+
+$primary-font: 'sans-serif' !default;
+$secondary-font: 'sans-serif' !default;
+
+*, *:before, *:after {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+

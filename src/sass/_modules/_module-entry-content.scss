@@ -1,0 +1,18 @@
+._module-entry-content {
+
+  &:empty {
+    display: none;
+  }
+
+  .content-title {
+    font-size: 3em;
+  }
+
+  .content-content {
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}

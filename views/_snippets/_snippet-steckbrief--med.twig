@@ -1,0 +1,30 @@
+<article class="post post--med steckbrief steckbrief--med {{ post.post_type }} {{ post.post_type }}--med
+{% if post.image %}
+has-image
+{% endif %}
+" id="post-{{ post.ID }}" itemscope itemtype="http://schema.org/LocalBusiness">
+
+    {% if post.image %}
+        <div class="post-image">
+            <a href="{{ post.link }}"><img src="{{ TimberImage(post.image) }}" alt=""/></a>
+        </div>
+    {% endif %}
+
+    <header class="steckbrief-header">
+        <meta itemprop="url" content="{{ post.link }}">
+		<span class="steckbrief-category" title=""></span>
+
+        <h3 class="steckbrief-name" itemprop="name">
+            <a href="{{ post.link }}">{{ post.post_title }}</a>
+        </h3>
+    </header>
+
+    <div class="steckbrief-description" itemprop="description">
+        {{ post.description | excerpt(120) }}
+    </div>
+
+    <footer class="steckbrief-footer">
+        <a href="{{ post.link }}" class="btn">{{ _e('Mehr erfahren') }}</a>
+    </footer>
+
+</article>

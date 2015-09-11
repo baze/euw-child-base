@@ -1,0 +1,118 @@
+.supplier {
+  @extend %clear;
+  font-weight: $font-weight-normal;
+  font-size: 85%;
+  text-align: left;
+
+  .post-main {
+    @include span(8 of 12);
+    @include last;
+  }
+
+  .post-supplemental {
+    @include span(4 of 12);
+    @include first;
+    font-size: 75%;
+
+    .post-has_shop,
+    .post-offers,
+    .post-address,
+    .post-opening_hours,
+    .post-url,
+    .post-phone,
+    .post-email {
+      display: block;
+      margin-bottom: 1em;
+      margin-left: 1.5em;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        margin-left: -1.5em;
+      }
+    }
+
+    .post-has_shop:before {
+      @include icon('\e601');
+    }
+    .post-offers:before {
+      @include icon('\e69e');
+    }
+    .post-address:before {
+      @include icon('\e643');
+    }
+    .post-opening_hours:before {
+      @include icon('\e649');
+    }
+    .post-url:before {
+      @include icon('\e652');
+    }
+    .post-phone:before {
+      @include icon('\e63c');
+    }
+    .post-email:before {
+      @include icon('\e760');
+    }
+  }
+
+  .post-title {
+    font-family: $secondary-font;
+    font-size: 3em;
+    margin-bottom: 0;
+    text-align: left;
+  }
+
+  .post-subline {
+    font-family: $primary-font;
+    font-weight: $font-weight-bold;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+    text-align: left;
+  }
+
+  .post-description {
+    font-size: 0.85em;
+  }
+
+  .post-image {
+    border: 1px solid $white;
+    margin-bottom: 1em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .post-link {
+    font-family: $secondary-font;
+    font-size: 2em;
+    font-weight: $font-weight-normal;
+  }
+
+  &.supplier--small,
+  &.supplier--med {
+
+    @include breakpoint($breakpoint-medium) {
+
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      &:nth-child(2n+2) {
+        margin-left: 0;
+      }
+
+    }
+
+    @include breakpoint($breakpoint-huge) {
+
+      @include gallery(6 of 12);
+
+    }
+
+  }
+
+}

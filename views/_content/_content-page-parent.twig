@@ -1,0 +1,11 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content-page _content-page-parent">
+
+        {% include('_snippets/_snippet-breadcrumbs.twig') %}
+        {% include('_modules/_module-entry-content.twig') %}
+        {% include('_modules/_module-flexible-content.twig') %}
+
+    </section>
+{% endblock %}

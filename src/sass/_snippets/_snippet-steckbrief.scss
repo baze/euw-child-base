@@ -1,0 +1,69 @@
+.steckbrief {
+
+  .steckbrief-description,
+  .steckbrief-address,
+  .steckbrief-representative {
+    margin-bottom: 2em;
+  }
+
+  .steckbrief-map,
+  .steckbrief-footer {
+    clear: both;
+  }
+
+}
+
+.steckbrief--med {
+  .btn,
+  input[type=submit],
+  input[type=button],
+  button {
+    @include button($highlight-color-1);
+  }
+
+  .post-image {
+    @include breakpoint($breakpoint-medium) {
+      @include span(3 of 12);
+      margin-top: 0.5em;
+    }
+  }
+
+  .steckbrief-description,
+  .steckbrief-header,
+  .steckbrief-footer {
+    @include breakpoint($breakpoint-medium) {
+      @include push(1);
+      @include span(8 of 12);
+      @include last;
+    }
+  }
+}
+
+.steckbrief--full {
+
+  .post-main {
+    @include breakpoint($breakpoint-medium) {
+      @include span(8 of 12);
+    }
+
+    > * {
+      margin-bottom: 3em;
+    }
+  }
+
+  .post-aside {
+    @include breakpoint($breakpoint-medium) {
+      @include span(4 of 12);
+      @include last;
+    }
+
+    > * {
+      margin-bottom: 3em;
+    }
+  }
+
+  .post-map {
+    clear: both;
+  }
+
+}

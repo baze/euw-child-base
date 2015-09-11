@@ -1,0 +1,9 @@
+.mapp-layout {
+
+  @extend %reset;
+
+  .mapp-map-links:empty {
+    display: none;
+  }
+
+}

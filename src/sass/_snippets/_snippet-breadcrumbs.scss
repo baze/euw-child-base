@@ -1,0 +1,11 @@
+._snippet-breadcrumbs {
+  @extend %clear;
+
+  margin-bottom: 2em;
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(12 of 12);
+
+  }
+
+}

@@ -1,0 +1,24 @@
+.list-articles {
+
+  @extend %reset;
+  @extend %clear;
+
+}
+
+.list-articles-columns {
+  display: block;
+}
+
+@for $i from 1 through 4 {
+  .list-articles-columns-#{$i} {
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(1 of $i);
+
+      &:nth-child(#{$i}n + #{$i}) {
+        @include span(1 of $i last);
+      }
+    }
+
+  }
+}

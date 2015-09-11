@@ -1,0 +1,29 @@
+<section class="_module-tabs">
+    <nav class="tabs-nav">
+        <ul class="tab-title-list">
+
+            {% for tab in tabs %}
+                <li class="tab-title"><a class="{{ tab.active }}" data-content="{{ tab.slug }}">{{ tab.title }}</a></li>
+            {% endfor %}
+
+        </ul>
+
+        <div class="viewtypes">
+            <a class="btn active" data-viewtype="list"><i class="fa fa-bars"></i></a>
+            <a class="btn" data-viewtype="grid"><i class="fa fa-th"></i></a>
+            {#<a class="btn" data-viewtype="ils"><i class="fa fa-ils"></i></a>#}
+        </div>
+    </nav>
+    <ul class="tabs-list">
+
+        {% for tab in tabs %}
+            <li class="tab {{ tab.active }}" data-content="{{ tab.slug }}">
+                {% if tab.title %}
+                    <h2 class="tab-headline">{{ tab.title }}</h2>
+                {% endif %}
+                {{ tab.content }}
+            </li>
+        {% endfor %}
+
+    </ul>
+</section>

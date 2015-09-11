@@ -1,0 +1,204 @@
+@charset "UTF-8";
+
+%dropdown {
+
+  .menu {
+    @extend %transition;
+  }
+
+  @extend %z-layer-ui;
+  font-weight: $font-weight-normal;
+
+  a {
+    display: inline-block;
+    //width: 100%;
+    height: 100%;
+    padding: 0 1em;
+    position: relative;
+  }
+
+  .menu {
+    display: block;
+
+    @include breakpoint($breakpoint-medium) {
+      display: table;
+      table-layout: fixed;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .menu-item-has-children {
+
+    & > a::before,
+    &.opened > a::before,
+    & > a::after,
+    &.opened > a::after {
+      @extend %transition;
+      display: block;
+      content: "";
+      position: absolute;
+      font-size: 50%;
+      color: purple;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-color: purple transparent;
+      border-width: 0 1em;
+      top: 0;
+      right: -0.5em;
+      padding: 0;
+      margin-top: 1.75em;
+      opacity: 0.25;
+    }
+
+    /* arrow down */
+    & > a::before,
+    &.opened > a::before {
+      top: 1em;
+      //border-top-color: green;
+      border-top-width: 1em;
+    }
+
+    &.opened > a::before,
+    &:hover > a::before {
+      border-top-width: 0;
+      top: 2em;
+    }
+
+    /* arrow up */
+    & > a::after,
+    &.opened > a::after {
+      top: 1em;
+      //border-bottom-color: red;
+      border-bottom-width: 0;
+    }
+
+    &.opened > a::after,
+    &:hover > a::after {
+      border-bottom-width: 1em;
+      top: 1em;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+
+      > .sub-menu {
+        display: none;
+      }
+      &:hover {
+        > .sub-menu {
+          display: block;
+        }
+      }
+
+    }
+
+  }
+
+  .main-menu-item {
+    position: relative;
+    &:hover {
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      display: table-cell;
+      text-align: center;
+/*      &:first-child {
+        text-align: left;
+      }
+
+      &:last-child {
+        text-align: right;
+      }*/
+    }
+
+  }
+
+  .main-menu-link {
+    color: green;
+    &:hover {
+      color: yellow;
+    }
+  }
+
+  .sub-menu {
+
+    //padding-left: 1em;
+
+    @include breakpoint($breakpoint-medium) {
+
+      position: absolute;
+      top: 0;
+      left: 100%;
+      padding-left: 0;
+    }
+
+  }
+
+  .sub-menu-item {
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+      position: relative;
+    }
+
+  }
+
+  .sub-menu-link {
+  }
+
+  .menu-depth-1 {
+    @extend %box-shadow;
+    background-color: red;
+
+    @include breakpoint($breakpoint-medium) {
+      top: 100%;
+      left: 0;
+    }
+
+    .sub-menu-item {
+      &:hover {
+        background-color: magenta;
+      }
+    }
+    .sub-menu-link {
+      color: purple;
+      &:hover {
+        color: orange;
+      }
+    }
+  }
+
+  .menu-depth-2 {
+    @extend %box-shadow;
+    background-color: cyan;
+
+    .sub-menu-item {
+    }
+    .sub-menu-link {
+      &:hover {
+      }
+    }
+  }
+
+  .menu-depth-3 {
+    @extend %box-shadow;
+    background-color: pink;
+
+    .sub-menu-item {
+    }
+    .sub-menu-link {
+      &:hover {
+      }
+    }
+  }
+
+  //show certain links only on mobile
+  .menu-link-mobile {
+    display: none;
+    @include breakpoint($breakpoint-small) {
+      display: block;
+    }
+  }
+
+}

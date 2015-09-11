@@ -1,0 +1,27 @@
+._module-linked-pages {
+  @extend %container-outer;
+
+  .linked-page {
+    margin-bottom: 1em;
+  }
+
+  .linked-page:nth-last-child(n+2):nth-last-child(-n+2):first-child,
+  .linked-page:nth-last-child(-n+2):nth-last-child(-n+2):first-child ~ .linked-page {
+    @include gallery(1 of 2);
+  }
+
+  .linked-page:nth-last-child(n+3):nth-last-child(-n+3):first-child,
+  .linked-page:nth-last-child(-n+3):nth-last-child(-n+3):first-child ~ .linked-page {
+    @include gallery(1 of 3);
+  }
+
+  .linked-page:nth-last-child(n+4):nth-last-child(-n+4):first-child,
+  .linked-page:nth-last-child(-n+4):nth-last-child(-n+4):first-child ~ .linked-page {
+    @include gallery(1 of 4);
+  }
+
+  .linked-page:nth-last-child(n+5), .linked-page:nth-last-child(n+5) ~ .linked-page {
+    @include gallery(1 of 5);
+  }
+
+}

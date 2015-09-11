@@ -1,0 +1,58 @@
+._module-gallery {
+
+  @extend %container-outer;
+
+  background: $highlight-color-1;
+  color: $white;
+  text-align: center;
+  padding: 2em;
+
+  @include breakpoint($breakpoint-medium) {
+    padding: 2em 6em;
+    text-align: left;
+  }
+
+  
+
+  .gallery-aside {
+
+    margin-bottom: 1em;
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(3 of 12);
+    }
+
+    .gallery-aside-headline {
+      color: $white;
+      margin-bottom: 1em;
+    }
+
+    .gallery-aside-text {
+      font-family: $secondary-font;
+
+      @include breakpoint($breakpoint-medium) {
+        font-size: 75%;
+      }
+    }
+  }
+
+  .gallery-main {
+    @extend %clear;
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(9 of 12);
+      @include last;
+    }
+
+    .gallery-item {
+      @include gallery(4 of 12);
+      display: block;
+      margin-bottom: 1em;
+
+      @include breakpoint($breakpoint-medium) {
+        @include gallery(3 of 12);
+      }
+    }
+  }
+
+}

@@ -1,0 +1,29 @@
+//implemented thusly:
+// <div class="_snippet-mo">
+
+//   <a href="" class="_snippet-mo-img">
+//     <img src="" alt="" />
+//   </a>
+
+//   <div class="_snippet-mo-txt">
+//     
+//   </div>
+
+// </div>
+
+._snippet-mo{
+	margin: 10px;
+
+	._snippet-mo-txt{
+		overflow:hidden; 
+		_overflow:visible; 
+		zoom:1;
+	}
+
+	.snippet-mo-img{
+		float:left; 
+		margin-right: 10px;
+
+		img{display: block;}
+	}
+}

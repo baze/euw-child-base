@@ -1,0 +1,18 @@
+<header class="_global-header" role="banner" id="top">
+    <div class="_global-header-container container">
+        <div class="container-inner">
+            {% include('_globals/_global-header-logo.twig') %}
+            {% include('_globals/_global-header-navigation.twig') %}
+
+            <div class="nav-collapse nav-collapse-info" role="navigation">
+                <div>
+                    {% include('_modules/_module-openinghours.twig') with { 'hours' : options['global-openinghours-list'] } %}
+                    {% include('_modules/_module-businessinfo.twig') %}
+                    {% include('_modules/_module-social.twig') %}
+                    {% include('_globals/_global-footer-navigation.twig') %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>

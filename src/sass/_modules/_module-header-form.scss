@@ -1,0 +1,77 @@
+._module-header-form {
+
+  @extend %transition;
+  margin-top: 0;
+
+  .btn {
+    @include button();
+    @include last;
+    margin-top: -2.4em;
+  }
+
+  .wpcf7 {
+    @extend %transition;
+    @extend %card;
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    width: 100%;
+
+
+    form > p {
+
+      > .wpcf7-form-control-wrap {
+        @include breakpoint($breakpoint-medium) {
+          @include gallery(6 of 12);
+
+          &.your-message {
+            @include span(100%);
+          }
+
+          display: block;
+        }
+      }
+    }
+
+    label {
+      display: block;
+
+      @include breakpoint($breakpoint-medium) {
+        @include gallery(4 of 12);
+      }
+
+      .wpcf7-form-control-wrap {
+        display: inline-block;
+        margin-left: 1em;
+      }
+    }
+
+    input[type="number"] {
+      display: inline-block;
+      width: auto;
+    }
+
+  }
+
+  &.open {
+    @include breakpoint($breakpoint-medium) {
+      margin-top: -10em;
+    }
+
+    .wpcf7 {
+      padding: 1em;
+      max-height: 999px;
+      opacity: 1;
+    }
+
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    @include push(4 of 12);
+    @include span(8 of 12);
+    @include last;
+  }
+
+
+}

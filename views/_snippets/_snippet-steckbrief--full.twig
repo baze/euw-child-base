@@ -1,0 +1,122 @@
+<article class="post post--full steckbrief steckbrief--full {{ post.post_type }} {{ post.post_type }}--full
+{% if post.image %}
+has-image
+{% endif %}
+" id="post-{{ post.ID }}" itemscope itemtype="http://schema.org/LocalBusiness">
+
+    <header class="post-header post-header">
+        <meta itemprop="url" content="{{ post.link }}">
+		<span class="post-category post-category" title=""></span>
+    </header>
+
+    <div class="post-main">
+        <div class="post-description" itemprop="description">
+            {{ post.description }}
+        </div>
+
+        <div class="post-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <h3>{{ _e('Kontakt') }}</h3>
+
+            <div class="post-streetaddress" itemprop="streetAddress">{{ post.address }}</div>
+
+            <div>
+                <span class="post-postalcode" itemprop="postalCode">{{ post.postal_code }}</span>
+                <span class="post-city" itemprop="addressLocality">{{ post.city }}</span>
+            </div>
+
+            {% if post.telephone %}
+                <div>
+                    <strong>{{ _e('Telefon') }}</strong>
+                    <span class="post-fon" itemprop="telephone">{{ post.telephone }}</span>
+                </div>
+            {% endif %}
+
+            {#{% if post.telefax %}
+                <div>
+                    {{ _e('Telefax') }}
+                    <span class="post-fax" itemprop="faxNumber">{{ post.telefax }}</span>
+                </div>
+            {% endif %}#}
+
+            {% if post.email %}
+                <div>
+                    <strong>{{ _e('E-Mail') }}</strong>
+                <span class="post-email" itemprop="email">
+                        <a href="mailto:{{ post.email }}">{{ post.email }}</a>
+                    </span>
+                </div>
+            {% endif %}
+
+            {% if post.url %}
+                <div>
+                    <strong>{{ _e('Homepage') }}</strong>
+                <span class="post-internet" itemprop="url">
+                        <a href="{{ post.url }}" target="_blank">{{ post.url }}</a>
+                    </span>
+                </div>
+            {% endif %}
+        </div>
+
+        {% if post.representative_name %}
+            <div class="post-representative">
+                <h3>{{ _e('Ansprechpartner') }}</h3>
+                <span class="post-employee" itemprop="employee">{{ post.representative_name }}</span>
+
+                {% if post.representative_telephone %}
+                    <div>
+                        {{ _e('Telefon') }}
+                        <span class="post-fon" itemprop="telephone">{{ post.representative_telephone }}</span>
+                    </div>
+                {% endif %}
+
+                {% if post.representative_email %}
+                    <div>
+                        {{ _e('E-Mail') }}
+                        <span class="post-email" itemprop="email">
+                        <a href="mailto:{{ post.representative_email }}">{{ post.representative_email }}</a>
+                    </span>
+                    </div>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+
+    <aside class="post-aside">
+        {% if post.image %}
+            <div class="post-image">
+                <img src="{{ TimberImage(post.image) }}" alt=""/>
+            </div>
+        {% endif %}
+
+        {% if post.terms('branche') %}
+            <div>
+                <h3>{{ _e('Branchen') }}</h3>
+                <ul class="post-terms">
+                    {% for branche in post.terms('branche') %}
+                        <li>{{ branche }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        {% if post.get_field('offers') %}
+            <div>
+                <h3>{{ _e('Angebote') }}</h3>
+                <ul class="post-terms">
+                    {% for offer in post.get_field('offers') %}
+                        <li>{{ offer.title }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    </aside>
+
+    {% if post.location %}
+        <div class="post-map">
+            {{ post.map(post.title).display }}
+        </div>
+    {% endif %}
+
+    <footer class="post-footer"></footer>
+
+</article>

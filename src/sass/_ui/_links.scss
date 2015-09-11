@@ -1,0 +1,141 @@
+//normal links
+::-moz-selection{ 
+	background: $primary-color; 
+	color:$white; 
+	text-shadow: none; 
+}
+::selection{ 
+	background:$primary-color; 
+	color:$white; 
+	text-shadow: none;
+}
+
+a{
+	color: inherit;
+	transition: all, 150ms, ease-in-out, 0;
+}
+
+a:before,
+a:after{font-family: 'icomoon'; padding: 0 0.25em;}
+
+a:link{}
+a:hover{
+	text-decoration: underline;
+}
+
+a:hover *{
+	text-decoration: none;
+}
+
+a:active{}
+a:visited{}
+
+//navigation links
+nav a{
+	text-decoration: none;
+	&:link, &:hover, &:active, &:visited{ text-decoration: none; }
+}
+
+.button{
+	@extend %transition;
+	display: inline-block !important;
+	border: 1px solid $black;
+	padding: 0.5em;
+
+	&:hover{ background-color: $black; color: $white; }
+}
+
+.continue{
+	
+	text-decoration: none;
+	opacity: 0.45;
+
+	&:after{
+	display: block;
+	margin: 0 auto;
+	font-size: 6em;
+	line-height: 0.5;
+	color: $highlight-color-1;
+	content:'\25be';
+	transition: all 200ms ease-in-out;
+	&:after{ text-decoration: none; }
+	}
+
+	&:hover{ opacity: 0.85; text-decoration: none; }
+}
+
+
+a[rel="prev"],
+a[rel="next"]{
+	text-decoration: none;
+	color: $dark-gray;
+	background: $primary-color;
+	padding: 0 0.25em;
+	font-family:$secondary-font;
+}
+
+a[rel="prev"]:hover,
+a[rel="next"]:hover{background: $light-gray;}
+
+a[rel="prev"]:before,
+a[rel="next"]:after{margin: 0;}
+
+a[rel="prev"]{float: left;}
+a[rel="next"]{float: right;}
+
+//specialized links
+._global-content{
+
+	// a[rel="author"]:before{content:'\e670';}
+	// time[rel="time"]:before{content:'\e648';}
+	// a[rel="category"]:before{content:'\e670';}
+	// a[rel="tag"]:before{content:'\e630';}
+
+	// //pagination
+	// a[rel="prev"]:before{content:'\e70d'; padding-right: 0.25em;}
+	// a[rel="next"]:after{content:'\e70e'; padding-left: 0.25em;}
+
+	// //opens in a new window
+	// a[target="_blank"]:after {content: '\e75a';}
+
+	// // secure https protocol
+	// a[href^="https:"]:before{content:'\e688';}
+
+	// //file formats
+	// a[href$=".zip"]:before, 
+	// a[href$=".gz"]:before {content: '\e7b6';}
+
+	// a[href$=".pdf"]:before{content:'\e7b2';}
+
+	// a[href$=".doc"]:before,
+	// a[href$=".docx"]:before{content:'\e7b4';}
+
+	// a[href$=".xls"]:before,
+	// a[href$=".xlsx"]:before{content:'\e7b5';}
+
+	// a[href$=".ppt"]:before{content:'\e7b7';}
+
+	// //social networks
+	// a[href*="facebook.com"]:before {content: '\e769';}
+	// a[href*="twitter.com"]:before {content: '\e76d';}
+	// a[href*="plus.google.com"]:before {content: '\e764';}
+	// a[href*="pinterest.com"]:before {content: '\e7a6';}
+	// a[href*="linkedin.com"]:before {content: '\e79f';}
+	// a[href*="instagram.com"]:before {content: '\e76c';}
+	// a[href*="xing.com"]:before {content: '\e7a8';}
+
+	// //web services
+	// a[href*="youtube.com"]:before {content: '\e773';}
+	// a[href*="vimeo.com"]:before {content: '\e775';}
+	// a[href*="flickr.com"]:before {content: '\e77a';}
+	// a[href*="dribble.com"]:before {content: '\e780';}
+
+	// a[href*="github.com"]:before {content: '\e788';}
+	// a[href*="stackoverflow.com"]:before {content: '\e7a5';}
+
+	// a[href*="apple.com"]:before {content: '\e796';}
+	// a[href*="microsoft.com"]:before {content: '\e799';}
+
+	// a[href*="paypal.com"]:before {content: '\e7ad';}
+
+}

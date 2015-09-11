@@ -1,0 +1,6 @@
+<article class="post post--small schule schule--small">
+    <h4 class="post-title"><a href="{{ post.link }}">{{ post.title }}</a></h4>
+
+    <div class="post-excerpt">{{ post.content | excerpt(20) }}</div>
+    <a class="post-link btn" href="{{ post.link }}">{{ _e('Mehr erfahren') }}</a>
+</article>

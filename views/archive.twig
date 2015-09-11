@@ -1,0 +1,9 @@
+{% extends "base.twig" %}
+
+{% block content %}
+
+    {% include('_modules/_module-hero.twig') %}
+
+    {% include ['_content/_content-archive-' ~ post_type ~ '.twig', '_content/_content-archive.twig'] %}
+
+{% endblock %}

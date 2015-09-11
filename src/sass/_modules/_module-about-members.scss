@@ -1,0 +1,15 @@
+._module-about-members {
+  @extend %clear;
+
+  article {
+    @include breakpoint($breakpoint-medium) {
+      @include span(1 of 2);
+    }
+
+    &:last-child {
+      @include breakpoint($breakpoint-medium) {
+        @include last;
+      }
+    }
+  }
+}

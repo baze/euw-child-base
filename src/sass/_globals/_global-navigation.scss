@@ -1,0 +1,140 @@
+@charset "UTF-8";
+
+nav {
+
+  ul {
+    @extend %reset;
+    list-style: none;
+    //font-family: $secondary-font;
+  }
+
+  li {
+    @extend %transition;
+    @extend %reset;
+  }
+
+}
+
+._global-header-navigation {
+  clear: both;
+}
+
+._global-header-navigation {
+  //@extend %dropdown !optional;
+  @extend %transition;
+  @extend %clear;
+
+  @include breakpoint($breakpoint-small) {
+    transform: scale(0.8);
+  }
+
+  @include breakpoint($breakpoint-small-medium) {
+    margin-bottom: 1em;
+  }
+
+  font-size: 3em;
+
+  a {
+    text-align: center;
+    white-space: nowrap;
+    //overflow: hidden;
+    padding: 0;
+  }
+
+  .current-menu-item {
+    a {
+      border-bottom: 1px solid $white;
+    }
+  }
+
+  .main-menu-item {
+    min-height: 1.25em;
+    line-height: 1.25;
+    text-align: center;
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+    }
+  }
+
+  .main-menu-link {
+    color: $primary-color;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid $white;
+      color: $primary-color;
+    }
+  }
+
+  /*.menu-item-has-children {
+
+    & > a::before,
+    &.opened > a::before,
+    & > a::after,
+    &.opened > a::after {
+      border-color: $highlight-color-1 transparent;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+
+      &:hover {
+        //background-color: $white;
+
+        .main-menu-link {
+          color: $highlight-color-1;
+        }
+      }
+
+    }
+
+  }*/
+
+  /*.menu-depth-1 {
+    background: transparentize($white, 0.05);
+
+    @include breakpoint($breakpoint-medium) {
+      left: -75%;
+      right: initial;
+      width: 250%;
+    }
+
+    .sub-menu-item {
+      @extend %transition;
+      &:hover {
+        background: desaturate(lighten($highlight-color-1, 50%), 40%);
+      }
+    }
+    .sub-menu-link {
+      border-bottom: 1px solid $white;
+
+      @include breakpoint($breakpoint-medium) {
+        text-align: right;
+      }
+
+      &:hover {
+        border-bottom: 1px solid $white;
+      }
+    }
+  }*/
+
+
+}
+
+._global-footer-navigation {
+
+  ul {
+
+    li {
+
+      display: inline;
+      text-align: left;
+      font-size: 1.33em;
+
+      &:not(:last-child) {
+        margin-right: 0.25em;
+      }
+
+    }
+  }
+}

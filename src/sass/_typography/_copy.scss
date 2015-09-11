@@ -1,0 +1,123 @@
+body {
+  font-family: $primary-font;
+  color: $primary-color;
+  font-weight: $font-weight-normal;
+}
+
+p{
+	margin-top: 0;
+	abbr{font-style: italic; font-weight: $font-weight-bold;}
+	b, strong{font-weight: $font-weight-bold;}
+	cite{font-style: italic;}
+	cite:before,
+	q:before{content:"";}
+	cite:after,
+	q:after{content:"";}
+	code{font-family: $monospace-font;}
+	em, dfn, i{font-style: italic;}
+	del{}
+	ins{}
+	kbd{font-family: $monospace-font; text-transform: uppercase; background: #ddd; padding: 0 0.45em;}
+	mark{background:yellow;}
+	q{}
+	s{}
+	samp{font-family: $monospace-font;}
+	big{font-size: 125%;}
+	small{font-size: 75%;}
+	span{}
+	sub{font-size: 75%; vertical-align: text-top;}
+	sup{font-size: 75%; vertical-align: text-bottom;}
+	u{}
+	var{font-family: $monospace-font;}
+
+	ul, ol{
+		list-style: disc;
+	}
+	ul{ list-style: circle outside none; }
+	ol{ list-style: decimal outside none;}
+
+}
+
+.hyphenate, .hyphenate *{ text-align: justify !important; }
+
+
+pre{}
+
+pre{
+	code{font-family: $monospace-font;}
+}
+
+address{}
+
+blockquote{
+	font-style: italic;
+	color: #999;
+	padding-left: 0.75em;
+	border-left: 4px solid #ddd; 
+}
+
+dl{
+	display: block;
+//	line-height: $base-line-height * 2;
+//	dt,dd{width: 50%; float: left; border-bottom:1px solid #ddd; margin: 0; padding: 0;}
+//	dt{font-weight: $font-weight-bold; font-family: $secondary-font;}
+}
+
+details{
+	background: #ddd;
+	
+	summary{font-weight: $font-weight-bold;}
+	div{
+		p{font-style: italic;}
+	}
+	ul{ 
+		list-style-type: upper-roman;
+		li{}
+	}	
+}
+
+details[open]{
+	background: #ddd;
+	border: 1px solid  #777;
+}
+
+figure{
+	border: 1px solid  #777;
+	background: #fff;
+	img{width: 100%;}
+	figcaption{
+		color: #777;
+		padding: 0.45em;
+		h4{
+			font-size: 1em;
+			margin: 0;
+		}
+	}
+}
+
+table{
+	width: 100%;
+	font-family: $secondary-font;
+	border: 1px solid #777;
+	text-align: left;
+	caption{}
+	thead{
+		border-bottom:1px solid #777;
+		tr th:nth-child(-n+1){padding: 0 0.35em;}
+	}
+	tbody{
+		tr th:nth-child(-n+1){padding: 0 0.35em;}
+		tr td:nth-child(-n+1){padding: 0 0.35em;}
+		tr:nth-child(even){background: #eee;}
+	}
+	tfoot{
+		border-top:1px solid #777;
+		tr th:nth-child(-n+1){padding: 0 0.35em;}
+	}
+
+	tr{}
+	th{font-weight: $font-weight-bold;}
+	td{}
+}
+
+.noposts{text-align: center;}

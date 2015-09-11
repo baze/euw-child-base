@@ -1,0 +1,17 @@
+<section class="_module-footer-aktuelle-termine">
+    <h4>Aktuelle Termine</h4>
+
+    {% if upcomingEvents|length > 0 %}
+        <ul class="menu">
+            {% for event in upcomingEvents %}
+
+                <li>
+                    <a href="{{ event.link }}">{{ event.title }}</a>
+                </li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>{{ _e('Zur Zeit sind keine Termine geplant.') }}</p>
+    {% endif %}
+</section>

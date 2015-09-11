@@ -1,0 +1,48 @@
+._global-header-search {
+
+
+  @include breakpoint($breakpoint-medium) {
+    margin-right: 2.85714%;
+  }
+
+  form {
+    @extend %clear;
+    @extend %form-reset;
+    width: 100%;
+    border: 1px solid lighten($black, 80%);
+    background-color: $highlight-color-2;
+  }
+
+  form input {
+    @extend %reset;
+    @extend %form-reset;
+    @extend %transition;
+    border-radius: 0;
+  }
+
+  .search-field,
+  .search-submit {
+    display: block;
+    float: left;
+    padding: 0.25em 0.5em;
+  }
+
+  .search-field {
+    width: 75%;
+    background: $white;
+  }
+  .search-submit {
+    width: 25%;
+    background-color: $highlight-color-2;
+    color: transparent;
+    //margin-left: -4px;
+    &:hover {
+      background-color: darken($highlight-color-2, 10%);
+    }
+
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAhCAYAAABtNH0cAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAY9JREFUeNrsWYttgzAQtTuBNwgb1CMwAiO4G9ANukFGYATYIOoEZAPSCZxO4B6RI6XOmY9JrBzmSafEEnfCD+787mBsw4aoMMZkYHuw1txDg9Vgas0ECLDKTEcHVqyNBGmfdgiqjYS1kGHTQXtqQdnXC+f6YiB9vigTgW2qL4ZixC/3EJhRPR3uSFiYUhVFIvZIOoiZMUqETEGNCFcnlIFxOidOlCP17YGxpLNuAuM0I3Ffnoh/4JyfAl1/nfWONBELcHTWWapEuKnwTY2IsyuWAuO8U1eV9VIN4NEikhoRCtlEPjPGwe1Iqb4VHSKq5ERfTJ4rqkQUvoZrJB0OiF8b8975Mxov+MGe5MmKpR/7X9rCWAwIq88FeuRlu9AQaPJTq36eELDxFjl9DPmZps3/auK8Ut346NhTKx6JkL6Vzm1d2FnZfFWMDdSBIyLGak/d+IDrzywVeHTJNX0ESwkDaaXJKc4nSPf1nChz64vnK9mFjNTeCt9nAsNSg2fKrVmKsL2MvqkRim14LP4EGAAWoU82blQrmAAAAABJRU5ErkJggg==');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}

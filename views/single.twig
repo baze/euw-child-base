@@ -1,0 +1,9 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% include ['_content/_content-single-' ~ post.id ~ '.twig', '_content/_content-single-' ~ post.post_type ~ '.twig', '_content/_content-single.twig'] %}
+{% endblock %}
+
+{% block optional_content %}
+    {% include('_modules/_module-highlights.twig') %}
+{% endblock %}

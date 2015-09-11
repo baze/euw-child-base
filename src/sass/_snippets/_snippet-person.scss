@@ -1,0 +1,115 @@
+.person {
+  padding: 1em;
+  text-align: center;
+
+  @include breakpoint($breakpoint-wide) {
+    text-align: left;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .person-image {
+    @extend %clear;
+
+    img {
+      @include span(100%);
+      display: block;
+      float: none;
+      margin: auto;
+    }
+
+    margin-bottom: 1em;
+  }
+
+  .person-name {
+  }
+
+  .person-jobtitle {
+    font-size: 75%;
+  }
+
+  .person-description {
+
+  }
+
+  .person-content {
+    text-align: left;
+  }
+
+
+}
+
+.team-boss {
+  @extend %clear;
+}
+
+.person--small {
+
+  @include gallery(6 of 12);
+
+  @include breakpoint($breakpoint-medium) {
+    @include gallery(4 of 12);
+  }
+
+  @include breakpoint($breakpoint-wide) {
+    @include gallery(2 of 12);
+  }
+}
+
+.person--med,
+.person--full {
+  @extend %clear;
+
+  .person-image {
+    img {
+      @include span(75%);
+      float: none;
+      margin: 0 auto;
+    }
+    margin-bottom: 1em;
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    .person-image {
+      img {
+        @include span(50%);
+        float: none;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  @include breakpoint($breakpoint-wide) {
+
+    .person-image {
+      @include span(2 of 12);
+      @include push(1 of 12);
+      img {
+        @include span(100%);
+      }
+    }
+
+    .person-description,
+    .person-content {
+      @include span(9 of 12);
+      @include last;
+    }
+  }
+}
+
+.person--full {
+  .person-name {
+    text-align: left !important;
+
+    .person-jobtitle {
+      display: block;
+      font-size: 50%;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+._module-footer-aktuelle-termine {
+  ul {
+    @extend %reset;
+
+    li {
+      display: block;
+    }
+  }
+}

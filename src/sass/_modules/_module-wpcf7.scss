@@ -1,0 +1,45 @@
+.wpcf7 {
+  font-family: $secondary-font;
+  font-size: 2em;
+  text-align: left;
+
+  .ajax-loader {
+    width: auto !important;
+  }
+
+  form > p {
+    @extend %clear;
+    clear: both;
+  }
+
+  label {
+    color: $highlight-color-1;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="number"],
+  textarea {
+    @extend %form-reset;
+    font-size: 50%;
+    display: block;
+    width: 100%;
+    border: 1px solid $secondary-color;
+    margin-bottom: 1em;
+    background: transparent;
+    padding: 0.5em;
+    font-family: $primary-font;
+  }
+
+  textarea {
+    height: 9em;
+  }
+
+  .wpcf7-submit {
+    @include button(transparent, $secondary-color, $secondary-color);
+    margin: auto;
+    //@include last;
+  }
+
+}

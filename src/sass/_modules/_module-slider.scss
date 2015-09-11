@@ -1,0 +1,44 @@
+._module-slider {
+
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  background: none;
+
+  text-align: center;
+
+  .flex-direction-nav {
+
+    a {
+      color: transparent;
+      text-shadow: none;
+      overflow: visible;
+      //opacity: 1;
+
+      &:before {
+        color: $white;
+        text-shadow: none;
+        //font-family: $primary-font;
+        //font-weight: $font-weight-normal;
+        //content: '<';
+      }
+
+      &.flex-next:before {
+        //content: '>';
+      }
+    }
+
+  }
+
+  .flex-control-paging li a {
+    @extend %transition;
+    box-shadow: none;
+    background: transparent;
+    border: 1px solid $white;
+
+    &.flex-active {
+      background: $white;
+    }
+  }
+
+}

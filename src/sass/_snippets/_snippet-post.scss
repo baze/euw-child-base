@@ -1,0 +1,48 @@
+.post {
+  @extend %clear;
+  text-align: center;
+  margin-bottom: 2em;
+
+  .post-title {
+    font-family: $secondary-font;
+    font-size: 2em;
+    margin-bottom: 0.5em;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .post-excerpt,
+  .post-description {
+    font-size: 0.85em;
+  }
+
+  .post-image {
+    border: 1px solid $white;
+    margin-bottom: 1em;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .post-link,
+  .btn {
+    font-family: $secondary-font;
+    font-size: 2em;
+    font-weight: $font-weight-normal;
+  }
+
+  &.post--small,
+  &.post--med {
+    @include breakpoint($breakpoint-small-medium) {
+      @include gallery(6 of 12);
+    }
+
+    @include breakpoint($breakpoint-huge) {
+      @include gallery(6 of 12);
+    }
+  }
+
+}

@@ -1,0 +1,36 @@
+h1, h2, h3, h4, h5, h6 {
+  @extend %clear;
+
+  font-family: $secondary-font;
+  font-weight: $font-weight-normal;
+  //letter-spacing: 0.033em;
+  margin: 0;
+  line-height: 1.25;
+
+  //color: $highlight-color-1;
+  text-align: center;
+  //text-transform: uppercase;
+
+}
+
+h1 {
+  font-size: 1.75em;
+  @include breakpoint($breakpoint-small-medium) {
+    font-size: 3em;
+  }
+  @include breakpoint($breakpoint-wide) {
+    font-size: 3em;
+  }
+}
+
+h2 {
+  font-size: 1.25em;
+  @include breakpoint($breakpoint-small-medium) {
+    font-size: 1.75em;
+  }
+  @include breakpoint($breakpoint-wide) {
+    font-size: 2em;
+  }
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}

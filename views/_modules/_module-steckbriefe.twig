@@ -1,8 +1,0 @@
-<div class="_module-steckbriefe steckbriefe-{{ post.steckbrief_type }}">
-    {% if steckbriefe %}
-        {% for post in steckbriefe %}
-            {% include ['_snippets/_snippet-' ~ post.post_type ~ '--med.twig',
-                        '_snippets/_snippet-post--med.twig'] %}
-        {% endfor %}
-    {% endif %}
-</div>

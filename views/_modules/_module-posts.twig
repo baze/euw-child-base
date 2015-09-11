@@ -1,9 +1,0 @@
-<section class="_module-posts">
-
-    {% for post in posts %}
-        {% include ['_snippets/_snippet-' ~ post.post_type ~ '--med.twig', '_snippets/_snippet-post--med.twig'] %}
-    {% endfor %}
-
-    {% include '_snippets/_snippet-pagination.twig' %}
-
-</section>

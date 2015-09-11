@@ -1,5 +1,0 @@
-<section class="_module-taxonomy-list taxonomy-list taxonomy-list--{{ term.slug }}">
-    {% for post in term.get_posts %}
-        {% include ['_snippets/_snippet-' ~ post.post_type ~ '--small.twig', '_snippets/_snippet-post--small.twig'] with { 'post' : post } %}
-    {% endfor %}
-</section>

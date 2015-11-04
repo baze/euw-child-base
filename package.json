@@ -1,9 +1,10 @@
 {
   "name": "WPStarterTheme",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "WP starter Theme with common tasks and scenarios",
   "repository": {},
   "main": "./dest/js/main.js",
+  "license": "UNLICENSED",
   "browser": {
     "modernizr": "./bower_components/modernizr/modernizr.js",
     "respond": "./bower_components/respond/dest/respond.min.js",

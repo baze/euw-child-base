@@ -14,7 +14,7 @@ gulp.task('sass', function () {
         style: 'compressed'
     };
 
-    return sass('src/sass/', config)
+    return sass('src/sass/**', config)
         .on('error', handleErrors)
         .pipe(autoprefix('last 2 versions', 'ie 9', 'ios 6', 'android 4'))
         .pipe(gulp.dest('dest/css'))

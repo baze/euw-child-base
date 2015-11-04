@@ -16,7 +16,7 @@
     "font-awesome": "~4.4.0",
     "headroom.js": "~0.7.0",
     "mediaelement": "~2.18.0",
-    "modernizr": "~2.8.3",
+    "modernizr": "~3.2.0",
     "normalize-scss": "~3.0.1",
     "respond": "~1.4.2",
     "responsive-nav": "*",
@@ -26,6 +26,7 @@
     "SVGMagic": "~3.0.1",
     "susy": "~2.2.2",
     "font-awesome": "~4.4.0",
-    "breakpoint-sass": "~2.6.1"
+    "breakpoint-sass": "~2.6.1",
+    "modernizr": "~3.2.0"
   }
 }

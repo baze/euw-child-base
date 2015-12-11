@@ -1,0 +1,34 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <div class="_module-linked-pages">
+        {% if headline %}
+            <h2 class="headline">{{ headline }}</h2>
+        {% endif %}
+        <div class="linked-pages-container">
+            {% for page in pages %}
+                <div class="linked-page">
+                    {% if page.link %}
+                    <a href="{{ page.link }}"
+                       title="{{ page.title }}"
+                       target="_blank">
+                        {% endif %}
+
+                        {% if page.image %}
+                            <img src="{{ TimberImage(page.image)|resize(200, 200) }}"
+                                 alt=""/>
+                        {% endif %}
+
+                        {% if page.title %}
+                            <h4 class="linked-page-title">{{ page.title }}</h4>
+                        {% endif %}
+
+                        {% if page.link %}
+                    </a>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock %}

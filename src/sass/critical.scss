@@ -2,13 +2,12 @@
 
 @import "_globals/global-header";
 @import "_globals/global-navigation";
-@import "_modules/_module-businessinfo";
-@import "_modules/_module-openinghours";
+@import "_modules/_module-hero";
 @import "_modules/_module-social";
-@import "_modules/_module-slider";
-@import "_snippets/_snippet-post";
-@import "_snippets/_snippet-dish";
+@import "_modules/_module-linked-pages";
+@import "_ui/_headroom";
+@import "_ui/_responsive-nav";
 
 .wrapper {
-  background-image: url('{{theme.uri}}/dest/img/bg-body.jpg');
+  //background-image: url('{{theme.uri}}/dest/img/bg-body.jpg');
 }

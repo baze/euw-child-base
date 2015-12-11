@@ -1,22 +1,11 @@
 ._global-content {
 
   ._content-page {
-
     @extend %clear;
-    text-align: left;
 
     .content-title {
-      font-size: 3em;
     }
 
-  }
-
-  .container {
-    @extend %container-outer;
-  }
-
-  .container-inner {
-    @extend %container-inner;
   }
 
 }

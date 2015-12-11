@@ -137,9 +137,10 @@
   &:focus,
   &:active,
   &[data-viewtype]:not(.active) {
-    //color: $background-color !important;
-    background-color: transparent;
-    //background-color: $white;
+    color: $background-color !important;
+    border-color: $background-color !important;
+    //background-color: transparent;
+    background-color: $text-color;
     text-decoration: underline;
   }
 

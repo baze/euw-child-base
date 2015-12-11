@@ -1,8 +1,15 @@
 ._module-linked-pages {
   @extend %container-outer;
+  @extend %clear;
+  margin-top: 3em;
+  margin-bottom: 3em;
 
   .linked-page {
     margin-bottom: 1em;
+  }
+
+  .linked-pages-container {
+    @extend %clear;
   }
 
   .linked-page:nth-last-child(n+2):nth-last-child(-n+2):first-child,

@@ -1,6 +1,6 @@
 'use strict';
 
-var fontFamilies = ['Amatic+SC','Montserrat'];
+var fontFamilies = ['Questrial'];
 
 module.exports = function() {
     window.WebFontConfig = {

@@ -2,15 +2,15 @@
 
 $grid-max-width: 1280px;
 
-$breakpoint-small: max-width 45em;
+$breakpoint-small: max-width 30em;
 
-$breakpoint-small-medium: 45em;
+$breakpoint-small-medium: 30em;
 
-$breakpoint-medium: 70em;
+$breakpoint-medium: 48em;
 
-$breakpoint-wide: 90em;
+$breakpoint-wide: 60em;
 
-$breakpoint-huge: 120em;
+$breakpoint-huge: 75em;
 
 .breakpoints:after {
   position: fixed;

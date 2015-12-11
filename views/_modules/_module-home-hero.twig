@@ -1,5 +1,8 @@
 {% extends "_modules/_module-hero.twig" %}
 
 {% block content %}
-    {% include '_modules/_module-slider.twig' %}
+    <h1 class="hero-title">{{ post.hero_title }}<small class="hero-subtitle">{{ post.hero_subtitle }}</small></h1>
+
+    {% include('_modules/_module-hero-linked-pages.twig') with { 'headline' : null, 'pages' : post.get_field
+    ('home_hero_pages') } %}
 {% endblock %}

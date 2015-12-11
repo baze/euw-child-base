@@ -1,0 +1,45 @@
+<div class="_module-businessinfo" itemscope itemtype="http://schema.org/LocalBusiness">
+    {% if (options['firmenbezeichnung']) %}
+        <h4 class="businessinfo-name"><span itemprop="name">{{ options['firmenbezeichnung'] }}</span></h4>
+    {% endif %}
+
+    <span class="businessinfo-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+
+        <span itemprop="streetAddress">{{ options['strasse_hausnummer'] }}</span>,
+        <span itemprop="postalCode">{{ options['postleitzahl'] }}</span>
+        <span itemprop="addressLocality">{{ options['ort'] }} </span>
+    </span>
+
+    {% if options['telefon'] %}
+        <span class="businessinfo-telephone">
+        <span class="businessinfo-aux">{{ _e('Tel.:') }}</span>
+            <span itemprop="telephone">
+            <a href="tel:{{ options['telefon-link'] }}">
+                {{ options['telefon'] }}
+            </a>
+        </span>
+    </span>
+    {% endif %}
+
+    {% if options['telefax'] %}
+        <span class="businessinfo-telefax">
+        <span class="businessinfo-aux">{{ _e('Fax:') }}</span>
+            <span itemprop="telefax">
+            <a href="tel:{{ options['telefax-link'] }}">
+                {{ options['telefax'] }}
+            </a>
+        </span>
+    </span>
+    {% endif %}
+
+    {% if options['e-mail'] %}
+        <span class="businessinfo-email">
+        <span class="businessinfo-aux">{{ _e('E-Mail:') }}</span>
+            <span itemprop="email">
+            <a href="mailto:{{ options['e-mail'] }}">
+                {{ options['e-mail'] }}
+            </a>
+        </span>
+    </span>
+    {% endif %}
+</div>

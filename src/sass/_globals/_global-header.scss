@@ -1,19 +1,17 @@
-$logo-scale-factor: 1.25;
-$logo-width: #{151 * $logo-scale-factor}px;
-$logo-height: #{158 * $logo-scale-factor}px;
+$logo-scale-factor: 1.0;
+//$logo-width: #{600 * $logo-scale-factor}px;
+//$logo-height: #{70 * $logo-scale-factor}px;
+$logo-width: auto;
+$logo-height: 4em;
 $header-margin: 2em;
 $header-height: calc(#{$logo-height} + 2 * #{$header-margin} + #{$header-margin});
 
 ._global-header {
   @extend %z-layer-ui;
-  position: relative;
-
-  font-family: $secondary-font;
-  color: $primary-color;
+  @extend %box-shadow;
 
   a.nav-toggle {
-    color: $white;
-    font-size: 2em;
+    font-size: 1.5em;
     font-weight: $font-weight-bold;
     padding: 0;
 
@@ -53,8 +51,6 @@ $header-height: calc(#{$logo-height} + 2 * #{$header-margin} + #{$header-margin}
   text-align: center;
   overflow: hidden;
 
-  min-height: $logo-height;
-
   a {
     @extend %clear;
     display: block;
@@ -65,7 +61,6 @@ $header-height: calc(#{$logo-height} + 2 * #{$header-margin} + #{$header-margin}
     display: inline-block;
     width: $logo-width;
     height: $logo-height;
-    margin-left: -2.25em;
 
     @include breakpoint($breakpoint-small) {
       transform: scale(0.8);
@@ -73,7 +68,7 @@ $header-height: calc(#{$logo-height} + 2 * #{$header-margin} + #{$header-margin}
   }
 
   @include breakpoint($breakpoint-small-medium) {
-    margin-bottom: $header-margin;
+    padding-top: $header-margin;
   }
 
 }

@@ -1,0 +1,14 @@
+{% include('_modules/_module-linked-pages.twig') with { 'headline' : options['linked_pages_headline'],
+'pages' : options['linked_pages'] } %}
+
+<footer class="_global-footer" role="contentinfo" id="bottom">
+    <div class="_global-footer-container container">
+        <div class="container-inner">
+            {% include('_globals/_global-footer-logo.twig') %}
+            {% include('_globals/_global-footer-navigation.twig') %}
+            {% include('_modules/_module-social.twig') %}
+            {% include('_modules/_module-businessinfo.twig') %}
+        </div>
+    </div>
+    {% include('_globals/_global-footer-copyright.twig') %}
+</footer>

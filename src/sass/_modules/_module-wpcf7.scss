@@ -1,6 +1,4 @@
 .wpcf7 {
-  font-family: $secondary-font;
-  font-size: 2em;
   text-align: left;
 
   .ajax-loader {
@@ -22,23 +20,19 @@
   input[type="number"],
   textarea {
     @extend %form-reset;
-    font-size: 50%;
     display: block;
     width: 100%;
     border: 1px solid $secondary-color;
     margin-bottom: 1em;
     background: transparent;
     padding: 0.5em;
-    font-family: $primary-font;
-  }
-
-  textarea {
-    height: 9em;
   }
 
   .wpcf7-submit {
-    @include button(transparent, $secondary-color, $secondary-color);
-    margin: auto;
+    @include button($secondary-color, $white, transparent);
+    font-family: $primary-font;
+    font-weight: $font-weight-normal;
+    //margin: auto;
     //@include last;
   }
 

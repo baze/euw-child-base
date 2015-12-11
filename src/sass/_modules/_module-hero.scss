@@ -1,9 +1,11 @@
 ._module-hero {
   background-color: $highlight-color-1;
+  position: relative;
+  margin-bottom: 3em;
 
-  background-size: cover;
-  background-position: center 25%;
-  background-repeat: no-repeat;
+  .container {
+    @extend %z-layer-3;
+  }
 
   padding-top: 1.5em;
   padding-bottom: 1.5em;
@@ -18,15 +20,102 @@
   }
   
   .hero-title {
+    text-shadow: 0 1px 4px transparentize(darken($highlight-color-1, 80), 0.5);
     color: $white;
-    text-align: center;
-    font-weight: $font-weight-normal;
-    font-size: 4em;
+    font-weight: $font-weight-thin;
+
+    .home & {
+      font-size: 1.75em;
+      @include breakpoint($breakpoint-small-medium) {
+        font-size: 4em;
+      }
+      @include breakpoint($breakpoint-wide) {
+        font-size: 4em;
+      }
+    }
 
     @include breakpoint($breakpoint-medium) {
-      margin: 1.25em 0 1.75em;
+      margin: 0.75em 0 0.75em;
+
+      .home & {
+        margin: 1.25em 0 1.75em;
+      }
+    }
+  }
+
+  .hero-subtitle {
+    font-size: 66%;
+    display: block;
+  }
+
+  .home & {
+    ._module-linked-pages {
+      img {
+        @extend %box-shadow;
+        display: inline-block;
+        background: $white;
+        border-radius: 50%;
+      }
+
+      a, a:hover {
+        text-decoration: none;
+        color: $white;
+      }
+
+      .linked-page-title {
+        display: none;
+
+        @include breakpoint($breakpoint-small-medium) {
+          display: block;
+        }
+
+        color: $white;
+        font-weight: $font-weight-bold;
+        text-shadow: 0 1px 4px transparentize(darken($highlight-color-1, 80), 0.5);
+        text-transform: uppercase;
+        hyphens: manual;
+      }
     }
   }
 
 }
 
+._module-hero-image-container {
+  @extend %z-layer-2;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  ._module-hero-image {
+    @extend %z-layer-1;
+    opacity: 0.3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @keyframes animatedBackground {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.35);
+      }
+    }
+
+    animation: animatedBackground 65s alternate infinite;
+  }
+}

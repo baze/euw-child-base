@@ -1,0 +1,22 @@
+._module-downloads {
+  @extend %clear;
+
+  ul {
+    @extend %reset;
+    @extend %clear;
+
+    li {
+      @include gallery(6 of 12);
+      display: block;
+      background-color: lighten($black, 95);
+      color: $highlight-color-1;
+      font-size: 1em;
+      padding: 1.5em 0;
+      border-bottom: 1px solid $highlight-color-1;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: gutter();
+    }
+  }
+
+}

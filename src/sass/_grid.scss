@@ -15,8 +15,7 @@ $susy: (
 );
 
 %container-outer {
-    //@include container(1100px);
-    @include container;
+    @include container(1200px);
     @extend %clear;
     clear: both;
     //background: green;
@@ -24,18 +23,17 @@ $susy: (
     @include breakpoint($breakpoint-wide) {
         //overflow-x: hidden;
         //overflow-y: scroll;
-        max-height: 100%;
-        max-height: 100vh;
-        overflow: hidden;
+        //max-height: 100%;
+        //max-height: 100vh;
+        //overflow: hidden;
     }
 }
 
 %container-inner {
-    //@include container(960px);
-    @include container;
+    @include container(960px);
     @extend %clear;
-    margin: 2em;
-    overflow: hidden;
+    //margin: 2em;
+    //overflow: hidden;
 
     //background: red;
 }

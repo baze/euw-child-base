@@ -1,9 +1,9 @@
 @import "_colors/_color-palette";
 
-$primary-color: $white;
-$secondary-color: rgb(105, 92, 87);
+$primary-color: $grey-900;
+$secondary-color: rgb(214, 11, 39);
 
-$highlight-color-1: rgb(136, 113, 76);
+$highlight-color-1: $secondary-color;
 $highlight-color-2: $highlight-color-1;
 $highlight-color-3: $highlight-color-1;
 
@@ -14,4 +14,4 @@ $light-gray: $grey-100;
 $middle-gray: $grey-400;
 $dark-gray: $grey-900;
 
-$body-background: #3d3835;
+$body-background: $white;

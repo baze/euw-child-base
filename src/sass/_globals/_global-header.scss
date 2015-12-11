@@ -1,74 +1,18 @@
-$logo-scale-factor: 1.0;
-//$logo-width: #{600 * $logo-scale-factor}px;
-//$logo-height: #{70 * $logo-scale-factor}px;
-$logo-width: auto;
-$logo-height: 4em;
-$header-margin: 2em;
-$header-height: calc(#{$logo-height} + 2 * #{$header-margin} + #{$header-margin});
-
 ._global-header {
   @extend %z-layer-ui;
-  @extend %box-shadow;
 
-  a.nav-toggle {
-    font-size: 1.5em;
-    font-weight: $font-weight-bold;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  @include breakpoint($breakpoint-medium) {
     padding: 0;
-
-    @include breakpoint($breakpoint-small-medium) {
-      margin-bottom: 1em;
-    }
-  }
-
-  h4 {
-    font-size: 1.33em;
-  }
-
-  .fa {
-    margin-right: 0.25em;
-  }
-
-  .nav-collapse-info {
-    text-align: center;
-    //display: none;
-
-    &.open {
-      //display: block;
-    }
-
-    > div {
-      @extend %clear;
-    }
-
   }
 
 }
 
-._global-header-logo {
-  @extend %center;
-  @extend %clear;
-  @extend %transition;
-  text-align: center;
-  overflow: hidden;
+//._global-header-logo{ svg, img{ @extend %fleximage; } }
 
-  a {
-    @extend %clear;
-    display: block;
-  }
-
-  img {
-    @extend %transition;
-    display: inline-block;
-    width: $logo-width;
-    height: $logo-height;
-
-    @include breakpoint($breakpoint-small) {
-      transform: scale(0.8);
-    }
-  }
-
-  @include breakpoint($breakpoint-small-medium) {
-    padding-top: $header-margin;
-  }
-
+._global-header-navigation {
 }

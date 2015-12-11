@@ -3,7 +3,7 @@
 //Typographic styles
 @import "_typography/icomoon";
 
-$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts" !default;
+$fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.5.0/fonts" !default;
 @import "../../bower_components/font-awesome/scss/font-awesome";
 
 // Wordpress-specific styles
@@ -29,26 +29,7 @@ $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts" !default;
 
 @import "vendor";
 
-
-.wrapper {
-  //background-image: url('../img/bg-body.jpg');
-}
-
-._global-header {
-  //background-image: url('../img/bg-header.jpg');
-}
-
-.phone {
-
-  body {
-    //background-image: none;
-  }
-
-  ._global-header {
-    //background-image: url('../img/bg-header-phone.jpg');
-  }
-}
-
+/*
 @font-face {
   font-family: 'flexslider-icon';
   src: url('../../bower_components/flexslider/fonts/flexslider-icon.eot');
@@ -56,3 +37,4 @@ $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.1.0/fonts" !default;
   font-weight: normal;
   font-style: normal;
 }
+*/

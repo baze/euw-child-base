@@ -2,12 +2,10 @@
 
 @import "_globals/global-header";
 @import "_globals/global-navigation";
-@import "_modules/_module-hero";
-@import "_modules/_module-social";
-@import "_modules/_module-linked-pages";
-@import "_ui/_headroom";
-@import "_ui/_responsive-nav";
+@import "_globals/global-main";
+@import "_globals/global-footer";
+@import "_modules/_module-page-header";
 
-.wrapper {
-  //background-image: url('{{theme.uri}}/dest/img/bg-body.jpg');
+.page-header-image {
+  background-image: url('{{theme.uri}}/dest/img/page-header-image.jpg');
 }

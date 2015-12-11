@@ -1,0 +1,68 @@
+._module-testimonials {
+  background-color: $highlight-color-2;
+  .section-headline {
+    color: $white;
+  }
+}
+
+.testimonials {
+  @extend %clear;
+}
+
+.testimonial-entry {
+  @extend %box-shadow;
+  background-color: $white;
+  padding: 0.75em;
+  & + & {
+    margin-top: 0.75em;
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    text-align: center;
+    font-size: 75%;
+
+    @include gallery(4 of 12);
+    & + & {
+      margin-top: 0;
+    }
+  }
+
+}
+
+.testimonial-image {
+  margin: -0.75em;
+  img {
+    @extend %fleximage;
+  }
+}
+
+.testimonial-text {
+  margin-top: 1.5em;
+
+  p {
+    @extend %reset;
+  }
+}
+
+.testimonial-profile {
+  margin: 1.5em 0;
+}
+
+.testimonial-name,
+.testimonial-occupation,
+.testimonial-school {
+  font-size: 1em;
+  display: block;
+  margin-top: 0.25em;
+}
+
+.testimonial-name {
+  text-transform: uppercase;
+  color: $highlight-color-1;
+  font-weight: 700;
+}
+
+.testimonial-school {
+  text-transform: uppercase;
+  font-weight: 700;
+}

@@ -1,7 +1,8 @@
 //@import "icomoon";
-$primary-font: 'Questrial', sans-serif;
-$secondary-font: serif;
-$monospace-font:"Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
+
+$primary-font: 'Gesta', sans-serif;
+$secondary-font: $primary-font;
+$monospace-font: "Courier New", Courier, "Lucida Sans Typewriter", "Lucida Typewriter", monospace;
 $icon-font: 'icomoon';
 
 $font-weight-thin: 100;
@@ -10,3 +11,8 @@ $font-weight-normal: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-ultra-bold: 900;
+
+html, body {
+  font-family: $secondary-font;
+  font-weight: $font-weight-light;
+}

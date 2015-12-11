@@ -1,77 +1,50 @@
 ._global-footer {
-  @extend %clear;
-  background-color: $grey-900;
-  color: $grey-500;
+  color: $grey-100;
+  line-height: 2.45;
 
-  text-align: center;
   @include breakpoint($breakpoint-medium) {
-    text-align: left;
-  }
-
-  a {
-    color: $grey-500;
-    text-decoration: none;
+    font-size: 75%;
+    line-height: inherit;
   }
 }
 
 ._global-footer-container {
-  @extend %clear;
-  padding: 2em 0;
+  padding: 3em 0.75em;
+  background-color: $primary-color;
+}
 
-  ._global-footer-navigation,
-  ._module-social {
-    margin-bottom: 2em;
+.footer-headline {
+  color: $highlight-color-1;
+  margin-bottom: 0.5em;
+}
 
-    @include breakpoint($breakpoint-medium) {
-      @include span(3 of 12);
-    }
+._global-footer-navigation {
+  @include push(1 of 12);
+  @include span(4 of 12);
 
-    ul {
-      @extend %reset;
-
-      li {
-        display: inline-block;
-        margin-left: 0.5em;
-        margin-right: 0.5em;
-        @include breakpoint($breakpoint-medium) {
-          display: block;
-          margin: 0;
-        }
-      }
-    }
-
-  }
-
-  ._module-businessinfo {
-
-    @include breakpoint($breakpoint-medium) {
-      @include span(6 of 12);
-      @include last;
-    }
-  }
-
-  ._global-footer-logo {
-    @extend %center;
-    @extend %clear;
-    text-align: center;
-    overflow: hidden;
-    opacity: 0.6;
-    margin-bottom: 2em;
-
-    a {
-      @extend %clear;
-      display: block;
-    }
-
-    img {
-      display: inline-block;
-    }
+  @include breakpoint($breakpoint-medium) {
+    @include push(0);
+    @include span(3 of 12);
   }
 
 }
 
+._global-footer-navigation {
+}
+
+._global-footer-contact {
+  @include span(7 of 12);
+  @include last;
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(8 of 12);
+  }
+}
+
 ._global-footer-copyright {
-  padding: 0.5em 0;
-  background-color: $grey-800;
+  padding: 1.25em 0;
+  background-color: $highlight-color-2;
   text-align: center;
+  font-size: 75%;
+  line-height: 1;
 }

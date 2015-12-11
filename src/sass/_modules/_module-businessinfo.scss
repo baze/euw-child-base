@@ -1,10 +1,26 @@
 ._module-businessinfo {
 
+  margin-bottom: 2em;
+
+  .businessinfo-headline,
+  .businessinfo-email {
+    display: block;
+  }
+
   .businessinfo-address,
   .businessinfo-telephone,
   .businessinfo-telefax,
   .businessinfo-email {
-    display: block;
+    font-size: 2em;
+    line-height: 1.25;
+  }
+
+  .businessinfo-aux {
+    display: none;
+  }
+
+  a {
+    text-decoration: none;
   }
 
 }

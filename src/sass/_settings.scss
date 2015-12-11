@@ -1,75 +1,32 @@
-html, body {
-  max-width: 100%;
-  background-color: $body-background;
-}
-
-html, body, .wrapper {
-  @include breakpoint($breakpoint-medium) {
-    width: 100%;
-    //height: 100%;
-    //height: 100vh;
-    //overflow: hidden;
-  }
-}
-
-//wp-admin-bar
-.admin-bar {
-
-  .wrapper {
-    @include breakpoint(783px) {
-      top: 32px;
-    }
-  }
-}
-
-.container {
-  @extend %container-outer;
-}
-
-.container-inner {
+%content {
   @extend %container-inner;
 }
 
-/*.wrapper {
-  //@extend %container-outer;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  display: table;
-  table-layout: fixed;
-  caption-side: top;
-
-  width: 100%;
-
-  text-align: center;
-
-  @include breakpoint($breakpoint-wide) {
-    height: 100vh;
-  }
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-._global-main {
-  display: table-row;
+svg {
+  max-height: 100% !important;
 }
 
-._global-header {
-  display: table-header-group;
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
-@include breakpoint($breakpoint-medium) {
-
-  ._global-header, ._global-main, ._module-highlights {
-    display: table-cell !important;
-    vertical-align: top;
-  }
-
-  ._global-main {
-    width: 50%;
-  }
-
-  ._module-highlights, ._global-header {
-    border-left: 2px solid #eee;
-  }
+body {
+  color: $primary-color;
+  background-color: $body-background;
 }
-*/
+
+.wrapper {
+  @extend %z-layer-2;
+  position: relative;
+  max-width: 1280px;
+  margin: 0 auto;
+  background-color: $white;
+  box-shadow: 0 0 4em 0 rgba(0, 0, 0, 0.25);
+}

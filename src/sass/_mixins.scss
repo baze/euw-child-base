@@ -108,20 +108,15 @@
   padding: 2em;
 }
 
-@mixin button($background-color:$highlight-color-1, $text-color: white, $border-color:$background-color) {
-//  &:hover {
-//    box-shadow: 0 4px 0.45em 0 rgba(0, 0, 0, 0.15);
-//  }
+@mixin button($background-color:$highlight-color-1, $text-color: $white, $border-color:$background-color, $border-radius: 0.25em) {
+  @extend %transition;
 
   cursor: pointer;
-  font-family: $secondary-font;
-
-  //font-size: 75%;
-  //letter-spacing: 0.1em;
-
-  background: $background-color;
+  //font-family: $secondary-font;
+  font-size: 105%;
+  letter-spacing: 0;
+  background-color: $background-color;
   border-color: $border-color;
-  border-radius: 0;
   border-style: solid;
   border-width: 1px;
   color: $text-color !important;
@@ -130,22 +125,18 @@
   display: inline-block;
   height: 100%;
   text-align: center;
-  padding: 0.25em 1em 0.3em;
+  border-radius: $border-radius;
+  padding: 0.25em 0.75em;
   //font-weight: $font-weight-normal;
 
   &:hover,
   &:focus,
   &:active,
   &[data-viewtype]:not(.active) {
-    color: $background-color !important;
-    border-color: $background-color !important;
+    //color: $background-color !important;
     //background-color: transparent;
-    background-color: $text-color;
-    text-decoration: underline;
-  }
-
-  &:hover {
-    //background-color: transparentize($background-color, 0.8) !important;
+    background-color: lighten($background-color, 10);
+    text-decoration: none;
   }
 
   &[disabled],

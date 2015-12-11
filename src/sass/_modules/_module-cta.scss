@@ -1,0 +1,10 @@
+._module-cta {
+  text-align: center;
+  padding: 2em;
+}
+
+.cta-button {
+  @include button($highlight-color-1);
+  padding: 1em 1.5em;
+  font-weight: $font-weight-bold;
+}

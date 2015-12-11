@@ -1,0 +1,48 @@
+._module-buch-eckdaten {
+  background-color: $highlight-color-2;
+  .section-headline {
+    color: $white;
+  }
+}
+
+.eckdaten {
+  @extend %clear;
+  @extend %box-shadow;
+  background-color: $white;
+  padding: 0.75em;
+  & + & {
+    margin-top: gutter();
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    text-align: center;
+
+    & + & {
+      margin-top: gutter();
+    }
+  }
+
+}
+
+.eckdaten-key,
+.eckdaten-value {
+  //@include gallery(6 of 12);
+  margin: 1.5em 0;
+
+  p {
+    @extend %reset;
+  }
+}
+
+.eckdaten-key {
+  @include span(4 of 12);
+  clear: both;
+  text-align: right;
+  font-weight: $font-weight-bold;
+}
+
+.eckdaten-value {
+  @include span(8 of 12);
+  @include last;
+  text-align: left;
+}

@@ -1,0 +1,56 @@
+.nav-toggle {
+}
+
+.nav-collapse.opened {
+}
+
+._global-header-navigation {
+
+  @include breakpoint($breakpoint-small) {
+    text-align: center;
+  }
+  text-align: right;
+
+  text-transform: uppercase;
+
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  font-size: 115%;
+  line-height: 1;
+
+  color: $white;
+
+  padding: 0.75em 0;
+
+  .menu {
+    padding: 0.25em 0;
+  }
+
+  .menu-item {
+    @extend %transition;
+    display: inline-block;
+    padding: 0.35em 0.55em 0.25em 0.55em;
+
+    &.current-menu-item,
+    &:hover {
+      color: $grey-400;
+    }
+  }
+
+  .menu-item.cta {
+    @include breakpoint($breakpoint-small) {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      backface-visibility: hidden;
+      padding: 0.85em 0;
+    }
+
+    background-color: $highlight-color-1;
+    &:hover {
+      transform: scale(1.045);
+      color: $white;
+    }
+  }
+}

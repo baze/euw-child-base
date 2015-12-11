@@ -1,0 +1,55 @@
+._module-download-form {
+
+  padding: 3em 0;
+
+  br {
+    display: none;
+  }
+
+  .download-form-headline {
+    color: $highlight-color-1;
+  }
+
+  .download-form-description {
+    font-size: 75%;
+    color: lighten($secondary-color, 20);
+  }
+
+  .wpcf7-form-control {
+    margin-bottom: 0 !important;
+  }
+
+  .wpcf7-form-control-wrap {
+    @extend %clear;
+    @extend %box-shadow;
+    display: block;
+    background-color: $white;
+    padding: 0.75em;
+
+    margin-bottom: gutter();
+
+    @include breakpoint($breakpoint-medium) {
+      @include gallery(6 of 12);
+    }
+  }
+
+  .wpcf7-submit {
+    @include button($highlight-color-1);
+    clear: both;
+    display: block;
+    width: 100%;
+    padding: 1em;
+  }
+
+  .icon-button {
+    @include button($highlight-color-2);
+    clear: both;
+    display: block;
+    width: 100%;
+    padding: 1em;
+  }
+
+  .wpcf7-form.sent {
+    display: none;
+  }
+}

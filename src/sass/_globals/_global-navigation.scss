@@ -1,123 +1,18 @@
 @charset "UTF-8";
+@import "_global-header-navigation";
 
 nav {
 
   ul {
-    @extend %reset;
+    margin: 0;
+    padding: 0;
     list-style: none;
   }
-
-  li {
-    @extend %transition;
-    @extend %reset;
-  }
-
-}
-
-.nav-toggle {
-  color: $highlight-color-1;
 }
 
 ._global-header-navigation {
-  @extend %dropdown !optional;
-  @extend %transition;
   @extend %clear;
-  clear: both;
-  text-transform: uppercase;
+}
 
-  @include breakpoint($breakpoint-small) {
-
-  }
-
-  @include breakpoint($breakpoint-small-medium) {
-    margin-bottom: 1em;
-  }
-
-  a {
-    text-align: center;
-    white-space: nowrap;
-    //overflow: hidden;
-    padding: 0;
-  }
-
-  .current-menu-item {
-    a {
-      border-bottom: 1px solid $highlight-color-1;
-    }
-  }
-
-  .main-menu-item {
-    min-height: 1.25em;
-    line-height: 1.25;
-    text-align: center;
-    padding: 0.5em 0;
-
-    @include breakpoint($breakpoint-medium) {
-      //display: block;
-    }
-  }
-
-  .main-menu-link {
-    border-bottom: 1px solid transparent;
-    display: inline-block;
-    color: $highlight-color-1;
-
-    &:hover {
-      border-bottom: 1px solid $highlight-color-1;
-      color: $highlight-color-1;
-    }
-  }
-
-  .menu-item-has-children {
-
-    & > a::before,
-    &.opened > a::before,
-    & > a::after,
-    &.opened > a::after {
-      border-color: $highlight-color-1 transparent;
-    }
-
-    @include breakpoint($breakpoint-medium) {
-
-      &:hover {
-        //background-color: $white;
-
-        .main-menu-link {
-          color: $highlight-color-1;
-        }
-      }
-
-    }
-
-  }
-
-  .menu-depth-1 {
-    background: transparentize($white, 0.05);
-
-    @include breakpoint($breakpoint-medium) {
-      left: -75%;
-      right: initial;
-      width: 250%;
-    }
-
-    .sub-menu-item {
-      @extend %transition;
-      &:hover {
-        background: desaturate(lighten($highlight-color-1, 50%), 40%);
-      }
-    }
-    .sub-menu-link {
-      color: $highlight-color-1;
-      padding: 0.5em 0;
-
-      @include breakpoint($breakpoint-medium) {
-        text-align: right;
-      }
-
-      &:hover {
-        color: $highlight-color-1;
-      }
-    }
-  }
-
+._global-footer-navigation {
 }

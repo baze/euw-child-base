@@ -1,0 +1,12 @@
+._content-404 {
+  padding: 1em;
+  text-align: center;
+
+  h1 {
+    small {
+      display: block;
+      font-size: 50%;
+      color: $secondary-color;
+    }
+  }
+}

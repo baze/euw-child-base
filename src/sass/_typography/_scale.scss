@@ -1,12 +1,17 @@
-html{
-	 font-size: 14px;
-	 line-height: 1.6;
+html {
+  font-size: 14px;
+  line-height: 1.45;
 
-	@include breakpoint($breakpoint-small-medium) { font-size: 14px; }
-	@include breakpoint($breakpoint-medium) { font-size: 14px; }
-	@include breakpoint($breakpoint-wide) { font-size: 16px; }
-	@include breakpoint($breakpoint-huge) {
-		font-size: 16px;
-	 	line-height: 1.75;
-	}
+  @include breakpoint($breakpoint-small-medium) {
+    font-size: 15px;
+  }
+  @include breakpoint($breakpoint-medium) {
+    font-size: 16px;
+  }
+  @include breakpoint($breakpoint-wide) {
+    font-size: 18px;
+  }
+  @include breakpoint($breakpoint-huge) {
+    font-size: 19px;
+  }
 }

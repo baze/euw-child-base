@@ -1,11 +1,15 @@
 ._global-content {
 
-  ._content-page {
-    @extend %clear;
+}
 
-    .content-title {
-    }
+._content-page {
+  padding: 3em 0 3em 0;
+}
 
-  }
-
+.content-title,
+.section-headline {
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5em;
 }

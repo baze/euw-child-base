@@ -1,0 +1,33 @@
+._module-usp {
+  padding-bottom: 3em;
+}
+
+.usp-entry {
+  @extend %box-shadow;
+  padding: 0.75em;
+
+  & + & {
+    margin-top: 0.75em;
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    @include gallery(4 of 12);
+    text-align: center;
+    font-size: 75%;
+    & + & {
+      margin-top: 0;
+    }
+  }
+}
+
+.usp-image {
+  margin: -0.75em;
+  img {
+    @extend %fleximage;
+  }
+}
+
+.usp-text {
+  @extend %reset;
+  margin-top: 1.5rem;
+}

@@ -26,16 +26,14 @@ class ChildSite extends ParentSite {
 		parent::__construct($options);
 
 //		add_filter( 'wpcf7_before_send_mail', array( $this, 'my_wpcf7_mod' ) );
+
 	}
 
 	public function add_to_context( $context ) {
 
 		$context = parent::add_to_context( $context );
 
-		$context['highlights'] = $context['options']['global_dishes'];
-
 		return $context;
-
 	}
 
 	function my_wpcf7_mod( $contact_form ) {
@@ -49,6 +47,17 @@ class ChildSite extends ParentSite {
 			$mail['recipient'] .= ',bjoern.martensen@gmail.com';
 
 			$contact_form->set_properties( array( 'mail' => $mail ) );
+		}
+	}
+
+	function really_block_users() {
+		$isAjax = ( defined( 'DOING_AJAX' ) && true === DOING_AJAX ) ? true : false;
+
+		if ( ! $isAjax ) {
+			if ( is_admin() && ! current_user_can( 'publish_posts' ) ) {
+				wp_redirect( home_url() );
+				exit;
+			}
 		}
 	}
 

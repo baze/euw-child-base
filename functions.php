@@ -9,10 +9,12 @@ if ( ! class_exists( 'Timber' ) ) {
 }
 
 // parent theme
-define( 'TEMPLATE_DIRECTORY', get_template_directory() );
+if (! defined( 'TEMPLATE_DIRECTORY'))
+	define( 'TEMPLATE_DIRECTORY', get_template_directory() );
 
 // child theme
-define( 'STYLESHEET_DIRECTORY', get_stylesheet_directory() );
+if ( ! defined( 'STYLESHEET_DIRECTORY' ) )
+	define( 'STYLESHEET_DIRECTORY', get_stylesheet_directory() );
 
 if ( ! file_exists( TEMPLATE_DIRECTORY . '/functions.php')) {
 	die("parent theme not found");
@@ -22,8 +24,8 @@ require_once( TEMPLATE_DIRECTORY . '/functions.php' );
 
 class ChildSite extends ParentSite {
 
-	public function __construct( $options = array() ) {
-		parent::__construct($options);
+	public function __construct( $site_name_or_id = null ) {
+		parent::__construct( $site_name_or_id );
 
 //		add_filter( 'wpcf7_before_send_mail', array( $this, 'my_wpcf7_mod' ) );
 

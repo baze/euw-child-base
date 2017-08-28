@@ -1,0 +1,85 @@
+{% if theme_color %}
+    <style>
+        ._module-breadcrumbs a,
+        ._module-breadcrumbs .breadcrumb_last,
+        ._module-social .fa,
+        ._module-opening-hours .section-title,
+        ._global-page-header ._snippet-slide.flexible-content-article.has-image .flexible-content-headline,
+        ._global-header-navigation > ul li.current-menu-item > a,
+        ._global-header-navigation > ul li.current-page-ancestor > a,
+        ._global-header-navigation > ul li.opened > a,
+        ._global-header-navigation > ul li:hover > a,
+        ._global-main h1,
+        ._global-main h2,
+        ._global-main h3,
+        ._global-main h4,
+        ._global-main h5,
+        ._global-main h6,
+        ._module-sidebar a,
+        ._module-sidebar strong,
+        ._global-footer h1,
+        ._global-footer h2,
+        ._global-footer h3,
+        ._global-footer h4,
+        ._global-footer h5,
+        ._global-footer h6,
+        ._global-footer a,
+        .btn,
+        li:before,
+        label,
+        .person--med .person-contact-info *,
+        .flexible-content-text strong,
+        .flexible-content-article .flexible-content-text a,
+        .accordion-headline.active,
+        ._content strong
+        {
+            color: {{ theme_color }} !important;
+        }
+
+        ._global-header-link .flexible-content-link,
+        .price .price--header .price--title,
+        ._module-sidebar--linked_objects .btn,
+        .person .btn {
+            color: #fff !important;
+        }
+
+        .flexible-content-icon svg * {
+            fill: {{ theme_color }} !important;
+        }
+
+        .subpages,
+        ._global-page-header ._snippet-slide.no-image.flexible-content-article,
+        ._module-pricing-table .price
+        {
+            background-color: {{ theme_color }} !important;
+        }
+
+        .btn,
+        ._module-sidebar--linked_objects .flexible-content-article.no-image,
+        .person--med .person-contact-info--email,
+        ._module-related-pages .flexible-content-article
+        {
+            border-color: {{ theme_color }} !important;
+        }
+
+        ._global-header-navigation .menu-item-has-children:hover > a::before,
+        ._global-header-navigation .menu-item-has-children:hover > a::after {
+            border-color: {{ theme_color }} transparent !important;
+        }
+
+        ._global-header-navigation .menu-item-has-children .menu-item-has-children:hover > a::after {
+            border-color: transparent {{ theme_color }}  !important;
+        }
+
+        ._global-header-link .flexible-content-link,
+        ._global-header .businessinfo-contact .businessinfo-contact--telephone,
+        ._snippet-slide .btn,
+        .person--med .flexible-content-link,
+        ._module-sidebar--linked_objects .btn,
+        .wpcf7-submit
+        {
+            background-color: {{ theme_color }} !important;
+            border-color: {{ theme_color }} !important;
+        }
+    </style>
+{% endif %}

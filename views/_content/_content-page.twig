@@ -1,0 +1,17 @@
+{#{% extends "container.twig" %}#}
+
+{% block content %}
+    <div class="container">
+        <div class="container-inner">
+            <section class="_content _content-page {{ post.show_sidebar ? 'has-sidebar' : '' }}">
+                {% include('_modules/_module-entry-content.twig') %}
+                {% include('_modules/_module-flexible-content.twig') %}
+                {% include('_modules/_module-related-pages.twig') %}
+            </section>
+
+            {% include('_modules/_module-sidebar.twig') %}
+        </div>
+    </div>
+
+    {% include '_modules/_module-contact-persons.twig' with {'columns' : 4} %}
+{% endblock %}

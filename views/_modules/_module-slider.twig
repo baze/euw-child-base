@@ -1,0 +1,21 @@
+{% if not slides %}
+    {% set slides = post.get_field('slides') %}
+{% endif %}
+<div class="_module-slider">
+    <div class="flexslider">
+        <ul class="slides">
+            {% for slide in slides %}
+                <li>
+                    {% include '_snippets/_snippet-slide.twig' with { 'slide' : slide } %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {#<nav class="_global-custom-navigation slides-navigation" role="navigation">
+        <ul>
+            {% for slide in slides %}
+                <li><a href="#slide-{{ slide.title|sanitize }}">{{ slide.short_title }}</a></li>
+            {% endfor %}
+        </ul>
+    </nav>#}
+</div>

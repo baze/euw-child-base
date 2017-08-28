@@ -1,0 +1,28 @@
+{% if post.related_pages_posts %}
+
+    {% set posts_headline_type = post.related_pages_headline_type %}
+    {% set posts_headline = post.related_pages_headline %}
+
+    {% if posts_headline %}
+        <{{ posts_headline_type|default('h4') }} class="section-title">
+        {{ posts_headline }}
+        </{{ posts_headline_type|default('h4') }}>
+    {% endif %}
+
+
+    <section class="_module-related-pages columns columns-5">
+
+    {% for column in post.related_pages_posts %}
+
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'headline': TimberPost(column).post_title,
+        'link_type' : 'internal',
+        'link': TimberPost(column).link
+        },
+        'columnCount' : 5
+        } %}
+
+    {% endfor %}
+
+    </section>
+{% endif %}

@@ -1,13 +1,13 @@
 'use strict';
 
-var Headroom = require('headroom');
+var Headroom = require('headroom.js');
 
 module.exports = function() {
 
     var myElement = document.querySelector('._global-header');
     var headroom = new Headroom(myElement, {
         "tolerance": 0,
-        "offset": 500,
+        "offset": 200,
         "classes": {
             "initial": "headroom",
             "pinned": "headroom--pinned",

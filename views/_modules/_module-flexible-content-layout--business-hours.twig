@@ -1,0 +1,4 @@
+<article class="flexible-content-article">
+    {% include '_modules/_module-opening-hours.twig' with {
+        'business_hours' : content.use_global_business_hours ? null : content.business_hours} %}
+</article>

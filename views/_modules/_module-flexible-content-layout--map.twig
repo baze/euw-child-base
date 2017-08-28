@@ -1,0 +1,17 @@
+<article class="flexible-content-article">
+    <div class="map">
+
+        {% set coordinates = content.use_coordinates
+        ? {
+        'latitude' : content.latitude,
+        'longitude' : content.longitude
+        }
+        : null %}
+
+        {% if content.use_global_location %}
+            {{ map(null, null, coordinates).display }}
+        {% else %}
+            {{ map(content.title, {'address' : content.address, 'postal_code' : content.postal_code, 'city' : content.city}, coordinates).display }}
+        {% endif %}
+    </div>
+</article>

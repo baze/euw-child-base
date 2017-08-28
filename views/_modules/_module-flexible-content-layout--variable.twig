@@ -1,0 +1,16 @@
+<div class="{{ content.columns|length > 1 ? 'columns' : 'single' }}">
+    <section class="flexible-content-row">
+
+        {% for column in content.columns %}
+
+            <section class="flexible-content-layout {{ column.acf_fc_layout }}">
+
+                {% include ['_modules/_module-' ~ column.acf_fc_layout ~ '.twig',
+                '_snippets/_snippet-flexible-content-article.twig'] with {'content': column} %}
+
+            </section>
+
+        {% endfor %}
+
+    </section>
+</div>

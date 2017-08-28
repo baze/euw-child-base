@@ -1,0 +1,25 @@
+{% if pagination.pages %}
+    <div class="_snippet-pagination">
+        {% if pagination.prev %}
+            <a href="{{ pagination.prev.link }}"
+               class="prev {{ pagination.prev.link|length ? '' : 'invisible' }}">{{ _e('Vorherige') }}</a>
+        {% endif %}
+        <nav class="{{ pagination.prev ? 'with-prev' : '' }} {{ pagination.next ? 'with-next' : '' }}">
+            <ul class="pages">
+                {% for page in pagination.pages %}
+                    <li>
+                        {% if page.link %}
+                            <a href="{{ page.link }}" class="{{ page.class }}">{{ page.title }}</a>
+                        {% else %}
+                            <span class="{{ page.class }}">{{ page.title }}</span>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+        {% if pagination.next %}
+            <a href="{{ pagination.next.link }}"
+               class="next {{ pagination.next.link|length ? '' : 'invisible' }}">{{ _e('Nächste') }}</a>
+        {% endif %}
+    </div>
+{% endif %}

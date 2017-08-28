@@ -1,0 +1,80 @@
+._content-landingpage {
+
+  .flexible-content-row {
+    margin-bottom: gutter(6);
+  }
+
+  .container-inner {
+    padding: 0;
+  }
+
+  ._module-lp-benefits,
+  ._module-lp-testimonials,
+  ._module-lp-cta,
+  ._module-lp-social-proof,
+  ._module-lp-core-features {
+    @extend %clear;
+    margin-bottom: gutter(6);
+  }
+
+  ._module-lp-benefits {
+
+    @include breakpoint($breakpoint-medium) {
+
+      &.has-sidebar {
+        @include span(8 of 12);
+        @include first;
+        font-size: 90%;
+      }
+
+    }
+
+    ol {
+      @extend %reset;
+      counter-reset: benefit-counter;
+      margin-top: gutter();
+
+      li {
+        display: table;
+        width: 100%;
+        table-layout: fixed;
+        border-collapse: separate;
+
+        /*&:before {
+          content: counter(benefit-counter);
+          counter-increment: benefit-counter;
+          display: table-cell;
+          vertical-align: middle;
+          font-size: 1.5em;
+          font-weight: $font-weight-bold;
+          padding: 0 gutter(6);
+          width: 2.5em;
+
+          @include breakpoint($breakpoint-medium) {
+            width: 4em;
+          }
+        }*/
+      }
+    }
+
+    .benefit {
+      display: table-cell;
+    }
+
+    .benefit-title {
+      font-weight: $font-weight-bold;
+      &:after {
+        content: ' ';
+      }
+    }
+
+    .benefit-description {
+      display: inline-block;
+      margin-bottom: gutter();
+      p {
+        display: inline;
+      }
+    }
+  }
+
+}

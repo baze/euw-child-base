@@ -1,0 +1,40 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <aside class="_module-sidebar _module-sidebar--left">
+
+        {% if post.contact_person %}
+            <aside class="widget widget_text">
+                {% if post.contact_headline %}
+                    <h2 class="widget-title">{{ post.contact_headline }}</h2>
+                {% endif %}
+
+                <section class="_module-sidebar--contact">
+                    {% include '_snippets/_snippet-person--small.twig' with {
+                    'post' : TimberPost(post.contact_person),
+                    'show_contact_button' : true
+                    } %}
+                </section>
+            </aside>
+        {% endif %}
+
+        <aside class="widget widget_text">
+
+            <h2 class="widget-title">{{ _e('Stichwortsuche') }}</h2>
+            <div class="textwidget">
+                {% include '_snippets/_snippet-search-form.twig' with { search_params : [
+                {
+                'key' : 'post_type',
+                'value' : 'leistung',
+                }] } %}
+            </div>
+        </aside>
+
+        {{ dynamic_sidebar }}
+    </aside>
+
+    <section class="_content _content-page _content-facetwp {{ post.show_sidebar ? 'has-sidebar' : '' }}">
+        {% include('_modules/_module-entry-content.twig') %}
+        {#{% include('_modules/_module-flexible-content.twig') %}#}
+    </section>
+{% endblock %}

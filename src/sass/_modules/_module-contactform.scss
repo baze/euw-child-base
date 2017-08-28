@@ -1,0 +1,25 @@
+._module-contactform {
+  @extend %clear;
+
+  .wpcf7-form {
+    @extend %clear;
+    @extend %center;
+
+    @include breakpoint($breakpoint-medium) {
+      //width: span(8 of 12);
+    }
+
+    /*.fields {
+      @extend %clear;
+      margin-bottom: 1em;
+    }
+
+    .field {
+      @include breakpoint($breakpoint-medium) {
+        @include gallery(6 of 12);
+      }
+    }*/
+
+  }
+
+}

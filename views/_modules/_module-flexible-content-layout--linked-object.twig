@@ -1,0 +1,9 @@
+<div class="single">
+    {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+    'headline': column.title ? column.title : column.link ? TimberPost(column.link) : null,
+    'text': column.text,
+    'image': column.image,
+    'icon': column.icon,
+    'link': column.link ? TimberPost(column.link) : null
+    }} %}
+</div>

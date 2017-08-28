@@ -75,3 +75,97 @@
 
 
 }
+
+/*
+._module-header-form {
+  background-color: transparent;
+  text-align: left;
+  font-size: 75%;
+
+  &.open {
+    background-color: lighten($highlight-color-1, 35);
+    !*position: fixed;
+    top: 10em;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;*!
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: span(4 of 12);
+
+    &.open {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: span(4 of 12);
+      bottom: inherit;
+      left: inherit;
+      height: auto;
+    }
+  }
+
+  .wrapper {
+    transition: max-height $animation-duration-short, opacity $animation-duration-short;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+  }
+
+  &.open {
+    .wrapper {
+      max-height: none;
+      opacity: 1;
+
+      @include breakpoint($breakpoint-medium) {
+        max-height: 666px;
+      }
+    }
+  }
+
+  .contactform-headline {
+    @extend %reset;
+    @include button($highlight-color-2, $secondary-color, $highlight-color-2, 0);
+    display: block;
+    padding: 0.25em;
+    width: 100%;
+    font-size: 1.75em;
+
+    !*@include breakpoint($breakpoint-small) {
+      position: fixed;
+      height: auto;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      backface-visibility: hidden;
+    }*!
+  }
+
+  .contactform-description,
+  .contactform_form {
+    @extend %reset;
+    padding: 0.5em;
+    text-align: left;
+  }
+
+  .contactform-description {
+    p {
+      @extend %reset;
+      margin: 0.5em 0;
+    }
+  }
+
+  .wpcf7 {
+    .wpcf7-submit {
+      @include button($highlight-color-2, $white, $highlight-color-2, 0);
+      font-size: 1.5em;
+      width: 100%;
+    }
+  }
+}
+*/

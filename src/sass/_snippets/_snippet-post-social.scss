@@ -1,0 +1,64 @@
+._snippet-post-social {
+  @extend %clear;
+
+  nav {
+    @extend %navigation;
+
+    ul {
+      li {
+        line-height: 1;
+        display: table-cell;
+
+        @include breakpoint($breakpoint-medium) {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .icon {
+    @extend %transition;
+    color: $primary-color;
+    font-size: 2em;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &-facebook {
+      &:before {
+        @include icon('\e76b');
+      }
+    }
+
+    &-twitter {
+      &:before {
+        @include icon('\e76f');
+      }
+    }
+
+    &-pinterest {
+      &:before {
+        @include icon('\e7a6');
+      }
+    }
+
+    &-google-plus {
+      &:before {
+        @include icon('\e767');
+      }
+    }
+
+    &-linkedin {
+      &:before {
+        @include icon('\e79f');
+      }
+    }
+  }
+
+}

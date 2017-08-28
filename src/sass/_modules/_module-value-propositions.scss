@@ -1,0 +1,51 @@
+._module-value-propositions {
+  background-color: lighten($black, 97.5);
+
+  .section-headline {
+    color: lighten($black, 35);
+  }
+
+}
+
+.valprop-items {
+  @extend %clear;
+  display: table;
+  width: 100%;
+}
+
+.valprop-header {
+  display: table-header-group;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.valprop-entry {
+  display: table-row;
+
+  &:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.valprop-header-item,
+.valprop-entry-item {
+  display: table-cell;
+  width: 33%;
+  padding: 1em;
+
+  &:not(:last-child) {
+    border-right: 1px solid lighten($black, 55);
+  }
+}
+
+.valprop-header-item {
+  text-align: center;
+  font-weight: $font-weight-bold;
+}
+
+.valprop-entry-item {
+  color: lighten($black, 55);
+
+  @include breakpoint($breakpoint-medium) {
+    font-size: 80%;
+  }
+}

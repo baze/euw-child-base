@@ -1,0 +1,33 @@
+{% if post.contact_persons %}
+    <div class="container highlight">
+        <div class="container-inner">
+            <section class="_module-contact-persons {{ columns > 1 ? 'columns columns-'~columns : 'single' }}">
+                <div class="description">
+                    {% if post.contact_persons_text %}
+                        {#{{ post.contact_persons_text }}#}
+                    {% endif %}
+                </div>
+
+                <div class="flexible-content-row">
+                    {% for person in post.contact_persons %}
+                        {% include '_snippets/_snippet-person--med.twig' with {'post' : TimberPost(person)} %}
+                    {% endfor %}
+
+                    {% if post.contact_persons | length < 4 %}
+                        {#{% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+                        'headline': column.title ? column.title : column.link ? TimberPost(column.link) : null,
+                        'text': column.text,
+                        'image': column.image,
+                        'icon': column.icon,
+                        'link': column.link ? TimberPost(column.link) : null
+                        }} %}#}
+                        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+                        'headline': post.contact_persons_link_text ? post.contact_persons_link_text : post.contact_persons_link ? TimberPost(post.contact_persons_link): null,
+                        'link': post.contact_persons_link ? TimberPost(post.contact_persons_link) : null
+                        }, 'classes' : ['null']} %}
+                    {% endif %}
+                </div>
+            </section>
+        </div>
+    </div>
+{% endif %}

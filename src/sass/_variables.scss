@@ -1,0 +1,25 @@
+$admin-bar-height: 32px;
+$header-text-height: 1.5em;
+$header-logo-height: 2 * $header-text-height;
+$header-padding: 0.5em;
+$header-height: $header-logo-height + $header-text-height + $header-padding * 3 + $header-padding * 0.5;
+$header-navbar-height: $header-logo-height + 2 * $header-padding;
+
+$font-size--navigation: 70%;
+$font-size--copy: 90%;
+
+$aspect-ratio-16-by-10: percentage(10/16);
+$aspect-ratio-16-by-9: percentage(9/16);
+$aspect-ratio-16-by-6: percentage(6/16);
+$aspect-ratio-page-header: percentage(320/1100);
+$aspect-ratio-page-header-home: percentage(257/1100);
+$aspect-ratio-square: 100%;
+$aspect-ratio-half: 50%;
+
+$aspect-ratio-columns-1: percentage(440/1100);
+$aspect-ratio-columns-2: percentage(300/540);
+$aspect-ratio-columns-3: percentage(360/360);
+
+$aspect-ratio-fb: 51.95%;
+$animation-duration-short: 0.8s;
+$animation-duration-long: 65s;

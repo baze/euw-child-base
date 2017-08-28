@@ -1,0 +1,73 @@
+{% set link = content.link_type == 'internal' ? content.link : content.link_url %}
+
+{% if content.icon_type == 'image' %}
+    {% set icon = responsiveImage(content.icon_image, 'med') %}
+{% elseif content.icon_type == 'svg' %}
+    {% set icon = content.icon_svg %}
+{% elseif content.icon_type == 'font' %}
+    {% set icon = content.icon_font %}
+{% endif %}
+
+{% if maxChars %}
+    {% set text = content.text|length > maxChars ? content.text|slice(0, maxChars) ~ '...' : content.text %}
+{% else %}
+    {% set text = content.text %}
+{% endif %}
+
+<article
+        class="flexible-content-article
+               text-align-{{ content.text_align|default('default') }}
+               {{ content.image ? 'has-image' : 'no-image' }}
+               {{ content.headline or text ? 'has-text' : 'no-text' }}
+               {{ content.color_scheme ? 'has-color-scheme' : '' }}
+               {{ classes | join(' ') }}">
+
+    {% if content.image %}
+        {% if link %}<a href="{{ link }}">{% endif %}
+        <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+            {{ responsiveImage(content.image) }}
+        </div>
+        {% if link %}</a>{% endif %}
+    {% endif %}
+
+    {% if content.headline or text or link %}
+        <div class="content-container"
+             {{ content.color_scheme ? 'style="background-color: ' ~ content.color_scheme ~ ';"' : '' }}
+            >
+            <div class="content-container-inner">
+                <div class="content">
+                    <div class="content-wrapper">
+
+                        {% if icon %}
+                            <div class="flexible-content-icon">{{ icon }}</div>
+                        {% endif %}
+
+                        {#{% if content.link %}
+                            <div class="flexible-content-post-type">
+                                {{ content.link.type.labels.singular_name }}
+                            </div>
+                        {% endif %}#}
+
+                        {% if content.headline %}
+                            {% if link %}<a href="{{ link }}">{% endif %}
+
+                            <{{ content.headline_type|default('h3') }} class="flexible-content-headline">
+                            {{ content.headline }}
+                            </{{ content.headline_type|default('h3') }}>
+                            {% if link %}</a>{% endif %}
+                        {% endif %}
+
+                        {% if text %}
+                            <div class="flexible-content-text">{{ text }}</div>
+                        {% endif %}
+
+                        {% if link %}
+                            <a class="btn flexible-content-link"
+                               href="{{ link }}">{{ content.link_text|default(__('Mehr erfahren')) }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</article>

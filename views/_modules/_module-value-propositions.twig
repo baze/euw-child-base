@@ -1,0 +1,26 @@
+<section class="_module-value-propositions container">
+
+    <div class="container-inner">
+        {% if post.valprop_headline %}
+            <h2 class="section-headline">{{ post.valprop_headline }}</h2>
+        {% endif %}
+
+        <div class="valprop-items">
+            <div class="valprop-header">
+                <div class="valprop-header-item">Feature</div>
+                <div class="valprop-header-item">Beschreibung</div>
+                <div class="valprop-header-item">Preis</div>
+            </div>
+            {% for item in post.get_field('valprop_items') %}
+                <div class="valprop-entry">
+
+                    <div class="valprop-entry-item">{{ item.feature }}</div>
+                    <div class="valprop-entry-item">{{ item.description }}</div>
+                    <div class="valprop-entry-item">{{ item.price }}</div>
+
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</section>

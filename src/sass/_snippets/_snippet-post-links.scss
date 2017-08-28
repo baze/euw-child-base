@@ -1,0 +1,42 @@
+._snippet-post-links {
+  .post-link {
+    display: block;
+    position: fixed;
+    top: 46%;
+    z-index: 9800;
+    opacity: 0.5;
+    font-size: 0.75em;
+    transition: background-color 400ms;
+    padding: 2em 0.5em;
+    background-color: transparentize($primary-color, 0.5);
+    color: $white;
+    text-decoration: none;
+    font-family: $icon-font;
+
+    &:hover {
+      background-color: transparentize($primary-color, 0.25);
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      font-size: 1em;
+    }
+
+    &:before {
+      @extend %reset;
+    }
+
+    &-prev {
+      left: 0;
+      &:before {
+        @include icon('\e72e');
+      }
+    }
+
+    &-next {
+      right: 0;
+      &:before {
+        @include icon('\e72a');
+      }
+    }
+  }
+}

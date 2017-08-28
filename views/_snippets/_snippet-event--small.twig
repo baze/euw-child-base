@@ -1,0 +1,44 @@
+<article class="event event--small">
+
+    <header class="event-header">
+        <h3 class="event-headline"><a href="{{ event.link }}">{{ event.post_title }}</a></h3>
+    </header>
+
+    {% set date = post.nextDate %}
+
+    {% set event_start = date['event-start'] | date('d.m.Y') %}
+    {% set event_start_time = date['event-start-time'] %}
+    {% set event_end = date['event-end'] | date('d.m.Y') %}
+    {% set event_end_time = date['event-end-time'] %}
+    {% set event_duration = date_diff(date['event-start'], date['event-end']) %}
+
+    <div class="event-date">
+        {% if event_duration %}
+            <div class="event-date--date">{{ event_start }} – {{ event_end }}</div>
+        {% else %}
+            {#<span class="event-date-aux">{{ _e('Termin:') }}</span> #}
+            <div class="event-date--date">{{ event_start }}</div>
+        {% endif %}
+
+        {% if post.get_field('duration') %}
+            <div class="event-date--duration">
+                <strong>{{ _e('Dauer:') }}</strong>
+                {{ post.get_field('duration') }}
+                {#{{ event_duration }} {{ event_duration > 1 ? _e('Tage') : _e('Tag') }}#}
+            </div>
+        {% endif %}
+    </div>
+    {#    <div class="event-location">
+            <strong>{{ _e('Ort:') }}</strong>
+            <div class="event-location--address">
+                <span class="address">{{ post.address }}</span>
+                <span class="city">{{ post.city }}</span>
+            </div>
+        </div>
+
+        <div class="event-fee">
+            <strong>{{ _e('Gebühr:') }}</strong>
+        </div>#}
+
+    <a class="flexible-content-link btn" href="{{ TimberPost(post.link).link }}">{{ _e('Anmelden') }}</a>
+</article>

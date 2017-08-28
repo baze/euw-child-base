@@ -1,0 +1,59 @@
+._global-header-logo,
+._global-footer-logo {
+  @extend %center;
+  text-align: center;
+
+  &, * {
+    max-height: $header-navbar-height * 2 !important;
+
+    @include breakpoint($breakpoint-medium) {
+      max-height: $header-navbar-height * 1.5 !important;
+    }
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    text-align: left;
+    display: table;
+    table-layout: fixed;
+  }
+
+  a {
+    @extend %transition;
+    //display: inline-block;
+    display: table-cell;
+    vertical-align: middle;
+    min-width: 0;
+    width: 100vw; /* expand the element at all times */
+    height: $header-navbar-height * 1.5 !important;
+
+    @include breakpoint($breakpoint-medium) {
+      display: table-cell;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  img, svg {
+    @extend %center;
+    @extend %transition;
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 100%;
+    min-height: 0;
+    min-width: 0;
+
+    @include breakpoint($breakpoint-medium) {
+      margin: 0;
+    }
+  }
+
+  svg {
+    * {
+      @extend %transition;
+      fill: $highlight-color-1;
+    }
+  }
+}

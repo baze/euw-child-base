@@ -1,0 +1,11 @@
+<div class="social-proof _snippet-trust-logo image">
+    {% if image.link %}
+        <a href="{{ image.link }}">
+    {% endif %}
+
+        {{ responsiveImage(image.image) }}
+
+    {% if image.link %}
+        </a>
+    {% endif %}
+</div>

@@ -1,0 +1,30 @@
+{% if events %}
+    <section class="_module-events">
+        {% set previousMonth = null %}
+
+        <ul class="events">
+            {% for event in events %}
+                {% set nextDate = event.nextDate %}
+
+                {% if nextDate %}
+                    {% set currentMonth = nextDate['event-start'] | date('F Y') %}
+
+                    {% if previousMonth != currentMonth %}
+                        {% set previousMonth = currentMonth %}
+                        <h4 class="event-month-headline">{{ currentMonth }}</h4>
+                    {% endif %}
+
+                    <li class="event-month">
+                        {% include '_snippets/_snippet-event--med.twig' with {'post' : event} %}
+                    </li>
+                {% else %}
+                    <li class="event-month">
+                        {% include '_snippets/_snippet-event--med.twig' with {'post' : event} %}
+                    </li>
+
+                {% endif %}
+
+            {% endfor %}
+        </ul>
+    </section>
+{% endif %}

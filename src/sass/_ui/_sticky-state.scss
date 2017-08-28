@@ -1,0 +1,26 @@
+@include breakpoint($breakpoint-medium) {
+  .sticky {
+    position: sticky !important;
+
+    &.top {
+      top: $header-height - $header-padding * 0.5;
+
+      .admin-bar & {
+        top: $header-height + $header-padding;
+      }
+    }
+
+    &.bottom {
+      bottom: 1em;
+    }
+  }
+
+  .sticky.sticky-fixed.is-sticky {
+    position: fixed !important;
+    backface-visibility: hidden;
+  }
+
+  .sticky.sticky-fixed.is-absolute {
+    position: absolute !important;
+  }
+}

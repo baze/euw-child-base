@@ -1,0 +1,32 @@
+.auszeichnung {
+  @extend %clear;
+
+  &--med {
+
+    &.flexible-content-article {
+
+      @extend %layout--image-next-to-text;
+      direction: rtl;
+
+      .flexible-content-text {
+        display: block;
+      }
+
+      .flexible-content-icon {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 100;
+
+        @include breakpoint($breakpoint-medium) {
+          position: static;
+          top: auto;
+          left: auto;
+        }
+      }
+
+    }
+
+  }
+
+}

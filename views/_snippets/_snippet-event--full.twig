@@ -1,0 +1,110 @@
+<article class="event event--full">
+    <div>
+        <header class="event-header">
+            {% include '_snippets/_snippet-event-dates.twig' with { 'dates' : post.upcomingDates } %}
+
+            {% if post.get_field('duration') %}
+                <div class="event-date--duration">
+                    {#<strong>{{ _e('Dauer:') }}</strong>#}
+                    {{ post.get_field('duration') }}
+                    {#{{ event_duration }} {{ event_duration > 1 ? _e('Tage') : _e('Tag') }}#}
+                </div>
+            {% endif %}
+
+            {% if post.fee %}
+                <div class="event-fee">
+                    <h3 class="section-headline">{{ __('Gebühr:') }}</h3>
+                    <span class="fee">{{ post.fee }}</span>
+
+                    {% if post.fee_early_bird %}
+                        <h3 class="section-headline">{{ __('Frühbucherpreis:') }}</h3>
+                        <span class="fee">{{ post.fee_early_bird }}</span>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            <div class="event-location">
+                {% if post.address and post.postal_code and post.city %}
+                    <div class="event-location--map">
+                        {{ post.map.display }}
+                    </div>
+                {% endif %}
+                <div class="event-location--address {{ post.address and post.postal_code and post.city ? 'has-map' :
+                'no-map' }}">
+                    {% if post.address %}
+                        <h3 class="section-headline">{{ __('Veranstaltungsort:') }}</h3>
+                        <span class="address">{{ post.address }}</span>
+                        <span class="city">{{ post.postal_code }} {{ post.city }}</span>
+                        <span class="state">{{ post.state }}</span>
+                        {#<span class="country">{{ post.country }}</span>#}
+                    {% endif %}
+
+                    {% if post.room %}
+                        <h3 class="section-headline">{{ __('Raum:') }}</h3>
+                        <span class="room">{{ post.room }}</span>
+                    {% endif %}
+
+                    {% if post.contact_person %}
+                        <div class="event-contact-person">
+                            {% if post.contact_person | length > 1 %}
+                                <h3 class="section-headline">{{ __('Referenten:') }}</h3>
+                            {% else %}
+                                <h3 class="section-headline">{{ __('Referent/in:') }}</h3>
+                            {% endif %}
+
+                            {% for person in post.contact_person %}
+                                {% include '_snippets/_snippet-person--small.twig' with {
+                                'post' : TimberPost(person)
+                                } %}
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </header>
+
+        {% include '_modules/_module-entry-content.twig' %}
+
+        <div class="event-body">
+            {% if post.get_field('event-download') %}
+                <div class="event-downloads">
+                    <h3>{{ __('Downloads:') }}</h3>
+
+                    {% for download in post.get_field('event-download') %}
+
+                        {% set file = get_file(download['event-download-entry-file']['ID']) %}
+                        {% set filetype = download['event-download-entry-file']['mime_type']|split('/') %}
+
+                        <a href="{{ download['event-download-entry-file']['url'] }}"
+                           target="_blank" class="btn btn--highlight btn--large">
+                            <i class="fa fa-file-{{ filetype[1] }}-o"></i>
+                            {{ download['event-download-entry-title'] }}
+                        </a>
+                        <small class="download-meta-filesize">{{ get_file_size(file) }}</small>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            {% if post.get_field('anmeldeformular') %}
+
+                <h3>{{ __('Anmeldung:') }}</h3>
+
+                {% include '_modules/_module-flexible-content-layout--contact-form.twig' with { 'content' : {
+                'form' : post.get_field('anmeldeformular')
+                }} %}
+            {% endif %}
+
+
+        </div>
+
+        {#<div class="event-footer">
+            {% if post.get_field('sign_up_page') %}
+                {% set relations = TimberPost(post.get_field('sign_up_page')) %}
+                {% include('_snippets/_snippet-button.twig') with {'type': 'primary', 'label': __('Sign up'), 'url':
+                relations[0].link } %}
+            {% endif %}
+
+
+        </div>#}
+    </div>
+</article>

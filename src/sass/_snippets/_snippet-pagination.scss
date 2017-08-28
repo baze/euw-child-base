@@ -1,41 +1,88 @@
-._snippet-pagination{
-	@extend %clear;
+._snippet-pagination {
+  @extend %clear;
+  position: relative;
+  $pagination-height: $header-text-height;
+  height: $pagination-height;
 
+  .prev,
+  .next,
   a {
-	display: block;
-	text-decoration: none;
-	padding: 0.25em 0.5em;
-	background: lighten($primary-color, 95%);
+    @include button(lighten($primary-color, 32.5), $primary-color, lighten($primary-color, 32.5), 0);
+    height: 100%;
+    line-height: 1.75;
+    padding: 0;
+  }
 
-	&:hover {
-	  text-decoration: none;
-	}
+  span.current {
+    @include button-highlight;
+    cursor: auto;
 
-	&:active {
-
-	}
+    &:hover {
+      opacity: 1;
+    }
   }
 
   .prev,
   .next {
-	@include span(2 of 12);
-	text-align: center;
+    @include span(2 of 12);
+  }
+
+  .prev {
+    @include first;
   }
 
   .next {
-	@include last;
+    @include last;
   }
 
-  ul {
-	@extend %reset;
-	@include span(8 of 12);
-	text-align: center;
+  nav {
+    @extend %navigation;
+    @include span(12 of 12);
+    height: 100%;
+    font-size: inherit;
 
-	li {
-	  @include span(2 of 12);
-	  display: inline-block;
-	  float: none;
-	}
+    &.with-next {
+      @include span(10 of 12);
+      @include first;
+    }
+
+    &.with-prev {
+      @include span(10 of 12);
+      @include last;
+    }
+
+    &.with-next.with-prev {
+      @include span(8 of 12);
+    }
+
+    ul {
+      table-layout: fixed;
+      text-align: left;
+      justify-content: start;
+      height: 100%;
+      line-height: inherit;
+      font-size: inherit;
+
+      li {
+        display: inline-block;
+        line-height: inherit;
+        font-size: inherit;
+
+        &:not(:last-child) {
+          margin-right: gutter();
+        }
+
+        span.current,
+        a {
+          font-size: inherit;
+          line-height: inherit;
+          padding: 0 .5rem;
+          height: 100%;
+          display: block;
+        }
+      }
+    }
+
   }
 
 }

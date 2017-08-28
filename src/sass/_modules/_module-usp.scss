@@ -1,33 +1,146 @@
 ._module-usp {
-  padding-bottom: 3em;
-}
 
-.usp-entry {
-  @extend %box-shadow;
-  padding: 0.75em;
+  color: lighten($black, 45);
 
-  & + & {
-    margin-top: 0.75em;
+  .container-inner {
+    @extend %container-outer;
+    padding: 0;
   }
 
-  @include breakpoint($breakpoint-medium) {
-    @include gallery(4 of 12);
-    text-align: center;
-    font-size: 75%;
-    & + & {
-      margin-top: 0;
+}
+
+.usp-navigation {
+  background-color: lighten($black, 20);
+  margin-bottom: 0.5em;
+
+  .container-inner {
+    @extend %container-inner;
+  }
+
+  a {
+    @include button(transparent, $white, transparent, 0);
+    margin: 0.75em 0;
+    display: block;
+    font-size: 90%;
+
+    &:hover {
+      //color: $highlight-color-1;
+      //border-color: $highlight-color-1;
     }
   }
 }
 
-.usp-image {
-  margin: -0.75em;
-  img {
-    @extend %fleximage;
+.usp-items {
+  @extend %clear;
+}
+
+.usp-entry {
+  @extend %clear;
+  position: relative;
+
+  @include breakpoint($breakpoint-medium) {
+    height: 25em;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid lighten($black, 55);
+    }
+  }
+
+  &:nth-child(odd) {
+    @include breakpoint($breakpoint-medium) {
+      .usp-image {
+        @include last;
+      }
+      .usp-content {
+        @include first;
+        padding-left: 2em;
+      }
+      .usp-title,
+      .usp-subtitle,
+      .usp-content {
+        text-align: right;
+      }
+    }
+  }
+
+  &:nth-child(even) {
+    @include breakpoint($breakpoint-medium) {
+      .usp-image {
+        @include first;
+      }
+      .usp-content {
+        @include last;
+        padding-right: 2em;
+      }
+      .usp-title,
+      .usp-subtitle,
+      .usp-content {
+        text-align: left;
+      }
+    }
   }
 }
 
-.usp-text {
-  @extend %reset;
-  margin-top: 1.5rem;
+.usp-wrapper {
+  @include breakpoint($breakpoint-medium) {
+    display: table-cell;
+    vertical-align: middle;
+  }
 }
+
+.usp-content {
+  display: table;
+  padding: 2em 1em;
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(7 of 12);
+    height: 100%;
+    padding: 0;
+  }
+
+  .usp-title,
+  .usp-subtitle {
+    color: $black;
+  }
+
+  .usp-subtitle {
+    margin-bottom: 1em;
+  }
+}
+
+.usp-image {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 50%;
+
+  @include breakpoint($breakpoint-medium) {
+    @include span(5 of 12);
+    padding: 0;
+    display: table;
+    position: relative;
+    height: 100%;
+  }
+
+  img {
+    @extend %fleximage;
+    @extend %transition;
+
+    @include breakpoint($breakpoint-medium) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1) rotate(-2deg);
+      }
+    }
+
+  }
+}
+

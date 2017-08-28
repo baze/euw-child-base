@@ -1,0 +1,94 @@
+._module-key-facts {
+  @extend %clear;
+
+  padding-top: gutter();
+
+  @include breakpoint($breakpoint-medium) {
+    padding-top: 0;
+  }
+
+  .flexible-content-article {
+    @extend %clear;
+    padding: 1em !important;
+    border-bottom: 4px solid $highlight-color-1;
+    display: table;
+
+    @include breakpoint($breakpoint-medium) {
+      @include gallery(4 of 12);
+      padding: 2em !important;
+      margin-top: - gutter();
+
+      display: block;
+    }
+
+    .image-container {
+      width: span(3 of 12);
+      float: none;
+      padding-bottom: 0;
+      display: table-cell;
+      vertical-align: middle;
+
+      img {
+        width: 100%;
+        height: auto;
+        position: static;
+      }
+
+      @include breakpoint($breakpoint-medium) {
+        width: 50%;
+        padding-bottom: 50% !important;
+        margin: 1em auto 2em;
+
+        display: block;
+      }
+    }
+
+    .content-container {
+      position: static;
+      float: none;
+      width: 100%;
+      height: 100%;
+      padding-left: gutter();
+      display: table-cell;
+      vertical-align: middle;
+
+      @include breakpoint($breakpoint-medium) {
+        padding-left: 0;
+      }
+
+      .content-wrapper {
+        width: auto;
+        text-align: left;
+
+        @include breakpoint($breakpoint-medium) {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  .flexible-content-headline,
+  .flexible-content-text {
+    color: lighten($primary-color, 10);
+    margin-bottom: 1em;
+  }
+
+  .flexible-content-headline {
+    margin-bottom: 0.5em;
+  }
+
+  .flexible-content-text {
+    margin-bottom: 1em;
+  }
+
+  .flexible-content-link {
+    @include button($secondary-color, lighten($primary-color, 10), $secondary-color, 0);
+
+    &:hover {
+      color: $secondary-color;
+      background-color: lighten($primary-color, 10);
+      border-color: lighten($primary-color, 10);
+    }
+  }
+
+}

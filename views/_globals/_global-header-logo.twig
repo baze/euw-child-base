@@ -1,0 +1,20 @@
+<div class="_global-header-logo">
+    <a href="{{ site.home }}" rel="home">
+
+        {% if options.global_header_logo_svg %}
+            {{ options.global_header_logo_svg }}
+        {% elseif options.global_header_logo_image %}
+            {{ responsiveImage(options.global_header_logo_image) }}
+        {% endif %}
+
+        {#{% if isMobile %}
+            {{ responsiveImage(options.global_header_logo_image) }}
+        {% else %}
+            {% if options.global_header_logo_svg %}
+                {{ options.global_header_logo_svg }}
+            {% elseif options.global_header_logo_image %}
+                {{ responsiveImage(options.global_header_logo_image) }}
+            {% endif %}
+        {% endif %}#}
+    </a>
+</div>

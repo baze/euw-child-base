@@ -1,0 +1,15 @@
+<section class="_module-introduction">
+
+    <div class="container">
+        <div class="container-inner">
+            {% if post.intro_headline %}
+                <h2 class="section-headline">{{ post.intro_headline }}</h2>
+            {% endif %}
+
+            <div class="section-content">
+                {{ post.intro_content }}
+            </div>
+        </div>
+    </div>
+
+</section>

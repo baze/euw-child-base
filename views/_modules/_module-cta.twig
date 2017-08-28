@@ -1,0 +1,11 @@
+{% if post.cta_show %}
+    <div class="_module-cta container">
+        <div class="container-inner">
+            {% for cta in post.get_field('cta_items') %}
+                <a class="cta-button" href="{{ cta['link'] }}">
+                    {{ cta['label'] }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

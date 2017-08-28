@@ -1,0 +1,5 @@
+{% set posts = get_posts(content.count) %}
+
+{% for p in posts %}
+    {% include ['_snippets/_snippet-post--small.twig'] with {'post' : p } %}
+{% endfor %}

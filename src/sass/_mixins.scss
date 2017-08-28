@@ -1,28 +1,28 @@
-%clear{
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
+%clear {
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
 }
 
 @mixin linkTextOffscreen() {
-    text-indent: -9999px;
-    overflow: hidden;
-    text-decoration: none;
-    display: block;
-    font-size: 0;
-    text-align: start;
+  text-indent: -9999px;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  font-size: 0;
+  text-align: left;
 }
 
 @mixin hoverActiveFocus($property, $value) {
-    &:hover, &:active, &:focus {
-        #{$property}: $value;
-    }
+  &:hover, &:active, &:focus {
+    #{$property}: $value;
+  }
 }
 
 //rem-fallback
@@ -52,27 +52,47 @@
       $remValues: #{$remValues + " "};
     }
   }
-  
+
   #{$property}: $pxValues;
   #{$property}: $remValues;
 }
 
-%reset{
-  margin: 0; padding: 0;
+%reset {
+  margin: 0;
+  padding: 0;
 }
 
 //horizontal centering
-%center{
+%center {
   display: block;
   margin: 0 auto;
 }
 
-%padding{
+%padding {
   padding: 0 1.5em;
 }
 
-%box-shadow{
-  box-shadow: 0 2px 0.25em 0 rgba(0,0,0,0.15);
+%transition {
+  transition: all 185ms ease-in-out;
+}
+
+%box-shadow {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+%box-shadow-hover {
+  @extend %transition;
+  box-shadow: 0 0.1em 0.3em 0 rgba(0, 0, 0, 0.15);
+  z-index: 10;
+
+  &:hover {
+    box-shadow: 0 0.1em 0.8em 0 rgba(0, 0, 0, 0.35);
+    z-index: 20;
+  }
+}
+
+%text-shadow {
+  text-shadow: 0 0 0.4em rgba(0, 0, 0, 1.0);
 }
 
 @mixin box-shadow($x: 0, $y: 2px, $spread: 0.25em, $color: rgba(0, 0, 0, 0.15)) {
@@ -83,15 +103,7 @@
   text-shadow: $x $y $spread $color;
 }
 
-%box-shadow-hover{
-  &:hover{ box-shadow: 0 4px 0.45em 0 rgba(0,0,0,0.15); }
-}
-
-%transition{
-  transition: all 185ms ease-in-out;
-}
-
-%border-radius{
+%border-radius {
   border-radius: 0.15em;
 }
 
@@ -103,39 +115,60 @@
 
 %card {
   @extend %clear;
-  @extend %box-shadow;
   background: $white;
-  padding: 2em;
+  padding: gutter(6);
+
+  //border-radius: .125em;
+  position: relative;
+  transition: box-shadow .28s cubic-bezier(.4, 0, .2, 1);
+  overflow: hidden;
+
+  /*&:after {
+    bottom: 0;
+    content: " ";
+    display: block;
+    height: 30px;
+    position: absolute;
+    width: 100%;
+    background-image:linear-gradient(to top, rgba(255, 255, 255, 0), #fff 50%);
+  }*/
+
+  box-shadow: 0 .0625em .1875em rgba(0, 0, 0, .12), 0 .0625em .125em rgba(0, 0, 0, .24);
+  z-index: 1;
+
+  &:hover {
+    box-shadow: 0 .625em 1.25em rgba(0, 0, 0, .19), 0 .375em .375em rgba(0, 0, 0, .23);
+    z-index: 2;
+  }
 }
 
-@mixin button($background-color:$highlight-color-1, $text-color: $white, $border-color:$background-color, $border-radius: 0.25em) {
-  @extend %transition;
+@mixin button($background-color:$highlight-color-1, $text-color: $white, $border-color:$background-color, $border-radius: 0) {
+  transition: all 185ms ease-in-out;
 
   cursor: pointer;
-  //font-family: $secondary-font;
-  font-size: 105%;
+  font-family: $secondary-font;
   letter-spacing: 0;
   background-color: $background-color;
   border-color: $border-color;
   border-style: solid;
   border-width: 1px;
-  color: $text-color !important;
+  color: $text-color;
   text-decoration: none;
   text-transform: uppercase;
   display: inline-block;
   height: 100%;
   text-align: center;
   border-radius: $border-radius;
-  padding: 0.25em 0.75em;
-  //font-weight: $font-weight-normal;
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+  font-weight: $font-weight-medium;
+  font-size: 80%;
 
   &:hover,
   &:focus,
   &:active,
   &[data-viewtype]:not(.active) {
-    //color: $background-color !important;
-    //background-color: transparent;
-    background-color: lighten($background-color, 10);
+    opacity: 0.5;
     text-decoration: none;
   }
 
@@ -143,22 +176,21 @@
   &:disabled,
   &.button-primary-disabled,
   &.disabled {
-    text-shadow: none !important;
+    text-shadow: none;
   }
 
 }
 
-@mixin drop-caps() {
-    &:first-letter {
-      float: left;
-      font-size: 75px;
-      line-height: 60px;
-      padding-top: 4px;
-      padding-right: 8px;
-      padding-left: 3px;
-      font-family: $secondary-font;
-//      color: $primary-color;
-    }
+@mixin button-positive {
+  @include button(transparent, $highlight-color-1, $highlight-color-1, 0);
+}
+
+@mixin button-negative {
+  @include button(transparent, $secondary-color, $secondary-color, 0);
+}
+
+@mixin button-highlight {
+  @include button($highlight-color-1, $secondary-color, $highlight-color-1, 0);
 }
 
 @mixin icon($code) {
@@ -189,8 +221,628 @@
   }
 }
 
+%center-image-horizontally {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: auto;
+  //min-width: 100%;
+  max-width: none;
+  height: 100%;
+
+  .csstransforms & {
+    @extend %transition;
+    transform-origin: 0 center;
+    left: 50%;
+    -ms-transform: translate(-50%);
+
+    transform: translate(-50%);
+    backface-visibility: hidden;
+  }
+}
+
+%fit-image-horizontally {
+  width: auto;
+  height: auto;
+  max-height: none;
+  min-width: 100%;
+  min-height: 100%;
+
+  max-width: 100%;
+}
+
+%fit-image-vertically {
+  width: auto;
+  height: auto;
+  max-height: none;
+  max-width: none;
+  min-height: 100%;
+  min-width: 100%;
+}
+
+%user-image {
+  //border-radius: 50%;
+  @extend %center-image-horizontally;
+}
+
 %disable-link-desktop {
   @include breakpoint($breakpoint-small-medium) {
     pointer-events: none;
+  }
+}
+
+%navigation {
+  @extend %z-layer-ui;
+  position: static !important;
+
+  ul {
+    @extend %reset;
+    @extend %transition;
+
+    ul {
+      display: none;
+    }
+  }
+
+  li {
+    @extend %transition;
+    display: block;
+    position: relative;
+  }
+
+  > ul {
+    display: block;
+
+    @include breakpoint($breakpoint-medium) {
+      display: table;
+      table-layout: auto;
+
+      .flexbox & {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        //justify-content: space-around;
+      }
+    }
+
+    width: 100%;
+    height: 100%;
+    text-align: center;
+
+    > li {
+      position: relative;
+      display: block;
+      height: 100%;
+      vertical-align: middle;
+      line-height: 3;
+
+      @include breakpoint($breakpoint-medium) {
+        line-height: 1;
+        display: table-cell;
+
+        .flexbox & {
+          display: flex;
+
+          flex-grow: 0;
+          justify-content: center;
+          flex-direction: column;
+
+          clip: auto !important;
+          z-index: 100;
+        }
+
+      }
+    }
+  }
+
+  a {
+    @extend %transition;
+    position: relative;
+    line-height: 1;
+    display: block;
+    white-space: nowrap;
+    color: inherit;
+    padding: 0.5rem 0.25rem;
+
+    @include breakpoint($breakpoint-medium) {
+      padding: 0;
+
+      .flexbox & {
+        display: flex;
+        justify-content: center;
+
+        &.sub-menu-link {
+          display: block;
+        }
+      }
+    }
+  }
+
+  .cta {
+    a {
+      @extend %button-fixed--bottom;
+    }
+  }
+}
+
+%image-container {
+  @extend %z-layer-1;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: percentage(9/16);
+
+  &::after {
+    @extend %transition;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $black;
+    opacity: 0;
+    z-index: 4;
+  }
+
+  @for $i from 1 through 9 {
+    &[data-darken="0.#{$i}"]:after {
+      opacity: $i/10;
+    }
+  }
+
+  img,
+  .video-js {
+    @extend %fit-image-vertically;
+    position: absolute;
+  }
+
+  .vjs-tech {
+    height: auto;
+  }
+
+  > a {
+    display: block;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+%content-container {
+  position: relative;
+
+  .content-container {
+    z-index: 20;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: block;
+  }
+
+  .content-container-inner {
+    display: table;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+  }
+
+  .content {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+$default-arrow-size: 0.4em;
+
+@mixin toggle-indicator($color : $primary-color, $arrow-size : $default-arrow-size) {
+  position: relative;
+  display: inline-block;
+
+  //height: 1em;
+  margin-top: 0;
+
+  //display: flex;
+  //background: green;
+
+  ._global-header-navigation & {
+    margin-top: $arrow-size;
+  }
+
+  &::before,
+  &::after {
+    @extend %transition;
+    position: absolute;
+    display: block;
+    content: '';
+    padding: 0;
+    margin: 0;
+    top: $arrow-size;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: $color transparent;
+    border-width: 0 $arrow-size;
+
+    opacity: 0.5;
+
+    margin-right: - $arrow-size * 2.5;
+    margin-top: $arrow-size;
+  }
+
+  &::before {
+    border-top-width: $arrow-size;
+  }
+
+  &::after {
+    border-bottom-width: 0;
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    &::before,
+    &::after {
+      margin-top: $arrow-size;
+      top: 0;
+    }
+
+  }
+
+  &.sub-menu-link {
+
+    &::before,
+    &::after {
+      margin-top: 1em;
+      margin-right: -$arrow-size;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+
+      &::before,
+      &::after {
+        margin-top: 1em;
+        margin-right: 1em;
+        top: 0;
+
+        border-color: transparent $color;
+        border-width: $arrow-size 0;
+      }
+
+      &::before {
+        border-width: $arrow-size;
+        border-right-width: 0;
+        right: - $arrow-size;
+      }
+
+      // invisible in this state
+      &::after {
+        border-width: $arrow-size;
+        border-left-width: 0;
+        border-right-width: 0;
+        right: 0;
+      }
+    }
+
+  }
+
+}
+
+@mixin toggle-indicator-inverse($color : $primary-color, $arrow-size : $default-arrow-size) {
+  &::before,
+  &::after {
+    @extend %transition;
+    border-color: $color transparent;
+  }
+
+  &::before {
+    top: $arrow-size;
+    border-top-width: 0;
+  }
+
+  &::after {
+    border-bottom-width: $arrow-size;
+  }
+
+  &.sub-menu-link {
+
+    &::before,
+    &::after {
+      margin-top: 1em;
+      margin-right: -$arrow-size;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      &::before,
+      &::after {
+        margin-top: 1em;
+        margin-right: 1em;
+        top: 0;
+
+        border-color: transparent $color;
+        border-width: $arrow-size 0;
+      }
+
+      // invisible in this state
+      &::before {
+        border-width: $arrow-size;
+        border-left-width: 0;
+        border-right-width: 0;
+        right: 0;
+      }
+
+      &::after {
+        border-width: $arrow-size;
+        border-left-width: 0;
+        right: 0;
+      }
+    }
+
+  }
+}
+
+@mixin placeholder-style($align : center, $color: $primary-color) {
+  ::-webkit-input-placeholder {
+    text-align: $align;
+    color: $color;
+    //line-height: 0;
+  }
+
+  :-moz-placeholder { /* Firefox 18- */
+    text-align: $align;
+    color: $color;
+    //line-height: 0;
+  }
+
+  ::-moz-placeholder { /* Firefox 19+ */
+    text-align: $align;
+    color: $color;
+    //line-height: 0;
+  }
+
+  :-ms-input-placeholder {
+    text-align: $align;
+    color: $color;
+    line-height: 0;
+  }
+}
+
+@mixin toggle-indicators($normalColor : $primary-color, $highlightColor : $highlight-color-1) {
+  &.menu-item-has-children {
+    & > a {
+      @include toggle-indicator($normalColor);
+    }
+
+    &.opened > a {
+      @include toggle-indicator-inverse($normalColor);
+    }
+
+    &:hover > a {
+      @include toggle-indicator-inverse($highlightColor);
+    }
+  }
+}
+
+%button-fixed--bottom {
+  @include button-highlight;
+  padding: 0.25em 0.5em;
+  border-radius: 0;
+
+  @extend %z-layer-modal;
+  position: fixed !important;
+
+  backface-visibility: hidden;
+  display: block;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  //height: auto;
+
+  height: 3.5rem;
+  line-height: 3.5;
+  font-size: 1.5rem;
+
+  &, a {
+    //font-size: 1.5em;
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    position: static !important;
+    //border-radius: 1em;
+    font-size: inherit;
+    padding: 0.25rem 0.5rem;
+
+    height: auto;
+    line-height: 1;
+  }
+}
+
+%list {
+  @extend %reset;
+
+  li {
+    $offset: 2 * $header-padding;
+    display: block;
+    padding-left: $offset;
+    margin-bottom: $offset;
+
+    &:before {
+      //content: '\f04b'; /* triangle left */
+      content: '\f111'; /* bullet */
+      font-family: 'FontAwesome';
+      color: $highlight-color-1;
+      display: inline;
+      margin-right: $offset;
+      margin-left: - 2 * $offset; /* compensate for padding-left and margin-right */
+      font-size: 7px;
+      top: -0.4em;
+      position: relative
+    }
+
+    ul,
+    ol {
+      padding-top: $header-padding;
+    }
+  }
+}
+
+%layout--image-next-to-text {
+
+  &.no-image {
+    &:before {
+      padding-bottom: 0 !important;
+    }
+  }
+
+  > a,
+  > .image-container {
+    position: relative;
+    height: 0;
+    padding: 0;
+    padding-bottom: $aspect-ratio-16-by-9;
+    width: 100%;
+    display: block;
+
+    img {
+      width: 100%;
+      min-height: 0;
+    }
+
+    > .image-container {
+      display: block;
+      position: absolute;
+      padding: 0;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+
+      img {
+        width: 100%;
+        min-height: 0;
+      }
+    }
+  }
+
+  .content-container {
+    position: relative !important;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0.5em;
+
+    .content-wrapper {
+      width: auto;
+    }
+  }
+
+  > .content-container {
+    text-align: left;
+
+    .flexible-content-link {
+      @include button-highlight;
+      display: inline-block;
+    }
+  }
+
+  @include breakpoint($breakpoint-medium) {
+    display: table;
+    table-layout: fixed;
+    direction: ltr;
+    width: 100%;
+    position: relative !important;
+
+    > a,
+    > .image-container {
+      display: table-cell;
+      float: none;
+      padding-bottom: 35% !important;
+      width: 35%;
+    }
+
+    > .content-container {
+      display: table-cell;
+      width: 100%;
+      vertical-align: middle;
+      direction: ltr;
+      padding: $header-padding;
+    }
+
+    &.has-image {
+      > .content-container {
+        width: 65%;
+      }
+    }
+  }
+
+}
+
+%layout--square {
+  .image-container {
+    @include breakpoint($breakpoint-medium) {
+      padding-bottom: $aspect-ratio-square !important;
+    }
+  }
+
+  &.no-image {
+    &:before {
+      @include breakpoint($breakpoint-medium) {
+        padding-bottom: $aspect-ratio-square !important;
+      }
+    }
+
+    .content-container {
+      padding: 0;
+      position: absolute;
+    }
+  }
+}
+
+%layout--image-above-text {
+  &.has-image {
+    .content-container {
+      position: static !important;
+    }
+  }
+}
+
+%layout--image-behind-text {
+  .content-container {
+    position: absolute !important;
+  }
+}
+
+%animation--animatedBackground {
+  @keyframes animatedBackground {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.35);
+    }
+  }
+
+  animation: animatedBackground 65s alternate infinite;
+}
+
+%header-fixed--top {
+  @include breakpoint($breakpoint-medium) {
+    position: fixed !important;
+    top: 0;
+    width: 100%;
+
+    + ._global-page-header {
+      margin-top: $header-navbar-height;
+    }
+
+    .admin-bar & {
+      margin-top: $admin-bar-height;
+    }
   }
 }

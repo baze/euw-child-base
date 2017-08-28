@@ -1,0 +1,29 @@
+._module-downloads {
+  @extend %clear;
+
+  ul {
+    @extend %reset;
+    @extend %clear;
+
+    li {
+      @extend %clear;
+      display: block;
+      padding: 0.5em 0;
+      border-bottom: 1px solid $primary-color;
+      text-align: left;
+      //margin-bottom: gutter();
+
+      .download-title {
+        @include span(5 of 12);
+        @include first;
+        @extend %reset;
+      }
+
+      a {
+        @include button-positive;
+        @include last;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,14 @@
+{% extends 'container.twig' %}
+
+{% block content %}
+    <section class="_content _content-page _content-standorte">
+
+        {% include('_modules/_module-map.twig') with {'map' : map_planungsberater }%}
+        {% include('_modules/_module-standorte-list.twig') %}
+
+        {% include('_modules/_module-entry-content.twig') %}
+        {% include('_modules/_module-flexible-content.twig') %}
+        {#{% include('_modules/_module-contactform.twig') %}#}
+        {#{% include('_modules/_module-directions.twig') %}#}
+    </section>
+{% endblock %}

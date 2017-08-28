@@ -1,0 +1,50 @@
+.leistungen {
+
+  &--med {
+    @extend %content-container;
+
+    &.flexible-content-article {
+
+      @include breakpoint($breakpoint-small-medium) {
+        @include gallery(6);
+      }
+      @include breakpoint($breakpoint-medium) {
+        @include gallery(4);
+      }
+
+      background: none !important;
+      padding: 0;
+
+      border: 1px solid lighten($primary-color, 50);
+      border-bottom: 4px solid $highlight-color-1;
+
+      .image-container {
+        padding-bottom: 54.54%;
+
+        img {
+          width: 100%;
+          height: auto;
+        }
+      }
+
+      .content-container {
+        position: static;
+        padding: 1em;
+
+        .content {
+          text-align: left;
+        }
+      }
+
+      .flexible-content-headline,
+      .flexible-content-text {
+        @extend %reset;
+        color: $primary-color;
+        margin-bottom: 1em;
+      }
+
+    }
+
+  }
+
+}

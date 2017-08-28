@@ -1,32 +1,69 @@
+*, *:before, *:after {
+  -webkit-box-sizing: border-box !important;
+  -moz-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+html, body {
+  max-width: 100%;
+}
+
 %content {
   @extend %container-inner;
 }
 
-*, *:before, *:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
+body {
+  color: $primary-color;
+  background-color: $body-background;
+  direction: ltr;
+
+  .admin-bar {
+    margin-top: $admin-bar-height;
+  }
+
+  > .wrapper {
+    //@extend %container-outer;
+    //box-shadow: 0 0 20px transparentize($black, 0.75);
+    position: relative;
+    //background-color: $secondary-color;
+    //min-height: 100vh;
+  }
+}
+
+svg, img {
+  @extend %fleximage;
+}
+
+img {
+  &.alignnone,
+  &.alignleft,
+  &.alignright,
+  &.aligncenter {
+    width: auto;
+    max-width: 100%;
+    clear: both;
+  }
 }
 
 svg {
   max-height: 100% !important;
 }
 
-html, body {
-  max-width: 100%;
-  overflow-x: hidden;
+.btn {
+  @include button-positive;
+
+  &.btn--highlight {
+    @include button-highlight;
+  }
+
+  &.btn--block {
+    display: block;
+  }
+
+  &.btn--large {
+    font-size: 1em;
+  }
 }
 
-body {
-  color: $primary-color;
-  background-color: $body-background;
-}
-
-.wrapper {
-  @extend %z-layer-2;
-  position: relative;
-  max-width: 1280px;
-  margin: 0 auto;
-  background-color: $white;
-  box-shadow: 0 0 4em 0 rgba(0, 0, 0, 0.25);
-}
+$primary-font: 'sans-serif' !default;
+$secondary-font: 'sans-serif' !default;

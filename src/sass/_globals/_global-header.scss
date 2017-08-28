@@ -1,18 +1,194 @@
+$header-background-color: lighten($black, 97.5);
+
 ._global-header {
   @extend %z-layer-ui;
+  @extend %transition;
+  @extend %header-fixed--top;
 
-  position: absolute;
   width: 100%;
-  top: 0;
-  left: 0;
 
-  @include breakpoint($breakpoint-medium) {
-    padding: 0;
+  border: 1px solid $header-background-color;
+
+  > .container {
+
+    &:first-child {
+      > .container-inner {
+        padding: 0;
+      }
+    }
+
   }
 
-}
+  @include breakpoint($breakpoint-medium) {
+    //position: fixed;
+    //top: 0;
 
-//._global-header-logo{ svg, img{ @extend %fleximage; } }
+    > .container {
+      transition: max-height 185ms linear;
+      overflow: hidden;
+      max-height: $header-logo-height + 2 * $header-padding;
+    }
+  }
 
-._global-header-navigation {
+  ._global-header-navbar {
+    @extend %z-layer-ui;
+    //background: lighten($primary-color, 42.5);
+    background: $secondary-color;
+    position: static;
+
+    > .container {
+      @extend %z-layer-1;
+    }
+  }
+
+  &-logo {
+    height: $header-navbar-height;
+  }
+
+  .nav-toggle {
+    @include span(6 of 12);
+    @include first;
+    padding: $header-padding 0;
+    text-align: left;
+  }
+
+  &-navigation,
+  &-navigation--aux nav {
+    height: auto;
+
+    @include breakpoint($breakpoint-medium) {
+      height: $header-navbar-height;
+    }
+  }
+
+  &-navigation {
+    @include breakpoint($breakpoint-medium) {
+      > ul {
+        padding-right: gutter();
+      }
+    }
+  }
+
+  &-navigation--contact {
+    height: 0;
+
+    @include breakpoint($breakpoint-medium) {
+      height: $header-navbar-height;
+    }
+  }
+
+  &-logo {
+    width: span(4 of 12);
+    padding: 2 * $header-padding 0;
+    height: auto;
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+      @include first;
+      height: $header-navbar-height;
+
+      padding: 0;
+    }
+  }
+
+  &-navigation {
+    @include breakpoint($breakpoint-medium) {
+      @include span(8 of 12);
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  &-navigation--contact {
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+      position: relative;
+      z-index: 5;
+    }
+
+    li {
+      flex-grow: 1 !important;
+      max-width: 100%;
+      font-size: 70% !important;
+
+      > * {
+        @include button($highlight-color-1, $secondary-color, $highlight-color-1, 0);
+        height: auto;
+        font-size: 100%;
+      }
+    }
+
+    .businessinfo-contact {
+
+      .businessinfo-aux {
+        display: none;
+      }
+
+      a {
+        &:before {
+          font-family: 'FontAwesome';
+        }
+      }
+
+      &--telephone {
+        @extend %button-fixed--bottom;
+
+        a {
+          &:before {
+            content: '\f095';
+          }
+        }
+
+      }
+    }
+  }
+
+  &-navigation--aux {
+    @extend %center;
+    @include span(6 of 12);
+    @include last;
+    padding: $header-padding 0;
+
+    ul {
+      justify-content: flex-end;
+    }
+
+    display: table;
+    margin: auto;
+
+    a {
+      padding-left: 0;
+      padding-right: 0;
+      width: 3em;
+      text-align: right;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+      @include last;
+      padding: 0;
+
+      color: $highlight-color-1;
+
+      li {
+        flex-grow: 1 !important;
+      }
+
+      a {
+        width: auto;
+        text-align: center;
+      }
+    }
+
+    ._module-social {
+      .social-link-title {
+        display: none;
+      }
+    }
+
+    ._snippet-search-form {
+      height: 100%;
+    }
+  }
+
 }

@@ -1,0 +1,48 @@
+<section class="_module-usp">
+
+    <div class="container usp-navigation">
+        <div class="container-inner">
+            <nav>
+                <ul>
+                    {% for item in post.get_field('usp_items') %}
+                        <li>
+                            <a href="#{{ item.identifier }}">{{ item.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="container-inner">
+            {% if post.usp_headline %}
+                <h2 class="section-headline">{{ post.usp_headline }}</h2>
+            {% endif %}
+
+            <div class="usp-items">
+                {% for item in post.get_field('usp_items') %}
+                    <div class="usp-entry" id="{{ item.identifier }}">
+
+                        <div class="usp-image">
+                            <div class="usp-wrapper">
+                                <img src="{{ TimberImage(item.image|default(placeholder(300, 300)))|resize(300) }}"
+                                     alt="">
+                            </div>
+                        </div>
+
+                        <div class="usp-content">
+                            <div class="usp-wrapper">
+                                <h3 class="usp-title">{{ item.title }}</h3>
+                                <h4 class="usp-subtitle">{{ item.subtitle }}</h4>
+                                <div class="usp-text">{{ item.text }}</div>
+                            </div>
+                        </div>
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</section>

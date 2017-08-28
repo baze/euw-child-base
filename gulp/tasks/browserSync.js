@@ -10,8 +10,8 @@ gulp.task('browserSync', ['build'], function() {
         //server: {
         //    baseDir: 'public'
         //}
-        //host: "mt.dev",
+        host: "ifsm.dev"
         //proxy: '192.168.33.20'
-        proxy: '127.0.0.1:8080'
+        // proxy: '127.0.0.1:8000'
     });
 });

@@ -1,15 +1,35 @@
-._global-content {
+._content {
+  @extend %clear;
 
+  &.has-sidebar {
+    @include breakpoint($breakpoint-medium) {
+      @include span(8 of 12 first);
+
+      &--left {
+        @include span(8 of 12 last);
+      }
+    }
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+
+  a {
+    //font-weight: $font-weight-bold;
+    //color: $highlight-color-1;
+  }
 }
 
-._content-page {
-  padding: 3em 0 3em 0;
+._content-impressum-tmg {
+  &-company,
+  &-respresented,
+  &-contact,
+  &-register,
+  &-vat {
+    margin-bottom: 1em;
+  }
 }
 
-.content-title,
-.section-headline {
-  text-transform: uppercase;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 1.5em;
-}
+
+

@@ -1,0 +1,10 @@
+{% if content.file %}
+    {% set file = get_file(content.file.id) %}
+    {% set filetype = content.file['mime_type']|split('/') %}
+
+    <a href="{{ content.file['url'] }}" {{ content.target ? 'target="_blank"' : '' }}
+       class="btn">
+
+        <i class="fa fa-file-{{ filetype[1] }}-o"></i> {{ content.title }}
+    </a>
+{% endif %}

@@ -1,0 +1,18 @@
+{% extends 'container.twig' %}
+
+{% block content %}
+    {% if testimonials %}
+        <section class="_module-testimonials">
+            {% set slides = testimonials %}
+
+            <div class="_module-slider flexslider flexslider--slide">
+                <ul class="slides">
+                    {% for slide in slides %}
+                        {% set slide = TimberPost(slide) %}
+                        <li>{% include '_snippets/_snippet-testimonial.twig' with {'testimonial' : slide} %}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

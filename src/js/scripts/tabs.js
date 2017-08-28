@@ -4,28 +4,32 @@ var $ = require('jquery');
 
 module.exports = function () {
     $(function () {
-        var tabItems = $('.tabs-nav li a'),
-            tabContentWrapper = $('.tabs-list');
 
-        var activeItems = tabItems.find('.active');
+        $('.tabs-navigation').each(function() {
 
-        if (!activeItems.length) {
-            var selectedItem = tabItems.first();
-            selectTab(selectedItem);
-        }
+            var tabItems = $(this).find('li a');
+            var activeItems = tabItems.find('.active');
 
-        tabItems.on('click', function (event) {
-            event.preventDefault();
-
+            if (!activeItems.length) {
+                var selectedItem = tabItems.first();
+                selectTab(selectedItem);
+            }
+        }).find('li a').on('click touchstart MSPointerDown mouseenter', function (event) {
             var selectedItem = $(this);
 
-            if (!selectedItem.hasClass('active')) {
-
+            if (! selectedItem.hasClass('active')) {
+                event.preventDefault();
                 selectTab(selectedItem);
             }
         });
 
         function selectTab(selectedItem) {
+
+            var tabNavigation = selectedItem.parents('.tabs-navigation');
+            var tabContentWrapper = tabNavigation.siblings('.tabs-content');
+
+            var tabItems = tabNavigation.find('li a');
+
             var selectedTab = selectedItem.data('content');
             var selectedContent = tabContentWrapper.find('li[data-content="' + selectedTab + '"]');
 
@@ -33,16 +37,6 @@ module.exports = function () {
             selectedItem.addClass('active');
             selectedContent.addClass('active').siblings('li').removeClass('active');
         }
-
-        $('.btn[data-viewtype]').on('click', function (event) {
-            event.preventDefault();
-
-            var viewType = $(this).data('viewtype');
-
-            $(this).addClass('active').siblings('a').removeClass('active');
-
-            tabContentWrapper.removeClass('grid list').addClass(viewType);
-        });
 
     });
 

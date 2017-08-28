@@ -1,0 +1,40 @@
+._global-footer-sitemap {
+
+  ul {
+    @extend %reset;
+    display: none;
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+    }
+
+    li {
+      display: block;
+
+      a {
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
+    }
+
+  }
+
+  > ul {
+
+   > li {
+     margin-bottom: 1em;
+
+     > a {
+       //font-weight: $font-weight-bold;
+     }
+
+    }
+
+  }
+
+}

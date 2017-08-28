@@ -1,0 +1,22 @@
+<article class="flexible-content-article accordion">
+    <ul>
+        {% for section in content.sections %}
+            <li>
+                <h3 class="accordion-headline flexible-content-headline">{{ section.title }}</h3>
+
+                <div class="accordion-inner">
+                    <div class="flexible-content-text">
+                        {{ section.text | the_content }}
+                    </div>
+
+                    {% set link = section.link_type == 'internal' ? section.link ? TimberPost(section.link).link : null : section.link_url %}
+
+                    {% if link %}
+                        <a class="btn flexible-content-link"
+                           href="{{ link }}">{{ section.link_text|default(__('Mehr erfahren')) }}</a>
+                    {% endif %}
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+</article>

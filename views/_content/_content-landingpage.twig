@@ -1,0 +1,13 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <div class="container-inner">
+        <section class="_content _content-page _content-landingpage {{ post.show_sidebar ? 'has-sidebar' : '' }}">
+            {% include('_modules/_module-lp-benefits.twig') %}
+        </section>
+
+        {% include('_modules/_module-sidebar.twig') %}
+    </div>
+
+    {% include('_modules/_module-flexible-content.twig') %}
+{% endblock %}

@@ -1,0 +1,34 @@
+<div class="_global-header-navbar">
+    <div class="container">
+        <div class="container-inner">
+            {#{% include('_globals/_global-header-logo.twig') %}#}
+
+            <nav class="_global-header-navigation--aux" role="navigation">
+                {#{% include '_snippets/_snippet-language-switcher.twig' %}#}
+                {#{% include '_snippets/_snippet-search-form.twig' %}#}
+                {#{% include('_globals/_global-header-cta.twig') %}#}
+                {#{% include('_menus/_menu.twig') with {'menu': menu_custom} %}#}
+                {% include '_modules/_module-social.twig' %}
+            </nav>
+
+            {% include('_globals/_global-header-navigation.twig') %}
+
+            <nav class="_global-header-navigation--contact" role="navigation">
+                <ul class="menu businessinfo-contact">
+                    <li>
+                        {% if options.telefon %}
+                            <span class="businessinfo-contact--telephone"
+                                  itemprop="telephone"
+                                  content="{{ options['telefon-link'] }}">
+                            <span class="businessinfo-aux">{{ _e('Telefon:') }}</span>
+                            <a href="tel:{{ options['telefon-link'] }}">
+                                {{ options.telefon }}
+                            </a>
+                        </span>
+                        {% endif %}
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,288 @@
+$header-background-color: lighten($black, 97.5);
+
+._global-page-header {
+  position: relative;
+  background: $header-background-color;
+
+  /* so nothing is hidden by the fixed menu */
+  //margin-top: $header-navbar-height;
+
+  @include breakpoint($breakpoint-medium) {
+    margin-top: 0;
+  }
+
+  > .container {
+
+    &:first-child {
+      > .container-inner {
+        padding: 0;
+      }
+    }
+
+  }
+
+  ._global-header-link,
+  ._module-opening-hours {
+    margin: $header-padding 0;
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+      @include last;
+
+      margin: 0;
+      display: table;
+      height: $header-navbar-height * 1.5;
+    }
+  }
+
+  ._module-opening-hours {
+    @extend %center;
+    //color: $highlight-color-1;
+    font-family: $primary-font;
+
+    .opening-hours {
+      display: none;
+
+      &:first-child {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+
+    .section-title {
+      @extend %reset;
+      text-align: left;
+    }
+
+  }
+
+  ._global-header-link {
+    text-align: right;
+    padding: 1.5em 0;
+
+    .flexible-content-link {
+      @include button-highlight;
+      font-size: 140%;
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .flex-control-paging {
+    display: none;
+    left: 1rem;
+    text-align: left;
+    width: span(4 of 12);
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+    }
+  }
+
+  .flex-direction-nav {
+    display: none;
+  }
+
+  ._snippet-slide {
+
+    &.flexible-content-article {
+      margin-bottom: 0;
+
+      text-align: left;
+
+      .page-template-_template-front-page &,
+      &.no-image {
+        background: $highlight-color-1;
+      }
+
+      .image-container {
+        @extend %fit-image-vertically;
+        //padding-bottom: $aspect-ratio-half;
+
+        display: block;
+        padding-bottom: $aspect-ratio-page-header;
+
+        .page-template-_template-front-page & {
+          padding-bottom: $aspect-ratio-page-header-home;
+        }
+
+        img {
+          /* not supported everywhere! */
+          object-fit: cover;
+
+          width: auto;
+          height: auto;
+
+          min-width: 100%;
+          min-height: 100%;
+          max-width: none;
+          max-height: 100%;
+
+          //@extend %animation--animatedBackground;
+        }
+
+        &::after {
+          opacity: 1;
+
+          background: linear-gradient(to right,
+                  $header-background-color,
+                  transparentize($header-background-color, 1) 33%,
+                  transparentize($header-background-color, 1));
+
+          @include breakpoint($breakpoint-medium) {
+            background: linear-gradient(to right,
+                    $header-background-color,
+                    //transparentize($header-background-color, 0) 10%,
+                    //transparentize($header-background-color, 1) 20%,
+                    transparentize($header-background-color, 0.1) 20%,
+                    transparentize($header-background-color, 1) 40%,
+                    transparentize($header-background-color, 1));
+          }
+
+          .page-template-_template-front-page & {
+            display: none !important;
+
+            //background: linear-gradient(to right,
+            //        $highlight-color-1,
+            //        transparentize($highlight-color-1, 1) 33%,
+            //        transparentize($highlight-color-1, 1));
+
+            @include breakpoint($breakpoint-medium) {
+              display: none !important;
+
+              //background: linear-gradient(to right,
+              //        $highlight-color-1,
+              //        transparentize($highlight-color-1, 0) 33%,
+              //        transparentize($highlight-color-1, 1) 78%,
+              //        transparentize($highlight-color-1, 1));
+            }
+          }
+        }
+      }
+
+      .content-container {
+        position: static;
+      }
+
+      &.has-image {
+        .container,
+        .content-wrapper {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        .page-template-_template-front-page & {
+          .content-wrapper {
+            padding: 0.5em;
+          }
+        }
+
+        @include breakpoint($breakpoint-medium) {
+          .content-container {
+            position: absolute;
+          }
+
+          .container,
+          .content-wrapper {
+            padding: 0;
+          }
+
+          .content-wrapper {
+            @include span(3 of 12);
+          }
+
+          .page-template-_template-front-page & {
+            .content-wrapper {
+              padding: 1em;
+            }
+          }
+
+        }
+
+      }
+
+      &.no-image {
+        .content-container {
+          padding: 4 * $header-padding 0;
+        }
+      }
+
+      .content {
+        vertical-align: middle;
+      }
+
+      .content-wrapper {
+        position: relative;
+        display: inline-block;
+
+        * {
+          @extend %z-layer-2;
+        }
+      }
+
+      .flexible-content-headline,
+      .flexible-content-subtitle,
+      .flexible-content-supporting-title,
+      .flexible-content-text {
+        @extend %reset;
+        color: $primary-color;
+        text-transform: none;
+        font-weight: $font-weight-light;
+      }
+
+      &.no-image {
+        .flexible-content-headline {
+          color: $secondary-color;
+        }
+      }
+
+      &.has-image {
+        .flexible-content-headline {
+          color: $highlight-color-1;
+        }
+      }
+
+      .page-template-_template-front-page & {
+        &.has-image,
+        &.no-image {
+          .flexible-content-headline,
+          .flexible-content-subtitle,
+          .flexible-content-supporting-title,
+          .flexible-content-text {
+            color: $secondary-color;
+          }
+        }
+      }
+
+      .flexible-content-headline,
+      .flexible-content-subtitle,
+      .flexible-content-text {
+        @extend %reset;
+        //font-size: 1.2em;
+        font-size: 1.8em;
+      }
+
+      .flexible-content-headline {
+        //font-size: 2em;
+        text-transform: uppercase;
+      }
+
+      .flexible-content-supporting-title {
+        margin-bottom: 1rem;
+      }
+
+      .flexible-content-text {
+        margin-top: 1rem;
+      }
+
+      .flexible-content-link {
+        @include button-negative;
+        font-size: 100%;
+        margin-top: 1rem;
+      }
+
+    }
+
+  }
+
+}

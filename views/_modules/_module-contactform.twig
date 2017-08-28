@@ -1,0 +1,19 @@
+{#{% extends "container.twig" %}#}
+
+{% block content %}
+    {% if post.get_field('contactform_form') %}
+        <section class="_module-contactform" id="contactform">
+            {% if post.get_field('contactform_headline') %}
+                <h2 class="contactform-headline">{{ post.get_field('contactform_headline') }}</h2>
+            {% endif %}
+
+            {% if post.get_field('contactform_description') %}
+                <div class="contactform-description">{{ post.get_field('contactform_description') }}</div>
+            {% endif %}
+
+            <div class="contactform_form">
+                {{ post.get_field('contactform_form') }}
+            </div>
+        </section>
+    {% endif %}
+{% endblock %}

@@ -1,11 +1,66 @@
-@import 'screen';
+@import "../../bower_components/normalize-scss/normalize";
+@import "_colors";
+@import "_breakpoints";
+@import "_grid";
+@import "_typography";
+@import "_variables";
+@import "_mixins";
+@import "_settings";
+@import "_ui/_z-index";
+@import "_ui/links";
+@import "_ui/dropdown";
+@import "_ui/_responsive-nav";
+@import "_ui/_flexslider";
+
+@import "_globals/global-navigation";
 
 @import "_globals/global-header";
-@import "_globals/global-navigation";
-@import "_globals/global-main";
-@import "_globals/global-footer";
-@import "_modules/_module-page-header";
+  @import "_globals/global-header-logo";
+  @import "_globals/global-header-navigation";
+  @import "_globals/global-header-social";
+  @import "_globals/global-page-header";
+  @import "_modules/_module-opening-hours";
 
-.page-header-image {
-  background-image: url('{{theme.uri}}/dest/img/page-header-image.jpg');
+@import "_modules/_module-page-header";
+//@import "_modules/_module-highlight-post";
+@import "_modules/_module-slider";
+@import "_modules/_module-flexible-content";
+@import "_modules/_module-entry-content";
+//@import "_modules/_module-tabs";
+@import "_modules/_module-posts";
+@import "_modules/_module-related-pages";
+@import "_modules/_module-sidebar";
+//@import "_modules/_module-breadcrumbs";
+
+@import "_snippets/_snippet-search-form";
+//@import "_snippets/_snippet-slide";
+@import "_snippets/_snippet-flexible-content-article";
+@import "_snippets/_snippet-post";
+@import "_snippets/_snippet-person";
+
+@import "_globals/global-main";
+@import "_globals/global-content";
+@import "_content/_content-front-page";
+
+@import "_globals/global-footer";
+@import "_globals/global-footer-navigation";
+
+
+body {
+  //> .wrapper {
+    background: fixed;
+    background-size: auto 100%;
+    background-repeat: repeat-x;
+    background-position: center top;
+    //background-image: url("{{ stylesheet.uri }}/dest/img/bg.jpg");
+  //}
 }
+
+/*
+._global-page-header {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-image: url("{{ theme.uri }}/dest/img/bg-header.jpg");
+}
+*/

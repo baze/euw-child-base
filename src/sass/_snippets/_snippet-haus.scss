@@ -1,0 +1,21 @@
+.haus {
+
+  &--med {
+
+    &.baustelle {
+      .image-container {
+        padding-bottom: $aspect-ratio-16-by-10;
+      }
+    }
+
+  }
+
+  &--full {
+    .flexible-content-headline {
+      br {
+        display: none;
+      }
+    }
+  }
+
+}

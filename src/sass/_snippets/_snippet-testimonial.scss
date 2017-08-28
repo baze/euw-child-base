@@ -1,0 +1,46 @@
+._snippet-testimonial {
+
+  @include breakpoint($breakpoint-huge) {
+    //margin-left: - gutter(4);
+    //margin-right: - gutter(4);
+  }
+
+  .quote {
+    font-style: italic;
+
+    .post--full & {
+      font-size: 2em;
+      line-height: 1.2;
+      color: transparentize($primary-color, 0.5);
+    }
+  }
+
+  .testimonial-name,
+  .testimonial-company {
+    display: block;
+    font-style: normal;
+  }
+
+  .testimonial-company {
+    font-weight: $font-weight-bold;
+  }
+}
+
+blockquote {
+  @extend %reset;
+  border: none;
+  text-align: center;
+
+  .quote {
+    &:before {
+      content: '„';
+    }
+    &:after {
+      content: '“';
+    }
+  }
+
+  h4 {
+    margin-bottom: 0;
+  }
+}

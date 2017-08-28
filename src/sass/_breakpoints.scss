@@ -1,4 +1,4 @@
-@import "../../bower_components/breakpoint-sass/stylesheets/breakpoint";
+@import "../../node_modules/breakpoint-sass/stylesheets/breakpoint";
 
 $grid-max-width: 1280px;
 
@@ -15,7 +15,8 @@ $breakpoint-huge: 75em;
 .breakpoints:after {
   position: fixed;
   right: 0;
-  top: 0;
+  //top: 0;
+  bottom: 0;
   background: rgba(255, 0, 0, 0.25);
   border: 3px solid rgba(255, 0, 0, 1.0);
   color: rgba(255, 0, 0, 1.0);

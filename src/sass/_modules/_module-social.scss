@@ -1,29 +1,15 @@
 ._module-social {
 
-  ul {
-    @extend %reset;
-  }
+  nav {
 
-  li {
-    display: inline;
-    font-size: 2em;
-    line-height: 1.25;
+    > ul {
+      display: flex;
 
-    &:not(:last-child) {
-      margin-right: 0.125em;
-
-      &:after {
-        content: '&';
+      > li {
+        display: flex;
       }
     }
-    
-    a {
-      text-decoration: none;
-    }
-  }
 
-  .fa {
-    display: none;
   }
 
 }

@@ -1,23 +1,52 @@
-%pos-r{ position: relative; }
+%pos-r {
+  position: relative;
+}
 
-$z-layer-normal:0;
+$z-layer-bg: -1;
 
-	$z-layer-1:10;
+$z-layer-normal: 0;
 
-	$z-layer-2:20;
+$z-layer-1: 10;
 
-	$z-layer-3:30;
+$z-layer-2: 20;
 
-$z-layer-ui:500;
+$z-layer-3: 30;
 
-$z-layer-modal:1000;
+$z-layer-ui: 500;
 
-%z-layer-normal{ z-index:$z-layer-normal; @extend %pos-r; }
+$z-layer-modal: 1000;
 
-	%z-layer-1{ z-index:$z-layer-1; @extend %pos-r; }
-	%z-layer-2{ z-index:$z-layer-2; @extend %pos-r; }
-	%z-layer-3{ z-index:$z-layer-3; @extend %pos-r; }
+%z-layer-bg {
+  z-index: $z-layer-bg;
+  @extend %pos-r;
+}
 
-%z-layer-ui{ z-index:$z-layer-ui; @extend %pos-r; }
+%z-layer-normal {
+  z-index: $z-layer-normal;
+  @extend %pos-r;
+}
 
-%z-layer-modal{ z-index:$z-layer-modal; @extend %pos-r; }
+%z-layer-1 {
+  z-index: $z-layer-1;
+  @extend %pos-r;
+}
+
+%z-layer-2 {
+  z-index: $z-layer-2;
+  @extend %pos-r;
+}
+
+%z-layer-3 {
+  z-index: $z-layer-3;
+  @extend %pos-r;
+}
+
+%z-layer-ui {
+  z-index: $z-layer-ui;
+  @extend %pos-r;
+}
+
+%z-layer-modal {
+  z-index: $z-layer-modal;
+  @extend %pos-r;
+}

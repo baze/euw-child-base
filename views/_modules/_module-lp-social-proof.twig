@@ -1,0 +1,19 @@
+<section class="_module-lp-social-proof">
+    <nav>
+        <ul>
+            {% for proof in post.get_field(social_proof_items) %}
+                <li>
+                    <article class="social-proof">
+                        {% if proof.link %}
+                        <a href="{{ proof.link }}">
+                            {% endif %}
+                            <img src="{{ TimberImage(proof.image|default(placeholder(240,160))) }}" alt="">
+                            {% if proof.link %}
+                        </a>
+                        {% endif %}
+                    </article>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</section>

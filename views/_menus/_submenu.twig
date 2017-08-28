@@ -1,0 +1,16 @@
+{% if menu_depth is defined %}
+    {% set menu_depth = menu_depth + 1 %}
+{% else %}
+    {% set menu_depth = 1 %}
+{% endif %}
+<ul class="sub-menu menu-depth-{{ menu_depth }} menu-{{ menu_depth is odd ? 'odd' : 'even' }}">
+    {% for child in item.get_children %}
+        <li class="{{ child.classes | join(' ') }} sub-menu-item {{ child.get_children ? 'dropdown' : '' }}">
+            <a href="{{ child.get_link }}"
+               class="sub-menu-link {{ child.get_children ? 'dropdown-toggle' : '' }}">{{ child.title }}</a>
+            {% if child.get_children %}
+                {% include('_menus/_submenu.twig') with {'item': child, 'menu_depth': menu_depth} %}
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

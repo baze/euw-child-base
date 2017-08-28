@@ -1,0 +1,95 @@
+._snippet-search-form {
+
+  $main-color: $primary-color;
+  $text-align: center;
+  $border-radius: 0;
+  $border-color: $main-color;
+  $background-color: $secondary-color;
+  $button-color: $background-color;
+  $button-border-color: $border-color;
+  $button-text-color: $main-color;
+  $placeholder-color: lighten($main-color, 20);
+
+  display: table-cell;
+  vertical-align: middle;
+  height: $header-navbar-height;
+
+  * {
+    @extend %form-reset;
+    height: $header-text-height;
+  }
+
+  .screen-reader-text {
+    display: none;
+  }
+
+  .search-form {
+    display: table;
+    table-layout: fixed;
+    height: $header-text-height;
+    width: 100%;
+    //font-size: 80%;
+
+    > * {
+      height: $header-text-height;
+      display: table-cell;
+      vertical-align: top;
+      line-height: 0;
+    }
+
+    > label {
+      width: 100%;
+    }
+  }
+
+  .search-field {
+    background-color: $background-color;
+    border: 1px solid $border-color;
+    border-right: none;
+    border-radius: $border-radius 0 0 $border-radius;
+    padding: 0.5em;
+    width: 100%;
+    text-align: $text-align;
+  }
+
+  .search-submit {
+    @include button($button-color, $button-color, $button-border-color);
+    width: $header-text-height;
+    height: $header-text-height;
+
+    font-weight: $font-weight-normal;
+    border-left: none;
+    font-size: 100%;
+    padding: 0;
+    float: right;
+    border-radius: 0 $border-radius $border-radius 0;
+    color: transparent;
+    position: relative;
+
+    background-color: $button-color;
+
+    &:hover,
+    &:focus,
+    &:active,
+    &[data-viewtype]:not(.active) {
+      color: transparent;
+      opacity: 1;
+    }
+
+    &::before {
+      @extend %reset;
+      color: $button-text-color;
+      position: absolute;
+      font-family: 'FontAwesome';
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      content: '\f002';
+      line-height: $header-text-height;
+    }
+  }
+
+  @include placeholder-style($text-align, $placeholder-color);
+}

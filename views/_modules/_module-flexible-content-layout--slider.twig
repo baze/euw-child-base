@@ -1,0 +1,9 @@
+{% if content.slides %}
+    <div class="_module-slider flexslider">
+        <ul class="slides">
+            {% for slide in content.slides %}
+                <li>{% include ['_snippets/_snippet-flexible-content-article.twig'] with {'content': slide} %}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

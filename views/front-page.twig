@@ -1,0 +1,16 @@
+{% extends "base.twig" %}
+
+{% block page_header %}
+    <div class="container">
+        <div class="container-inner">
+            {% include('_modules/_module-slider.twig') with { 'is_page_header' : true } %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block breadcrumbs %}
+{% endblock %}
+
+{% block content %}
+    {% include ['_content/_content-front-page.twig', '_content/_content-home.twig'] %}
+{% endblock %}

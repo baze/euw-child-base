@@ -1,0 +1,7 @@
+{% if post.get_field('key_facts') %}
+    <section class="_module-key-facts columns-{{ post.get_field('key_facts')|length }}">
+        {% for content in post.get_field('key_facts') %}
+            {% include ['_snippets/_snippet-flexible-content-article.twig'] with {'content': content} %}
+        {% endfor %}
+    </section>
+{% endif %}

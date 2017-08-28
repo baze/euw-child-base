@@ -1,0 +1,46 @@
+{% if prices %}
+    <section class="_module-pricing-table">
+        <div class="pricing-table">
+            {% for price in prices %}
+                <div class="price {{ price.highlight ? 'highlight' : '' }}">
+
+                    {% if price.title %}
+                        <header class="price--header">
+                            <h3 class="price--title">
+                                {{ price.title }}
+
+                                {% if price.subtitle %}
+                                    <small class="price--subtitle">{{ price.subtitle }}</small>
+                                {% endif %}
+                            </h3>
+                        </header>
+                    {% endif %}
+
+                    {% if price.price %}
+                        <div class="price--main">
+                            <div class="price--price">
+                                <span class="currency">{{ currency|default('€') }}</span>
+
+                                {{ price.price }}
+
+                                {% if price.per %}
+                                    <span class="price--per">{{ price.per }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+
+                    {% if price.url %}
+                        <footer class="price--footer">
+                            <a href="{{ price.url }}"
+                               class="btn price--cta">{{ price.button_text | default('default cta label') }}</a>
+                        </footer>
+                    {% endif %}
+
+
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}

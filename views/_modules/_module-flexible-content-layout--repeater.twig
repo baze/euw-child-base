@@ -1,0 +1,24 @@
+<div>
+    {% for item in content.items %}
+
+        <article>
+            <h3 class="section-headline">{{ item.title }}</h3>
+
+            <div>{{ item.content }}</div>
+
+            {% if item.linked_object %}
+
+                {% if item.linked_object_title %}
+                    <h4 class="section-headline">{{ item.linked_object_title }}</h4>
+                {% endif %}
+
+                {% set linked_object = TimberPost(item.linked_object) %}
+                {% include '_snippets/_snippet-' ~ linked_object.post_type ~ '--small.twig' with {'post' :
+                linked_object
+                } %}
+            {% endif %}
+
+        </article>
+
+    {% endfor %}
+</div>

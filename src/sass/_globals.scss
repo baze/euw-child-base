@@ -1,7 +1,17 @@
-@import "_globals/_global-header";
-//@import "_globals/_global-header-search";
 @import "_globals/_global-navigation";
+
+@import "_globals/_global-header";
+	@import "_globals/global-header-logo";
+	@import "_globals/global-header-navigation";
+	//@import "_globals/global-header-social";
+	@import "_globals/global-page-header";
+	//@import "_globals/_global-header-search";
+
 @import "_globals/_global-main";
 	@import "_globals/_global-content";
 //	@import "_globals/_global-sidebar";
+
 @import "_globals/_global-footer";
+	@import "_globals/global-footer-navigation";
+	@import "_globals/global-footer-social";
+	@import "_globals/global-footer-sitemap";

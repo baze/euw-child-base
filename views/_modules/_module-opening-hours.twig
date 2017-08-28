@@ -1,0 +1,38 @@
+{% set business_hours = business_hours|default(options.business_hours) %}
+
+{% if business_hours %}
+    <section class="_module-opening-hours">
+
+        {% for hours in business_hours %}
+
+            <section class="opening-hours">
+                <h3 class="section-title">{{ hours.headline }}</h3>
+
+                <div class="opening-hours--hours">
+                    {% for hour in hours.hours %}
+                        <time itemprop="openingHours" content="
+                {% for day in hour.days %}{{ day.value | capitalize }}{% if not loop.last %},{% endif %}{% endfor %}
+                {{ hour.from }}-{{ hour.to }}
+            ">
+                            {% set dayFirst = hour.days | first.label %}
+                            {% set dayLast = hour.days | last.label %}
+
+                            {% if format == 'short' %}
+                                {% set dayFirst = hour.days | first.label | slice(0, 2) %}
+                                {% set dayLast = hour.days | last.label | slice(0, 2) %}
+                            {% endif %}
+
+                            <span class="opening-hours--date">
+                    {{ dayFirst == dayLast ? dayFirst : dayFirst ~ ' – ' ~ dayLast }}:
+                </span>
+
+                            <span class="opening-hours--time">{{ hour.from }} – {{ hour.to }} {{ _e('Uhr') }}</span>
+                        </time>
+                    {% endfor %}
+                </div>
+            </section>
+
+        {% endfor %}
+
+    </section>
+{% endif %}

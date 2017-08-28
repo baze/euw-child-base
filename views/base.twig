@@ -1,0 +1,58 @@
+{% include 'header.twig' %}
+<body class="{{ body_class }}" itemscope itemtype="http://schema.org/WebPage">
+{#<span class="breakpoints"></span>#}
+{% include '_snippets/_snippet-analytics.twig' %}
+<div class="wrapper">
+
+    {% include('_globals/_global-oldbrowser.twig') %}
+
+    {% block header %}
+        {% include('_globals/_global-header.twig') %}
+    {% endblock %}
+
+    <div class="_global-page-header">
+
+        <div class="container">
+            <div class="container-inner">
+                {% include('_globals/_global-header-logo.twig') %}
+                {% include('_globals/_global-header-link.twig') %}
+                {#{% include('_modules/_module-opening-hours.twig') %}#}
+            </div>
+        </div>
+
+        {% block page_header %}
+            {% include '_modules/_module-page-header.twig' with {
+            'supporting_headline' : post.page_header_supporting_headline,
+            'title' : post.title,
+            'text' : post.page_header_text,
+            'page_header_link' : TimberPost(post.page_header_link),
+            'page_header_link_text' : post.page_header_link_text,
+            'image' : post.page_header_image|default(post.thumbnail.ID)
+            } %}
+        {% endblock %}
+    </div>
+
+    <main class="_global-main {{ post.class }}" role="main" id="main">
+        {% block breadcrumbs %}
+            {% if breadcrumbs %}
+                {% include '_modules/_module-breadcrumbs.twig' %}
+            {% endif %}
+        {% endblock %}
+
+        {% block content %}
+            Sorry, no content
+        {% endblock %}
+    </main>
+
+    {% block footer %}
+        {% include('_globals/_global-footer.twig') %}
+    {% endblock %}
+
+    {% block modal %}
+        {% include '_modules/_module-modal.twig' %}
+    {% endblock %}
+</div>
+{% include('non-critical-assets.twig') %}
+{{ wp_footer }}
+</body>
+</html>

@@ -1,17 +1,3 @@
 ._module-trust-elements {
-
-  .section-headline {
-    color: $grey-600;
-  }
-
-}
-
-.trust-elements {
-  text-align: center;
-}
-
-.trust-entry {
-  display: inline-block;
-  width: 100%;
-  max-width: 156px;
+  background-color: lighten($primary-color, 32.5);
 }

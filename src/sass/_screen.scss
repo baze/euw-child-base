@@ -1,3 +1,6 @@
+//normalize
+@import "../../bower_components/normalize-scss/normalize";
+
 //colors
 @import "_colors";
 
@@ -9,12 +12,11 @@
 
 //Typographic styles
 @import "_typography";
+@import "_variables";
 
 //mixins
 @import "_mixins";
 
-//normalize
-@import "../../bower_components/normalize-scss/normalize";
 figure {
   @extend %reset;
   border: none;
@@ -22,11 +24,13 @@ figure {
   margin: 0;
 }
 
+//Settings
+@import "_settings";
+
 //UI-Elements
 @import "_ui";
 
-//Settings
-@import "_settings";
+@import "_animations";
 
 $primary-font: 'sans-serif' !default;
 $secondary-font: 'sans-serif' !default;

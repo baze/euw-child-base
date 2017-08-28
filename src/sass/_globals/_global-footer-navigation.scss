@@ -1,0 +1,27 @@
+._global-footer-navigation {
+  @extend %clear;
+  @extend %navigation;
+
+  > ul {
+    display: block !important;
+    text-align: inherit;
+
+    > li {
+      line-height: inherit;
+      height: auto;
+      display: inline-block !important;
+
+      @include breakpoint($breakpoint-medium) {
+        display: block !important;
+        line-height: inherit;
+        height: auto;
+
+        a {
+          margin: 0 0.5em;
+          display: inline !important;
+        }
+      }
+    }
+  }
+
+}

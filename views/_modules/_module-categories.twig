@@ -1,0 +1,17 @@
+<section class="entry-content _module-categories accordion">
+    <ul>
+        {% for cat in categories %}
+            <li>
+
+                {% include ['_snippets/_snippet-' ~ cat.taxonomy ~ '--small.twig', '_snippets/_snippet-category--small.twig'] with { 'category' : cat } %}
+
+                <div class="accordion-inner">
+                    {% for post in cat.get_posts({ 'numberposts' : -1 }) %}
+                        {% include ['_snippets/_snippet-' ~ post.post_type ~ '--small.twig', '_snippets/_snippet-post--small.twig'] with { 'post' : post } %}
+                    {% endfor %}
+                </div>
+
+            </li>
+        {% endfor %}
+    </ul>
+</section>

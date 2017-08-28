@@ -1,0 +1,5 @@
+{% extends "base.twig" %}
+
+{% block content %}
+    {% include ['_content/_content-'~post.post_name~'.twig', '_content/_content-page.twig'] %}
+{% endblock %}

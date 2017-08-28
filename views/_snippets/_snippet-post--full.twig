@@ -1,0 +1,22 @@
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--full">
+    {#<header class="post-header">
+        <h1 class="flexible-content-headline">{{ post.post_title }}</h1>
+        {% include '_snippets/_snippet-post-meta.twig' %}
+    </header>#}
+
+    {% if post.content %}
+        {% include('_modules/_module-entry-content.twig') %}
+    {% endif %}
+
+    {% include('_modules/_module-flexible-content.twig') %}
+
+    {#<footer class="post-footer">
+        {% include '_snippets/_snippet-post-social.twig' %}
+
+        <div class="post-author">
+            {% include '_snippets/_snippet-mitarbeiter--med.twig' with {'post' : post.author} %}
+        </div>
+    </footer>#}
+
+    {#{% include '_snippets/_snippet-post-links.twig' %}#}
+</article>

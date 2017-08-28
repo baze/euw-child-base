@@ -1,0 +1,33 @@
+<div class="_module-posts {{ columns > 1 ? 'columns columns-'~columns : 'single' }}">
+
+    {% set posts_headline = posts_headline ? posts_headline : post.posts_headline %}
+
+    {% if posts_headline %}
+        <{{ posts_headline_type|default('h2') }} class="section-title">
+            {{ posts_headline }}
+        </{{ posts_headline_type|default('h2') }}>
+    {% endif %}
+
+    {% if posts %}
+
+        {% for p in posts %}
+            {% if not p.post_type %}
+                {% set p = TimberPost(p) %}
+            {% endif %}
+
+            {% include ['_snippets/_snippet-'~p.post_type~'--'~ snippet_size|default('med') ~'.twig','_snippets/_snippet-post--med.twig'] with {'post' : p } %}
+        {% endfor %}
+
+        {% if post.posts_link and show_posts_link %}
+            <a href="{{ TimberPost(post.posts_link).link }}"
+               class="btn btn--large section-link">{{ post.posts_link_text | default('Mehr Beiträge') }}</a>
+        {% endif %}
+
+        {% include '_snippets/_snippet-pagination.twig' %}
+
+    {% else %}
+
+        <h3>{{ _e('Es wurden keine passenden Inhalte gefunden.') }}</h3>
+
+    {% endif %}
+</div>

@@ -1,0 +1,125 @@
+<article class="flexible-content-article person person--full post--full" {{ post.thumbnail ? 'has-image' : 'no-image' }}
+         itemscope itemtype="http://schema.org/Person">
+
+    <div class="image-container">
+        <figure>
+            {{ responsiveImage(post.thumbnail.ID, 'full') }}
+            <figcaption>
+                {{ post.title }}
+            </figcaption>
+        </figure>
+    </div>
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+
+                    {#{% if post.jobtitle %}
+                    <div class="person-jobtitle">{{ post.jobtitle | raw | nl2br }}</div>
+                    {% endif %}#}
+
+                    {% if post.jurisdiction %}
+                        <div class="person-jurisdiction">{{ post.jurisdiction }}</div>
+                    {% endif %}
+
+                    <div class="person-contact-info">
+                        {% if post.phone %}
+                            <div class="person-contact-info--phone">
+                                <span class="person-contact-info-aux">{{ _e('Telefon:') }}</span>
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <a href="tel:{{ post.phone }}">{{ post.phone }}</a>
+                            </div>
+                        {% endif %}
+
+                        {% if post.fax %}
+                            <div class="person-contact-info--fax">
+                                <span class="person-contact-info-aux">{{ _e('Fax:') }}</span>
+                                <i class="fa fa-fax" aria-hidden="true"></i>
+                                {{ post.fax }}
+                            </div>
+                        {% endif %}
+
+                        {% if post.mobile %}
+                            <div class="person-contact-info--mobile">
+                                <span class="person-contact-info-aux">{{ _e('Mobil:') }}</span>
+                                <i class="fa fa-mobile" aria-hidden="true"></i>
+                                <a href="tel:{{ post.mobile }}">{{ post.mobile }}</a>
+                            </div>
+                        {% endif %}
+
+                        {% if post.email %}
+                            <div class="person-contact-info--email">
+                                <span class="person-contact-info-aux">{{ _e('E-Mail:') }}</span>
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <a href="mailto:{{ post.email }}">{{ post.email }}</a>
+                            </div>
+                        {% endif %}
+
+                        {% if post.homepage %}
+                            <div class="person-contact-info--homepage">
+                                <span class="person-contact-info-aux">{{ _e('Homepage:') }}</span>
+                                <i class="fa fa-home" aria-hidden="true"></i>
+                                {{ post.homepage }}
+                            </div>
+                        {% endif %}
+
+                        {% if post.hours %}
+                            <div class="person-contact-info--hours">
+                                <span class="person-contact-info-aux">{{ _e('Geöffnet:') }}</span>
+                                <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                {{ post.hours | nl2br }}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+                    <section class="professional-information">
+                        {% if post.professional_information_graduations %}
+                            <div class="professional-information--graduations">
+                                <h3 class="section-headline">{{ post.professional_information_graduations_title }}</h3>
+                                <div>{{ post.professional_information_graduations | the_content }}</div>
+                            </div>
+                        {% endif %}
+                        {% if post.professional_information_experience %}
+                            <div class="professional-information--experience">
+                                <h3 class="section-headline">{{ post.professional_information_experience_title }}</h3>
+                                <div>{{ post.professional_information_experience | the_content }}</div>
+                            </div>
+                        {% endif %}
+                        {% if post.professional_information_qualifications %}
+                            <div class="professional-information--qualifications">
+                                <h3 class="section-headline">{{ post.professional_information_qualifications_title
+                                    }}</h3>
+                                <div>{{ post.professional_information_qualifications | the_content }}</div>
+                            </div>
+                        {% endif %}
+                        {% if post.professional_information_coach_since %}
+                            <div class="professional-information--qualifications">
+                                <h3 class="section-headline">{{ post.professional_information_coach_since_title }}</h3>
+                                <div>{{ post.professional_information_coach_since | the_content }}</div>
+                            </div>
+                        {% endif %}
+                        {% if post.professional_information_key_activities %}
+                            <div class="professional-information--key-activities">
+                                <h3 class="section-headline">{{ post.professional_information_key_activities_title
+                                    }}</h3>
+                                <div>{{ post.professional_information_key_activities | the_content }}</div>
+                            </div>
+                        {% endif %}
+                        {% if post.professional_information_languages %}
+                            <div class="professional-information--languages">
+                                <h3 class="section-headline">{{ post.professional_information_languages_title }}</h3>
+                                <div>{{ post.professional_information_languages | the_content }}</div>
+                            </div>
+                        {% endif %}
+                    </section>
+
+                {% include('_modules/_module-entry-content.twig') %}
+                {% include('_modules/_module-flexible-content.twig') %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>

@@ -1,0 +1,59 @@
+<div class="_module-businessinfo" itemscope itemtype="http://schema.org/LocalBusiness">
+    {% if (options.firmenbezeichnung) %}
+        <h3 class="businessinfo-name"><span itemprop="name">{{ options.firmenbezeichnung }}</span></h3>
+    {% endif %}
+
+    {% if options.strasse_hausnummer or options.postleitzahl or options.ort %}
+        <div class="businessinfo-address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+
+            {% if options.strasse_hausnummer %}
+                <span itemprop="streetAddress"
+                      class="businessinfo-address--address">{{ options.strasse_hausnummer }}</span>
+            {% endif %}
+
+            {% if options.postleitzahl or options.ort %}
+                <span class="businessinfo-address--postal-city">
+
+                {% if options.postleitzahl %}
+                    <span itemprop="postalCode">{{ options.postleitzahl }}</span>
+                {% endif %}
+
+                {% if options.ort %}
+                    <span itemprop="addressLocality">{{ options.ort }} </span>
+                {% endif %}
+                </span>
+            {% endif %}
+        </div>
+    {% endif %}
+
+    {% if options.telefon or options.telefax or options['e-mail'] %}
+    <div class="businessinfo-contact">
+        {% if options.telefon %}
+            <span class="businessinfo-contact--telephone" itemprop="telephone">
+                <span class="businessinfo-aux">{{ _e('Telefon:') }}</span>
+                    <a href="tel:{{ options['telefon-link'] }}">
+                        {{ options.telefon }}
+                    </a>
+            </span>
+        {% endif %}
+
+        {% if options.telefax %}
+            <span class="businessinfo-contact--telefax" itemprop="faxNumber">
+                <span class="businessinfo-aux">{{ _e('Telefax:') }}</span>
+                    <a href="tel:{{ options['telefax-link'] }}">
+                        {{ options.telefax }}
+                    </a>
+            </span>
+        {% endif %}
+
+        {% if options['e-mail'] %}
+            <span class="businessinfo-contact--email" itemprop="email">
+                <span class="businessinfo-aux">{{ _e('E-Mail:') }}</span>
+                    <a href="mailto:{{ options['e-mail'] }}">
+                        {{ options['e-mail'] }}
+                    </a>
+            </span>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>

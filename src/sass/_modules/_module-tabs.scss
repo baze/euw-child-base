@@ -1,101 +1,240 @@
 ._module-tabs {
   @extend %clear;
-  //background: grey;
+  position: relative;
 
-  padding-bottom: 3em;
-  margin-bottom: 3em;
-  border-bottom: 1px solid lighten($black, 80%);
-
-  .viewtypes {
-    display: none;
-  }
-
-  .tabs-nav {
-    @include breakpoint($breakpoint-medium) {
-      @include span(3 of 12);
-      overflow: hidden;
-    }
-
-
-
-    //background: green;
-  }
-
-  .tab-title-list {
-    @extend %reset;
-    //background: blue;
+  .tabs {
     display: table;
-    height: 100%;
+    table-layout: fixed;
+    text-align: center;
+    left: 0;
+    top: 0;
     width: 100%;
-    background: lighten($black, 95%);
+    height: 100%;
 
-    border-bottom: 1px solid lighten($black, 80%);
-
-    @include breakpoint($breakpoint-medium) {
-      border-bottom: none;
-    }
-
-    .tab-title {
-      display: table-cell;
-      text-align: center;
-
-      @include breakpoint($breakpoint-medium) {
-        display: table-row;
-        text-align: left;
-      }
-
-      //background: orange
-
-      a {
-        @extend %transition;
-        cursor: pointer;
-        color: lighten($primary-color, 20);
-        display: block;
-        padding: 0.5em 1em;
-        border: 1px solid lighten($black, 97.5%);
-
-        &.active {
-          color: $highlight-color-1;
-          background: $white;
-          border: 1px solid lighten($black, 80%);
-          border-right: none;
-        }
-
-        &:hover {
-          background: lighten($black, 97.5%);
-        }
-      }
-
-    }
-
+    margin-bottom: gutter();
   }
 
-  .tabs-list {
-    @extend %reset;
-    //background: red;
+  .tabs-navigation,
+  .tabs-content {
+    position: relative;
 
-    @include breakpoint($breakpoint-medium) {
-      @include span(9 of 12);
-      @include last;
+    > ul {
+      @extend %reset;
+      display: table;
+      width: 100%;
+      height: 100%;
     }
+  }
 
-    .tab {
-      display: none;
+  .tabs-navigation {
+    li {
+      a {
+        @extend %clear;
+        display: table;
+        table-layout: fixed;
+        height: 100%;
+        vertical-align: middle;
+        width: 100%;
+        font-weight: $font-weight-light;
+        background: transparent;
+        color: $primary-color;
+        direction: ltr;
+
+        .tab-icon,
+        .tab-title {
+          display: table-cell;
+          vertical-align: middle;
+          padding: 1em;
+        }
+
+        .tab-icon {
+          width: 25%;
+          background: lighten($primary-color, 32.5);
+
+          img, svg, i {
+            width: auto;
+          }
+
+          i {
+            font-size: 5em;
+            color: $secondary-color;
+
+            @include breakpoint($breakpoint-medium) {
+              font-size: 1.5em;
+            }
+          }
+
+          svg * {
+            fill: $secondary-color;
+          }
+        }
+
+        .tab-title {
+          width: 100%;
+        }
+
+        &.active,
+        &:hover {
+          text-decoration: none;
+          color: $secondary-color;
+
+          .tab-title {
+            background: lighten($primary-color, 32.5);
+          }
+        }
+
+      }
+    }
+  }
+
+  .tabs-content {
+
+    .tabs-content-entry {
+      //@extend %transition;
+      transition: opacity 185ms ease-in-out;
+      display: block;
+      overflow: hidden;
+      width: 100%;
+      opacity: 0;
 
       &.active {
-        display: block;
+        opacity: 1;
       }
 
-      .tab-headline {
-        display: none;
+      .flexible-content-article {
+        @include span(100%);
+
+        .image-container {
+          //padding-bottom: $aspect-ratio-square;
+        }
       }
 
-      .acf-form-submit .button {
-        @include button($highlight-color-1);
-        font-size: 100%;
-        margin-top: 3em;
+    }
+  }
+
+  &[data-tab-placement="left"],
+  &[data-tab-placement="right"] {
+    width: 100%;
+    height: 100%;
+
+    @include breakpoint($breakpoint-medium) {
+      //position: absolute;
+    }
+
+    .tabs-navigation,
+    .tabs-content {
+      display: table-cell;
+      width: 50%;
+      height: 100%;
+    }
+
+    .tabs-navigation {
+      vertical-align: top;
+
+      li {
+        display: table-row;
+
+        &:not(:last-child) {
+          a {
+            border-bottom: 1px solid transparent;
+
+            @include breakpoint($breakpoint-medium) {
+              border-bottom: 1rem solid transparent;
+            }
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+      width: span(6 of 12) - gutter();
+      display: none;
+
+      @include breakpoint($breakpoint-medium) {
+        display: table-cell;
+      }
+
+      .tabs-content-entry {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+
+        .flexible-content-article {
+          .image-container {
+            padding-bottom: $aspect-ratio-square;
+          }
+        }
       }
     }
   }
 
+  &[data-tab-placement="left"] {
+    direction: ltr;
+
+    .tabs-navigation {
+      @include breakpoint($breakpoint-medium) {
+        padding-right: gutter();
+      }
+
+      li {
+        a {
+          direction: rtl;
+        }
+      }
+    }
+  }
+
+  &[data-tab-placement="right"] {
+    direction: rtl;
+
+    .tabs-navigation {
+      @include breakpoint($breakpoint-medium) {
+        padding-left: gutter();
+      }
+    }
+  }
+
+  &[data-tab-placement="top"] {
+
+    .tabs-navigation,
+    .tabs-content {
+      display: table-row;
+      width: 100%;
+    }
+
+    .tabs-navigation {
+
+      li {
+        display: table-cell;
+
+        a {
+          .tab-icon {
+            padding: 0.5em;
+          }
+        }
+
+        &:not(:last-child) {
+          a {
+            border-right: 1rem solid transparent;
+          }
+        }
+      }
+    }
+
+    .tabs-content {
+
+      > ul {
+        display: block;
+        width: auto;
+      }
+
+      .tabs-content-entry {
+        max-height: 0;
+        &.active {
+          max-height: 99999px;
+        }
+      }
+    }
+  }
 }

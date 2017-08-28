@@ -1,0 +1,17 @@
+{% if trust_elements_items %}
+    <section class="_module-trust-elements flexible-content-layout--images flexible-content-row">
+        <div class="container">
+            <div class="container-inner">
+                <nav>
+                    <ul>
+                        {% for image in trust_elements_items %}
+                            <li>
+                                {% include '_snippets/_snippet-trust-logo.twig' with {'image': image} %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </section>
+{% endif %}

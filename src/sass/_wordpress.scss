@@ -98,6 +98,7 @@ embed, iframe, object {
 
 .wp-caption-text {
   text-align: center;
+  font-size: 0.75em;
 }
 
 .wp-caption .wp-caption-text {
@@ -107,7 +108,6 @@ embed, iframe, object {
 //Galleries
 .gallery {
   @extend %clear;
-  margin-bottom: 1.5em;
 }
 
 .gallery-item {
@@ -115,21 +115,22 @@ embed, iframe, object {
   text-align: center;
   vertical-align: top;
   width: 100%;
+  margin-bottom: gutter();
 
   .gallery-columns-2 & {
-    @include gallery(1 of 2);
+    @include gallery(6 of 12);
   }
   .gallery-columns-3 & {
-    @include gallery(1 of 3);
+    @include gallery(4 of 12);
   }
   .gallery-columns-4 & {
-    @include gallery(1 of 4);
+    @include gallery(3 of 12);
   }
   .gallery-columns-5 & {
     @include gallery(1 of 5);
   }
   .gallery-columns-6 & {
-    @include gallery(1 of 6);
+    @include gallery(2 of 12);
   }
   .gallery-columns-7 & {
     @include gallery(1 of 7);
@@ -148,6 +149,8 @@ embed, iframe, object {
 
 .gallery-item {
   @extend %transition;
+  margin-bottom: 1em;
+
   &:hover {
     background-color: #eee;
   }
@@ -168,10 +171,11 @@ embed, iframe, object {
   }
 
   img {
-    width: auto;
+    width: 100%;
     height: auto;
     max-width: 100%;
     display: block;
     margin: 0 auto;
+    margin-bottom: 0 !important;
   }
 }

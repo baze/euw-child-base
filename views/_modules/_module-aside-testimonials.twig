@@ -1,0 +1,13 @@
+{% if post.get_field('testimonials') %}
+    <section class="_module-aside-testimonials">
+
+        {% if post.testimonials_headline %}
+            <h4 class="section-headline">{{ post.testimonials_headline }}</h4>
+        {% endif %}
+
+        {% for testimonial in post.get_field('testimonials') %}
+            {% include '_snippets/_snippet-testimonial.twig' %}
+        {% endfor %}
+
+    </section>
+{% endif %}

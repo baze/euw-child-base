@@ -1,0 +1,11 @@
+{% if post.get_field('featured_content') %}
+    <section class="_module-featured-content">
+        <div class="_module-slider flexslider">
+            <ul class="slides">
+                {% for slide in post.get_field('featured_content') %}
+                    <li>{% include ['_snippets/_snippet-flexible-content-article.twig'] with {'content': slide} %}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% endif %}

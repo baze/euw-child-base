@@ -1,0 +1,11 @@
+<section class="contact-person">
+    {% if post.contact_person_headline %}
+        <h3 class="section-headline">{{ post.contact_person_headline }}</h3>
+    {% endif %}
+
+    {% if post.contact_person %}
+        {% include '_snippets/_snippet-mitarbeiter--small.twig' with {'post' : TimberPost(post.contact_person[0]) } %}
+    {% endif %}
+
+    <a href="#" class="btn overlay-open">{{ _e('Lassen Sie sich jetzt unverbindlich beraten') }}</a>
+</section>

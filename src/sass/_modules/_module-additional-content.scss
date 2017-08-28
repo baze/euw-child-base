@@ -1,0 +1,40 @@
+._module-additional-content {
+  @extend %clear;
+
+  .flexible-content-article {
+    text-align: center;
+
+    .image-container {
+      @include breakpoint($breakpoint-medium) {
+        padding-bottom: 100%;
+      }
+
+      &::after {
+        //background-color: $highlight-color-1;
+        opacity: 0.6;
+      }
+    }
+
+    .content-container {
+      .no-image & {
+        position: static;
+      }
+    }
+
+    .flexible-content-headline {
+      color: $secondary-color;
+    }
+
+    .flexible-content-link {
+      @include button-negative;
+    }
+  }
+
+  .home & {
+    @include breakpoint($breakpoint-medium) {
+      @include span(4 of 12);
+      @include first;
+    }
+  }
+
+}

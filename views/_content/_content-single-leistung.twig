@@ -1,0 +1,10 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content _content-single {{ post.show_sidebar ? 'has-sidebar' : '' }}">
+        {% include ['_snippets/_snippet-' ~ post.post_type ~ '--full.twig',
+        '_snippets/_snippet-post--full.twig'] with { (post.post_type) : post } %}
+    </section>
+
+    {% include('_modules/_module-sidebar.twig') %}
+{% endblock %}

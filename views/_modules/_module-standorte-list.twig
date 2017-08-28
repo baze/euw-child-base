@@ -1,0 +1,24 @@
+<section class="_module-standorte-list">
+    <ul class="standorte">
+        {% for standort in standorte %}
+            <li>
+                <h3 class="accordion-headline">{{ standort.name }}</h3>
+
+                {% if standort.get_posts %}
+                    <div class="ansprechpartner accordion-inner">
+                        {% for person in standort.get_posts %}
+                            {% include ['_snippets/_snippet-mitarbeiter--small.twig']
+                            with {
+                            'post' : person,
+                            'relatedPosts' : person.musterhaeuser,
+                            'relatedPostsTitle' : 'Musterhäuser'
+                            } %}
+
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </li>
+
+        {% endfor %}
+    </ul>
+</section>

@@ -1,0 +1,13 @@
+{% if rows %}
+    <div class="_module-table">
+        <div class="table">
+            {% for row in rows %}
+                <div class="row">
+                    {% for column in row['columns'] %}
+                        <div class="cell">{{ column['text'] | nl2br }}</div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,62 @@
+{% set post_image = post.thumbnail ? post.thumbnail.ID : fallback_image_post %}
+
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--med {{ post_image ? 'has-image' :
+'no-image' }}">
+
+    {% if post_image %}
+        <a href="{{ TimberImage(post_image) }}" rel="lightbox">
+            <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+                {{ responsiveImage(post_image) }}
+            </div>
+        </a>
+    {% endif %}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+                    <h4 class="flexible-content-headline">
+                        {{ post.post_title }}
+                    </h4>
+
+                    <div class="flexible-content-text">
+                        {{ post.post_content|the_content }}
+
+                        {# Ordering Method #}
+                        {% if post.get_field('ordering') %}
+                            <section class="_module-flexible-content">
+
+                                {% if post.ordering_headline %}
+                                    {{ post.ordering_headline }}
+                                {% endif %}
+
+                                {% for content in post.get_field('ordering') %}
+
+                                <section class="ordering--{{ content.acf_fc_layout }} flexible-content-row">
+
+                                    {% include ['_modules/_module-ordering--' ~ content.acf_fc_layout ~ '.twig'] with {'content': content} %}
+                                {% endfor %}
+                            </section>
+                        {% endif %}
+
+                        {# Extract #}
+                        <section class="_module-flexible-content">
+                            <section class="flexible-content-row">
+
+                                {% set link = post.extract_file ? post.get_field('extract_file')['url'] : post.extract_link_url %}
+
+                                {% if link %}
+                                    <a class="btn" href="{{ link }}" target="_blank">
+                                        {{ post.extract_link_text|default('Leseprobe')}}
+                                    </a>
+                                {% endif %}
+                            </section>
+                        </section>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

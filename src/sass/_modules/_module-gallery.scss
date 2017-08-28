@@ -28,7 +28,6 @@
     }
 
     .gallery-aside-text {
-      font-family: $secondary-font;
 
       @include breakpoint($breakpoint-medium) {
         font-size: 75%;

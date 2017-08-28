@@ -1,0 +1,21 @@
+<div class="{{ content.objects|length > 1 ? 'columns columns-' ~ content.objects|length : 'single' }}">
+    {% for item in content.objects %}
+
+        {% if item.post_type %}
+            {% set object = item %}
+        {% else %}
+            {% set object = TimberPost(item.object) %}
+        {% endif %}
+
+        {% set headline = item.title ? item.title : object.post_title %}
+        {% set image = item.image ? item.image : object.thumbnail.ID %}
+        {% set text = item.text ? item.text : object.post_excerpt %}
+
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'headline' : headline,
+        'text' : text,
+        'image' : image,
+        'link_raw' : object.link
+        }, 'columnCount' : content.objects|length} %}
+    {% endfor %}
+</div>

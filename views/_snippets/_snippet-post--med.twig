@@ -1,0 +1,44 @@
+{% set post_image = post.thumbnail ? post.thumbnail.ID : fallback_image_post %}
+{% set link = post._pprredirect_url ? post._pprredirect_url : post.link %}
+
+{% if debug %}
+    {#{{ link | dump }}#}
+{% endif %}
+
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--med {{ post_image ? 'has-image' :
+'no-image' }}">
+
+    {% if post_image %}
+        <a href="{{ link }}">
+            <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+                {{ responsiveImage(post_image) }}
+            </div>
+        </a>
+    {% endif %}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+                    <h4 class="flexible-content-headline">
+                        <a href="{{ link }}">
+                            {{ post.post_title }}
+                        </a>
+                    </h4>
+
+                    <div class="flexible-content-text">
+                        {{ post.post_excerpt|default(post.post_content|the_content)|excerpt(20) }}
+                    </div>
+
+                    <a class="btn flexible-content-link" href="{{ link }}">
+                        {{ _e('Mehr erfahren') }}
+                    </a>
+
+                    <footer>
+                        <span class="post-date"><i class="fa fa-calendar"></i> {{ post.post_date|date }}</span>
+                    </footer>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

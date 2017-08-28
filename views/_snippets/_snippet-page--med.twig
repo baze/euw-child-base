@@ -1,0 +1,36 @@
+{% set post_image = post.thumbnail ? post.thumbnail.ID : fallback_image_post %}
+
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--med {{ post_image ? 'has-image' : 'no-image' }}">
+
+    {#{% set post_image = post.thumbnail ? post.thumbnail.ID : fallback_image_post %}
+
+    {% if post_image %}
+        <a href="{{ post.link }}">
+            <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+                {{ responsiveImage(post_image, 'gallery-2') }}
+            </div>
+        </a>
+    {% endif %}#}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+                    <h4 class="flexible-content-headline">
+                        <a href="{{ TimberPost(post).link }}">
+                            {{ post.post_title }}
+                        </a>
+                    </h4>
+
+                    {#<div class="flexible-content-text">
+                        {{ post.post_content|shortcodes|excerpt(20) }}
+                    </div>#}
+
+                    {#<a class="btn flexible-content-link" href="{{ TimberPost(post).link }}">
+                        {{ _e('Mehr erfahren') }}
+                    </a>#}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

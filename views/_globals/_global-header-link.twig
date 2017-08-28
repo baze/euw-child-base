@@ -1,0 +1,11 @@
+{% if options.global_header_link %}
+    {% set link = options.global_header_link.link_type == 'internal' ? TimberPost(options.global_header_link.link)
+    .link : options.global_header_link.link_url %}
+
+    <div class="_global-header-link">
+        {% if link %}
+            <a class="btn flexible-content-link"
+               href="{{ link }}">{{ options.global_header_link.link_text|default(__('Mehr erfahren')) }}</a>
+        {% endif %}
+    </div>
+{% endif %}

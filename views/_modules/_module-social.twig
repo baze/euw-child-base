@@ -1,0 +1,46 @@
+<div class="_module-social">
+    <nav role="navigation">
+        <ul>
+            {% if options['social-facebook'] %}
+                <li>
+                    <a href="{{ options['social-facebook'] }}" target="_blank">
+                        <i class="fa fa-facebook"></i>
+                        <span class="social-link-title">Folgen Sie uns bei Facebook</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% if options['social-twitter'] %}
+                <li>
+                    <a href="{{ options['social-twitter'] }}" target="_blank">
+                        <i class="fa fa-twitter"></i>
+                        <span class="social-link-title">Twitter</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% if options['social-xing'] %}
+                <li>
+                    <a href="{{ options['social-xing'] }}" target="_blank">
+                        <i class="fa fa-xing"></i>
+                        <span class="social-link-title">Xing</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% if options['social-linkedin'] %}
+                <li>
+                    <a href="{{ options['social-linkedin'] }}" target="_blank">
+                        <i class="fa fa-linkedin"></i>
+                        <span class="social-link-title">LinkedIn</span>
+                    </a>
+                </li>
+            {% endif %}
+            {% if options['social-youtube'] %}
+                <li>
+                    <a href="{{ options['social-youtube'] }}" target="_blank">
+                        <i class="fa fa-youtube"></i>
+                        <span class="social-link-title">YouTube</span>
+                    </a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>

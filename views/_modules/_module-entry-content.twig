@@ -1,0 +1,9 @@
+{% if post.content %}
+    <section class="_module-entry-content">
+
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'text': post.content
+        }} %}
+
+    </section>
+{% endif %}

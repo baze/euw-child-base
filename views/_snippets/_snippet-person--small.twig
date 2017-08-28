@@ -1,0 +1,62 @@
+{% set image = post.thumbnail ? post.thumbnail.ID : null %}
+
+<article class="flexible-content-article person person--small {{ image ? 'has-image' : 'no-image' }} {{ post
+.show_link ? 'has-link' : 'no-link' }}" itemscope itemtype="http://schema.org/Person">
+
+    {% if image %}
+        <div class="image-container">
+            {{ responsiveImage(image, [84,84]) }}
+        </div>
+    {% endif %}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+
+                    {% if post.show_link %}
+                    <a href="{{ post.link }}">
+                        {% endif %}
+
+                        <h4 class="flexible-content-headline">
+                            {{ post.title }}
+                        </h4>
+
+                        {% if post.show_link %}
+                    </a>
+                    {% endif %}
+
+                    <div class="flexible-content-text">
+                        {% if post.jobtitle %}
+                            <div class="person-jobtitle">{{ post.jobtitle }}</div>
+                        {% endif %}
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if show_contact_button and options.support_form %}
+        <footer class="flexible-content-footer">
+            <div class="person-contact">
+
+                {% if contact_headline %}
+                    <h4 class="section-title">{{ contact_headline }}</h4>
+                {% endif %}
+
+                <div class="person-contact--info">
+                    <a href="#" class="overlay-open btn" data-person-id="{{ post.id }}">
+                        {{ _e('E-Mail schreiben') }}
+                    </a>
+
+                    {% if post.phone %}
+                        {{ "oder rufen Sie uns unter <a href='tel:%s'>%s</a> an."| format(post.phone,post.phone) }}
+                    {% endif %}
+                </div>
+
+            </div>
+        </footer>
+    {% endif %}
+
+</article>

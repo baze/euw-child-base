@@ -1,0 +1,19 @@
+{% if content.items %}
+    <ul>
+        {% for item in content.items %}
+            <li>
+                {{ item.title }}
+
+                {% if item.items %}
+                    <ul>
+                        {% for subitem in item.items %}
+                            <li>
+                                {{ subitem.title }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

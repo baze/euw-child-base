@@ -1,0 +1,31 @@
+._module-opening-hours {
+
+  .opening-hours--hours {
+    display: table;
+    width: 100%;
+    table-layout: auto;
+
+    @include breakpoint($breakpoint-medium) {
+      table-layout: fixed;
+    }
+  }
+
+  time {
+    display: table-row;
+
+    .opening-hours--date,
+    .opening-hours--time {
+      display: table-cell;
+      white-space: nowrap;
+    }
+
+    .opening-hours--date {
+      font-weight: $font-weight-medium;
+    }
+
+    .opening-hours--time {
+      text-align: right;
+      font-weight: $font-weight-light;
+    }
+  }
+}

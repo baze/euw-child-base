@@ -1,0 +1,17 @@
+{% set post_image = post.thumbnail ? post.thumbnail.ID : fallback_image_post %}
+
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--small {{ post_image ? 'has-image' : 'no-image' }}">
+
+{#    {% if post_image %}
+        <a href="{{ post.link }}">
+            <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+                {{ responsiveImage(post_image) }}
+            </div>
+        </a>
+    {% endif %}#}
+
+    <a href="{{ post.link }}">
+        <h5 class="flexible-content-headline">{{ post.post_title }}</h5>
+    </a>
+
+</article>

@@ -1,18 +1,5 @@
 @charset "UTF-8";
-@import "_global-header-navigation";
 
 nav {
 
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-}
-
-._global-header-navigation {
-  @extend %clear;
-}
-
-._global-footer-navigation {
 }

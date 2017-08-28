@@ -8,7 +8,7 @@
       @include button();
 
       @include breakpoint($breakpoint-medium) {
-        @include button(transparent, $highlight-color-1, $highlight-color-1);
+        @include button-positive;
 
         padding: 0 1em;
 

@@ -1,0 +1,53 @@
+._module-team {
+  @extend %clear;
+
+  text-align: center;
+
+  margin-bottom: gutter();
+
+  .team-section {
+
+    .team-persons {
+      @extend %clear;
+    }
+
+    &:not(:first-child) {
+      border: 1px solid lighten($primary-color, 32.5);
+      padding: 1em;
+
+      .person {
+        margin-bottom: gutter();
+      }
+    }
+
+    .application_note {
+      @include span(6 of 12);
+      @include last;
+      margin-right: initial !important;
+      padding-bottom: span(6 of 12);
+
+      background: $highlight-color-1;
+
+      .content {
+        padding: 1em;
+        vertical-align: bottom;
+      }
+
+      .flexible-content-headline {
+        color: $secondary-color;
+      }
+
+      .flexible-content-link {
+        display: none;
+      }
+
+      @include breakpoint($breakpoint-medium) {
+        @include span(3 of 12);
+        @include last;
+        margin-right: initial !important;
+        padding-bottom: span(3 of 12);
+      }
+    }
+  }
+
+}

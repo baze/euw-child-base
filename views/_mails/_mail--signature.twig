@@ -1,0 +1,20 @@
+{{ _e('Sehr geehrte/r Herr/Frau') }}
+
+{{ _e('Wir haben Ihre Nachricht erhalten.') }}
+
+--
+
+{{ _e('Mit freundlichen Grüßen') }}
+{% if person %}
+{{ person.name }}
+
+{% if person.file_vcard %}
+    <a href="{{ site.home }}/vcard.php?p={{ person.ID }}&v={{ person.file_vcard }}"
+       class="btn download-vcard"
+       target="_blank">
+        {{ _e('Visitenkarte herunterladen') }}
+    </a>
+{% endif %}
+{% else %}
+    {{ _e('Ihr DAVINCI HAUS-Team') }}
+{% endif %}

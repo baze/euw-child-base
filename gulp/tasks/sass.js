@@ -11,7 +11,7 @@ var env = process.env.NODE_ENV || 'development';
 gulp.task('sass', function () {
 
     var config = {
-        style: 'compressed'
+        style: env === 'production' ? 'compressed' : 'normal'
     };
 
     return sass('src/sass/**', config)

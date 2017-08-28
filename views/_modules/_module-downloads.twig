@@ -1,0 +1,33 @@
+<section class="_module-downloads">
+    {% for cat in download_categories|default(post.get_field('download_categories')) %}
+        <ul class="download-category">
+            {% if cat.title %}
+                <h2 class="download-category-title">{{ cat.title }}</h2>
+            {% endif %}
+
+            {% for download in cat.downloads %}
+                <li class="download">
+                    <h4 class="download-title">
+                        {{ download.title ? download.title : download.file['title'] }}
+                    </h4>
+
+                    {% if download.file %}
+                        {% set file = get_file(download.file.id) %}
+                        <span class="download-meta">
+                            <span class="download-meta-icon">
+                                {% set filetype = download.file['mime_type']|split('/') %}
+                                <i class="fa fa-file-{{ filetype[1] }}-o"></i>
+                            </span>
+                            <span class="download-meta-filesize">{{ get_file_size(file) }}</span>
+                        </span>
+                    {% endif %}
+
+                    {% if download.file %}
+                    <a href="{{ download.file['url'] }}" {{ download.target ? 'target="_blank"' : '' }}
+                       class="btn">{{ _e('Download') }}</a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</section>

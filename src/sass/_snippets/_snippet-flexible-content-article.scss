@@ -1,0 +1,281 @@
+.flexible-content-article {
+  @extend %clear;
+  @extend %content-container;
+  margin-bottom: gutter();
+  //text-align: center;
+
+  > a {
+    display: block;
+
+    &:hover {
+      opacity: 1 !important;
+    }
+  }
+
+  .image-container {
+    @extend %image-container;
+    padding-bottom: $aspect-ratio-columns-1;
+  }
+
+  &.no-image {
+    .content-container {
+      position: static;
+    }
+  }
+
+  &.has-image {
+    .content-container {
+      position: static;
+    }
+  }
+
+  .content-wrapper {
+    @extend %center;
+    @extend %transition;
+    padding: 1em 0.5em;
+
+    @include breakpoint($breakpoint-medium) {
+      //width: span(10);
+      padding: 1em 0.5em;
+      display: block;
+    }
+  }
+
+  .flexible-content-icon {
+    display: inline-block;
+    width: 4rem;
+    height: 4rem;
+    font-size: 4rem;
+
+    margin-bottom: 0.5rem;
+    line-height: 1;
+
+    .has-image & {
+      color: $secondary-color;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .flexible-content-post-type {
+    display: none;
+  }
+
+  .flexible-content-headline {
+    @extend %reset;
+    @extend %transition;
+    text-align: inherit;
+    line-height: 1;
+  }
+
+  .flexible-content-text {
+    @extend %clear;
+    @extend %transition;
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    font-size: $font-size--copy;
+
+    > p {
+      @extend %clear;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: $highlight-color-1;
+    }
+
+    ul {
+      @extend %list;
+    }
+  }
+
+  .flexible-content-link {
+    @include button-positive;
+    margin-top: 0.5rem;
+  }
+
+  .single > & {
+    &.has-image {
+      @include breakpoint($breakpoint-medium) {
+        .content-container {
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  .single > &,
+  .columns > & {
+
+    text-align: center;
+
+    @extend %card;
+    padding: 0;
+
+    &.no-image {
+      //@extend %card;
+      //padding: 0;
+
+      &:before {
+        @extend %reset;
+        content: '';
+        display: block;
+        height: 0;
+      }
+
+      .content-container {
+        position: absolute;
+      }
+    }
+
+  }
+
+  .single > & {
+    &.no-image {
+      &:before {
+        padding-bottom: $aspect-ratio-columns-1;
+      }
+    }
+  }
+
+  .columns > & {
+
+    .image-container {
+      padding-bottom: $aspect-ratio-columns-1;
+    }
+
+    &.no-image {
+      &:before {
+        padding-bottom: $aspect-ratio-columns-1;
+      }
+
+      .flexible-content-icon {
+        color: $highlight-color-1;
+      }
+    }
+
+    img {
+      //@extend %center-image-horizontally;
+    }
+
+    .flexible-content-headline {
+      font-size: 1em;
+      text-align: center;
+    }
+
+    /*.flexible-content-text {
+      display: none;
+
+      @include breakpoint($breakpoint-wide) {
+        display: block;
+      }
+    }*/
+
+  }
+
+  @include breakpoint($breakpoint-medium) {
+
+    .columns & {
+      @include gallery(6 of 12);
+    }
+
+    .columns-2 > & {
+      &.no-image {
+        &:before {
+          padding-bottom: $aspect-ratio-columns-2;
+        }
+      }
+
+      .image-container {
+        padding-bottom: $aspect-ratio-columns-2;
+      }
+    }
+
+    .columns-3 > & {
+      @include gallery(4 of 12);
+
+      &.no-image {
+        &:before {
+          padding-bottom: $aspect-ratio-columns-3;
+        }
+      }
+
+      .image-container {
+        padding-bottom: $aspect-ratio-columns-3;
+      }
+
+      .flexible-content-icon {
+        width: 3rem;
+        height: 3rem;
+        font-size: 3rem;
+      }
+    }
+
+    .columns-4 > & {
+      @include gallery(3 of 12);
+
+      .page-template-_template-front-page & {
+        @include gallery(6 of 12);
+      }
+
+      .flexible-content-icon {
+        width: 2rem;
+        height: 2rem;
+        font-size: 2rem;
+      }
+    }
+
+    .columns-5 > & {
+      @include gallery(1 of 5);
+
+      &.no-image:before {
+        padding-bottom: $aspect-ratio-square;
+      }
+    }
+
+    .columns-6 > & {
+      @include gallery(2 of 12);
+
+      &.no-image:before {
+        padding-bottom: $aspect-ratio-square;
+      }
+    }
+  }
+
+  &.null  {
+    @extend %layout--image-behind-text;
+    background: $highlight-color-1;
+    text-align: center;
+    float: none !important;
+
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+
+    .content {
+      vertical-align: middle;
+    }
+
+    .flexible-content-headline,
+    .flexible-content-text {
+      font-size: 80%;
+      color: $secondary-color;
+    }
+
+    .flexible-content-link {
+      @include button-negative;
+      display: none;
+    }
+  }
+}
+

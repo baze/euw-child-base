@@ -1,0 +1,11 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content _content-page has-sidebar">
+        {% include('_modules/_module-entry-content.twig') %}
+        {% include('_modules/_module-flexible-content.twig') %}
+        {% include('_modules/_module-posts.twig') %}
+    </section>
+
+    {% include('_modules/_module-sidebar.twig') %}
+{% endblock %}

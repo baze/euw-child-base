@@ -1,0 +1,47 @@
+<div class="_snippet-post-social">
+
+    <nav>
+        <ul>
+            <li>
+                <a class="social-popup" title="facebook" target="_blank"
+                   href="http://www.facebook.com/share.php?u={{ post.link | url_encode }}&amp;title={{ post.title | url_encode }}">
+                    <span class="icon icon-facebook"></span>
+                </a>
+            </li>
+            </li>
+
+            <li>
+                <a class="social-popup" title="twitter" target="_blank"
+                   href="http://twitter.com/home?status={{ post.link | url_encode }}+{{ post.title | url_encode }}">
+                    <span class="icon icon-twitter"></span>
+                </a>
+            </li>
+            </li>
+
+            <li>
+                <a class="social-popup" title="pinterest" target="_blank"
+                   href="http://pinterest.com/pin/create/bookmarklet/?media={{ post.thumbnail | url_encode }}&amp;url={{ post.link | url_encode }}&amp;is_video=false&amp;description=%3C3%20this%20post%20%22{{ post.title | url_encode }}">
+                    <span class="icon icon-pinterest"></span>
+                </a>
+            </li>
+            </li>
+
+            <li>
+                <a class="social-popup" title="google+" target="_blank"
+                   href="https://plus.google.com/share?url={{ post.link | url_encode }}">
+                    <span class="icon icon-google-plus"></span>
+                </a>
+            </li>
+            </li>
+
+            <li>
+                <a class="social-popup" title="linkedin" target="_blank"
+                   href="http://www.linkedin.com/shareArticle?mini=true&amp;url={{ post.link | url_encode }}&amp;title={{ post.title | url_encode }}&amp;source={{ site.home | url_encode }}">
+                    <span class="icon icon-linkedin"></span>
+                </a>
+            </li>
+            </li>
+        </ul>
+    </nav>
+
+</div>

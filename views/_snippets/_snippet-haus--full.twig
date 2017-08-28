@@ -1,0 +1,16 @@
+<article class="haus haus--full {{ post.post_type }} {{ post.post_type }}--full post post--full">
+
+    {#<header class="post-header">
+        <h1 class="flexible-content-headline">{{ post.post_title }}</h1>
+    </header>#}
+
+    <div class="flexible-content-text">
+        {% include('_modules/_module-entry-content.twig') %}
+    </div>
+
+    <footer>
+        <a href="../" class="btn">{{ _e('Zurück zur Übersicht') }}</a>
+    </footer>
+
+    {% include '_snippets/_snippet-post-links.twig' with {'invert' : true}%}
+</article>

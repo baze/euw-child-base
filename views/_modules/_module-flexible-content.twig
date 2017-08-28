@@ -1,0 +1,17 @@
+{% if post.get_field('flexible-content-rows') %}
+    <section class="_module-flexible-content">
+        {% for content in post.get_field('flexible-content-rows') %}
+            <section class="{{ content.acf_fc_layout }} flexible-content-row">
+
+                {% if content.headline %}
+                    <{{ content.headline_type|default('h2') }} class="section-headline">
+                    {{ content.headline }}
+                    </{{ content.headline_type|default('h2') }}>
+                {% endif %}
+
+                {% include ['_modules/_module-' ~ content.acf_fc_layout ~ '.twig',
+                '_snippets/_snippet-flexible-content-article.twig'] with {'content': content} %}
+            </section>
+        {% endfor %}
+    </section>
+{% endif %}

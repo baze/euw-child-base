@@ -1,0 +1,69 @@
+.case-studies {
+  @extend %clear;
+
+  &--med {
+
+    .image-container {
+      @extend %image-container;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
+    &:hover {
+      .image-container::after {
+        opacity: 0.5;
+      }
+    }
+
+    .flexible-content-headline,
+    .flexible-content-text {
+      color: $secondary-color;
+    }
+
+    .flexible-content-link {
+      @include button-negative;
+    }
+
+  }
+
+  &--full {
+
+    .flexible-content-title {
+      font-size: 350%;
+    }
+
+    .case-study-gallery {
+      @extend %clear;
+      margin-bottom: gutter();
+
+      &-section--large {
+        margin-bottom: gutter();
+
+        @include breakpoint($breakpoint-medium) {
+          //@include span(6 of 12);
+          //@include first;
+        }
+
+      }
+
+      &-section--small {
+
+        @include breakpoint($breakpoint-medium) {
+          //@include span(6 of 12);
+          //@include last;
+        }
+
+        figure {
+          @include gallery(6 of 12);
+          margin-bottom: gutter();
+        }
+      }
+
+    }
+
+  }
+
+}

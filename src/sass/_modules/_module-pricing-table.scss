@@ -1,0 +1,147 @@
+@keyframes highlightPrice {
+  0% {
+    background: lighten($highlight-color-1, 25);
+    transform: scale(1);
+  }
+  100% {
+    background: $highlight-color-1;
+    transform: scale(1.1);
+  }
+}
+
+._module-pricing-table {
+
+  .pricing-table {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+    margin-top: 1em;
+    margin-bottom: gutter(6);
+    min-height: 20em;
+  }
+
+  .price {
+    display: table-cell;
+    //background: desaturate(lighten($highlight-color-1, 25), 10);
+    background: $highlight-color-1;
+    opacity: 0.7;
+    padding: 1.5em;
+    text-align: center;
+    color: $secondary-color;
+    z-index: 1;
+
+    &.highlight {
+      background: $highlight-color-1;
+      transform: scale(1.1);
+      z-index: 2;
+
+      opacity: 1;
+
+      animation-name: highlightPrice;
+      animation-duration: 185ms;
+      animation-timing-function: linear;
+
+      position: relative;
+      overflow: hidden;
+
+      &::before {
+        content: 'Highlight';
+        display: block;
+        position: absolute;
+        background: $highlight-color-3;
+        padding: 50px;
+        padding-bottom: 10px;
+        transform: rotate(45deg);
+        right: -65px;
+        top: -20px;
+      }
+    }
+
+    &--header {
+      //background: green;
+
+      padding-bottom: 1rem;
+      border-bottom: 1px solid transparentize($secondary-color, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    &--main {
+      //background: yellow;
+    }
+
+    &--footer {
+      //background: orange;
+
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid transparentize($secondary-color, 0.7);
+    }
+
+    &--title {
+      @extend %reset;
+      text-align: center;
+      font-weight: $font-weight-medium;
+      color: inherit;
+      font-size: 1.618em;
+    }
+
+    &--subtitle {
+      display: block;
+      font-weight: $font-weight-normal;
+      opacity: 0.7;
+      font-size: 50%;
+    }
+
+    &--price {
+      font-size: 4rem;
+      line-height: 1;
+      color: $secondary-color;
+
+      .currency,
+      .price--per {
+        font-size: 2rem;
+        color: inherit;
+        opacity: 0.7;
+      }
+    }
+
+    &--cta {
+      @include button($secondary-color, $highlight-color-1, $secondary-color, 1em);
+    }
+  }
+
+  .flexbox & {
+    .pricing-table {
+      display: flex;
+      flex-direction: column;
+
+      @include breakpoint($breakpoint-small-medium) {
+        flex-direction: row;
+      }
+    }
+
+    .price {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+
+      &--header,
+      &--main,
+      &--footer {
+        display: flex;
+        justify-content: center;
+      }
+
+      &--main {
+        flex-grow: 1;
+      }
+
+      &.highlight {
+        flex-grow: 2;
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,14 @@
+<section class="_module-related-pages {{ content.column_count > 1 ? 'columns columns-' ~ content.column_count :
+'single' }}">
+
+    {% for column in content.pages %}
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'headline': TimberPost(column).post_title,
+        'link_type' : 'internal',
+        'link': TimberPost(column).link
+        },
+        'columnCount' : content.column_count
+        } %}
+    {% endfor %}
+
+</section>

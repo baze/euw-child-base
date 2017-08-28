@@ -1,0 +1,21 @@
+{% set gallerySize = gallery | length < columnCount|default(4) ? gallery | length : columnCount|default(4) %}
+<div class="_module-gallery gallery gallery-columns-{{ gallerySize }} gallery-size-gallery-thumbnail">
+    {% for image in gallery %}
+        <figure class="gallery-item">
+            <div class="gallery-icon landscape">
+                <a href="{{ TimberImage(image) }}"
+                   data-rel="lightbox-gallery"
+                   title="{{ TimberImage(image).caption }}"
+                   data-caption="{{ TimberImage(image).caption }}"
+                >
+                    {{ responsiveImage(image.ID, 'gallery-' ~ gallerySize ) }}
+                </a>
+            </div>
+            {% if TimberImage(image).caption %}
+                <figcaption>
+                    <small>{{ TimberImage(image).caption }}</small>
+                </figcaption>
+            {% endif %}
+        </figure>
+    {% endfor %}
+</div>

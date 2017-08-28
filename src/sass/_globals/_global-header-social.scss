@@ -1,0 +1,57 @@
+._global-header-social {
+
+  nav {
+    @extend %clear;
+    @extend %navigation;
+  }
+
+  ul {
+    table-layout: fixed;
+  }
+
+  li {
+    //padding: 0 0.5em;
+
+    &:first-child {
+      //text-align: right;
+    }
+
+    &:last-child {
+      //text-align: left;
+    }
+
+    .fa {
+      font-style: normal;
+
+      &-facebook-square {
+        &:before {
+          @include icon('\e76b');
+        }
+      }
+      &-xing-square {
+        &:before {
+          @include icon('\e7a9');
+        }
+      }
+      &-linkedin-square {
+        &:before {
+          @include icon('\e79f');
+        }
+      }
+    }
+
+    a {
+      @extend %transition;
+      //color: $highlight-color-1;
+
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .social-link-title {
+    display: none;
+  }
+
+}

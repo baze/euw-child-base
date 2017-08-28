@@ -1,0 +1,60 @@
+<section class="_module-history _module-history--{{ post.history_display_type | default('static') }}">
+
+    <div class="container-inner">
+        <h2 class="content-title section-headline">{{ post.history_headline }}</h2>
+
+        <h3 class="content-subtitle section-subline">{{ post.history_subline }}</h3>
+    </div>
+
+    {% if post.history_events %}
+        <div class="history-events">
+
+            {% if post.history_display_type == 'storytelling' %}
+                <nav class="history-events--navigation sticky top">
+                    <ul>
+                        {% for event in post.get_field('history_events') %}
+                            <li><a href="#event-{{ event.date }}">{{ event.date }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            {% endif %}
+
+            {% for event in post.get_field('history_events') %}
+
+                <article class="flexible-content-article history-event {{ event.image ? 'has-image' : 'no-image' }}"
+                         id="event-{{ event.date }}">
+
+                    <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+                        {% if event.image %}
+                            {{ responsiveImage(event.image) }}
+                        {% else %}
+                            <img src="{{ placeholder(1600, 480) }}" alt="">
+                        {% endif %}
+                    </div>
+
+                    <div class="content-container">
+                        <div class="content-container-inner">
+                            <div class="content">
+                                <div class="content-wrapper">
+
+                                    {% if event.date %}
+                                        <h2 class="history-event--date">{{ event.date }}</h2>
+                                    {% endif %}
+
+                                    {% if event.title %}
+                                        <h4 class="history-event--title">{{ event.title }}</h4>
+                                    {% endif %}
+
+                                    {% if event.description %}
+                                        <div class="history-event--description">{{ event.description }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </article>
+            {% endfor %}
+        </div>
+    {% endif %}
+</section>

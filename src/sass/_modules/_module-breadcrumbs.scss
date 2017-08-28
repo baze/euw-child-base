@@ -1,0 +1,30 @@
+._module-breadcrumbs {
+  @extend %clear;
+  clear: both;
+  font-size: 80%;
+  margin-bottom: gutter();
+
+  a,
+  .breadcrumb_last {
+    color: $highlight-color-1;
+    text-decoration: none;
+  }
+
+  svg {
+    display: inline-block;;
+    width: 1em;
+    height: 1em;
+    line-height: 1;
+    font-size: 80%;
+  }
+
+  ._snippet-breadcrumbs {
+    display: inline-block;
+    line-height: 1;
+  }
+
+  .breadcrumb_last {
+    opacity: 0.5;
+  }
+
+}

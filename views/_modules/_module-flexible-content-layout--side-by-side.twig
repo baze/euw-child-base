@@ -1,0 +1,5 @@
+<div class="rows rows-{{ content.rows|length }}">
+    {% for row in content.rows %}
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  row} %}
+    {% endfor %}
+</div>

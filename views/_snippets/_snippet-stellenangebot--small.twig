@@ -1,0 +1,12 @@
+<article class="{{ post.post_type }} {{ post.post_type }}--small" itemscope
+         itemtype="http://schema.org/JobPosting">
+
+    <a href="{{ post.link }}">
+        <h3 class="job-title section-headline" itemprop="title">{{ post.title }}
+            {% if post.hours_type %}
+                in <span class="job-hours-type" itemprop="employmentType">{{ post.hours_type }}</span>
+            {% endif %}
+        </h3>
+    </a>
+
+</article>

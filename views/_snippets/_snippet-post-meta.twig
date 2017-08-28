@@ -1,0 +1,11 @@
+<div class="_snippet-post-meta">
+
+    <span class="post-date"><i class="fa fa-calendar"></i> {{ post.post_date|date }}</span>
+
+    <div class="post-terms">
+        <i class="fa fa-bookmark"></i>
+        {% for term in post.terms %}
+            <a href="{{ term.link }}">{{ term.name }}</a>{% if not loop.last %},{% endif %}
+        {% endfor %}
+    </div>
+</div>

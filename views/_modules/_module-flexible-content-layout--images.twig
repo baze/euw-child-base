@@ -1,0 +1,11 @@
+{% if content.images %}
+    <nav>
+        <ul>
+            {% for image in content.images %}
+                <li>
+                    {% include '_snippets/_snippet-trust-logo.twig' with {'image': image} %}
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+{% endif %}

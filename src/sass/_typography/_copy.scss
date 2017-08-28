@@ -1,13 +1,14 @@
-body {
+html, body {
   font-family: $primary-font;
   color: $primary-color;
-  font-weight: $font-weight-normal;
+  font-weight: $font-weight-light;
+  line-height: 1.4;
 }
 
-p{
+p {
 	margin-top: 0;
-	abbr{font-style: italic; font-weight: $font-weight-bold;}
-	b, strong{font-weight: $font-weight-bold;}
+	abbr{font-style: italic; font-weight: $font-weight-medium-bold;}
+	b, strong{font-weight: $font-weight-medium-bold; color: $highlight-color-1;}
 	cite{font-style: italic;}
 	cite:before,
 	q:before{content:"";}
@@ -53,7 +54,7 @@ blockquote{
 	font-style: italic;
 	color: #999;
 	padding-left: 0.75em;
-	border-left: 4px solid #ddd; 
+	border-left: 4px solid #ddd;
 }
 
 dl{
@@ -65,15 +66,15 @@ dl{
 
 details{
 	background: #ddd;
-	
+
 	summary{font-weight: $font-weight-bold;}
 	div{
 		p{font-style: italic;}
 	}
-	ul{ 
+	ul{
 		list-style-type: upper-roman;
 		li{}
-	}	
+	}
 }
 
 details[open]{

@@ -1,0 +1,17 @@
+{% extends "base.twig" %}
+
+{% block page_header %}
+    {% include '_modules/_module-page-header.twig' with {
+    'supporting_headline' : subtitle,
+    'title' : term.title,
+    'text' : false,
+    'page_header_link' : false,
+    'page_header_link_text' : false,
+    'contact_form': false,
+    'image' : false
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% include ['_content/_content-taxonomy--' ~ term.taxonomy ~ '.twig', '_content/_content-taxonomy.twig'] %}
+{% endblock %}

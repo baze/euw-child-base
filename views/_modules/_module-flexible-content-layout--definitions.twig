@@ -1,0 +1,13 @@
+{% if content.definitions %}
+    <article class="flexible-content-article">
+        <dl>
+            {% for definition in content.definitions %}
+                <dt class="section-headline">
+                <h3 class="flexible-content-headline">{{ definition.title }}</h3>
+                </dt>
+
+                <dd class="flexible-content-text">{{ definition.data }}</dd>
+            {% endfor %}
+        </dl>
+    </article>
+{% endif %}

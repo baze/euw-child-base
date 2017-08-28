@@ -1,0 +1,43 @@
+<article class="event event--med">
+
+    {% set nextDate = post.nextDate %}
+
+    <div class="event-date">
+        {% if nextDate %}
+
+            {% set event_start = nextDate['event-start'] %}
+            {% set event_end = nextDate['event-end'] %}
+            {% set event_duration = date_diff(event_start, event_end) %}
+
+
+            {% if event_duration %}
+                <span class="event-date--from">{{ event_start | date('d.m.Y') }}</span>
+                <span class="event-date--until">– {{ event_end | date('d.m.Y') }}</span>
+            {% else %}
+                {{ event_start | date('d.m.Y') }}
+            {% endif %}
+
+        {% endif %}
+    </div>
+
+
+    <header class="event-header">
+        <h3 class="event-headline"><a href="{{ post.link }}">{{ post.post_title }}</a></h3>
+    </header>
+
+    <div class="event-body">
+        {{ post.get_field('duration') }}
+    </div>
+
+    <footer class="event-footer">
+        <a class="btn btn--highlight flexible-content-link" href="{{ post.link }}">
+
+            {% if post.get_field('anmeldeformular') %}
+                {{ __('Anmelden') }}
+            {% else %}
+                {{ __('Anzeigen') }}
+            {% endif %}
+
+        </a>
+    </footer>
+</article>

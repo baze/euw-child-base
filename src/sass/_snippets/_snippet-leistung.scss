@@ -1,0 +1,50 @@
+.leistung {
+  @extend %clear;
+
+  &--med {
+    &.flexible-content-article {
+      border: 1px solid lighten($primary-color, 32.5);
+
+      .content-container {
+        position: static;
+      }
+
+      .content {
+        padding: 1em;
+        text-align: left;
+      }
+
+      .flexible-content-headline {
+        font-size: 1.5rem;
+      }
+    }
+  }
+
+  &--full {
+    .post-tags {
+      ul {
+        @extend %reset;
+
+        li {
+          display: inline-block;
+
+          a {
+            @extend %transition;
+            display: block;
+            font-weight: $font-weight-normal;
+            background: darken($secondary-color, 25);
+            color: $secondary-color;
+            padding: 0.25em 0.5em;
+            border-radius: 0.5em;
+
+            &:hover {
+              background: darken($secondary-color, 35);
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}

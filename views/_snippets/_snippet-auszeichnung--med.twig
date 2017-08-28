@@ -1,0 +1,10 @@
+{% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+'headline': post.title ? post.title : post.link ? TimberPost(post.link) : null,
+'text': post.text | nl2br,
+'image': post.image ? post.image : TimberPost(post.link).thumbnail ? TimberPost(post.link).thumbnail.ID : null,
+'icon': post.icon,
+'icon_svg': post.icon_svg
+}, classes : [
+post.post_type,
+post.post_type ~ '--med'
+] } %}

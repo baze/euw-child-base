@@ -1,0 +1,59 @@
+<div class="flexible-content-article _snippet-slide {{ slide.image ? 'has-image' : 'no-image' }}">
+    {% if (slide.image or slide.video) %}
+        <div class="image-container" data-darken="{{ slide.darken|default(0) }}">
+            {% if (slide.image) %}
+                {{ responsiveImage(slide.image, 'header-home') }}
+            {% endif %}
+        </div>
+    {% endif %}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="container">
+                    <div class="container-inner">
+                        <div class="content-wrapper">
+
+                            {% set headline_type = is_page_header and loop.first ? 'h1' : 'h2' %}
+                            {% set subheadline_type = is_page_header and loop.first ? 'h2' : 'h3' %}
+                            {% set title = slide.title|default(post.global_title) %}
+                            {% set subtitle = slide.subtitle|default(post.global_subtitle) %}
+                            {% set text = slide.text|default(post.global_text) %}
+                            {% set link_global = post.global_link_type == 'internal' ? post.global_link : post.global_link_url %}
+                            {% set link_local = slide.link_type == 'internal' ? slide.link : slide.link_url %}
+                            {% set link = link_local|default(link_global) %}
+                            {% set link_text = slide.link_text|default('Mehr erfahren') %}
+
+                            {% if title %}
+                                <{{ headline_type }} class="flexible-content-headline">
+                                    {{ title }}
+                                </{{ headline_type }}>
+                            {% endif %}
+
+                            {% if subtitle %}
+                                <{{ subheadline_type }} class="flexible-content-subtitle">
+                                    {{ subtitle }}
+                                </{{ subheadline_type }}>
+                            {% endif %}
+
+                            {% if text %}
+                                <div class="flexible-content-text">
+                                    {{ text }}
+                                </div>
+                            {% endif %}
+
+                            {% if link %}
+                                <div class="flexible-content-link-wrapper">
+                                    <a href="{{ TimberPost(link).link }}"
+                                       class="btn flexible-content-link">{{ link_text }}</a>
+                                </div>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

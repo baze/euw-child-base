@@ -1,0 +1,10 @@
+{% extends 'container.twig' %}
+
+{% block content %}
+    <section class="_module-breadcrumbs">
+        {#<a href="{{ site.home }}" rel="home">
+            {% include '_globals/_global-breadcrumbs-logo-svg.twig' %}
+        </a>#}
+        {% include '_snippets/_snippet-breadcrumbs.twig' %}
+    </section>
+{% endblock %}

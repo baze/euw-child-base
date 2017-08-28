@@ -1,0 +1,31 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content _content-page {{ post.show_sidebar ? 'has-sidebar' : '' }}">
+        {% include('_modules/_module-entry-content.twig') %}
+        {% include('_modules/_module-flexible-content.twig') %}
+
+        <section class="flexible-content-article accordion">
+            <ul>
+                {% for cat in categories %}
+                    {% set cat = TimberTerm(cat) %}
+                    {% set events = upcoming_events(cat.id, content.count) %}
+
+                    {% if events %}
+                        <li>
+                            <h3 class="accordion-headline flexible-content-headline">
+                                {{ cat.name }}
+                            </h3>
+
+                            <div class="accordion-inner">
+                                {% include('_modules/_module-events.twig') with {'events' : events} %}
+                            </div>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </section>
+
+    {% include('_modules/_module-sidebar.twig') %}
+{% endblock %}

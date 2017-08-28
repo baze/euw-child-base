@@ -1,0 +1,22 @@
+{% include '_modules/_module-trust-elements.twig' with { 'trust_elements_items' : trust_elements_items|default(options.trust_elements_items) } %}
+
+<footer class="_global-footer" role="contentinfo" id="bottom">
+    <div class="container">
+        <div class="container-inner">
+            {% include('_globals/_global-footer-logo.twig') %}
+            {% include('_globals/_global-footer-contact.twig') %}
+            {% include('_globals/_global-footer-navigation.twig') %}
+            {#{% include('_globals/_global-footer-social.twig') %}#}
+            {#{% include('_globals/_global-footer-copyright.twig') %}#}
+
+            <section class="_global-footer-posts">
+                {#{% set global_posts = upcoming_events(null, 3, [ 12 ], true) %}#}
+
+                {% include('_modules/_module-posts.twig') with {
+                    'posts_headline' : 'Aktuelle Seminare',
+                    'posts_headline_type' : 'h3',
+                'posts' : global_posts|slice(0, 3), 'snippet_size' : 'med', 'pagination' : null} %}
+            </section>
+        </div>
+    </div>
+</footer>

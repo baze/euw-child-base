@@ -1,16 +1,14 @@
 @import "_colors/_color-palette";
 
-$primary-color: $grey-800;
-$secondary-color: $grey-600;
+$primary-color: lighten($black, 55);
+$secondary-color: $white;
 
-$highlight-color-1: #f08119;
-$highlight-color-2: #69a32f;
-
-$white: #fff;
-$black: #000;
+$highlight-color-1: rgb(41, 70, 116) !default;
+$highlight-color-2: rgb(159, 4, 0) !default;
+$highlight-color-3: adjust_color($highlight-color-1, $hue: 180, $saturation: 100%, $lightness: 30%) !default;
 
 $light-gray: $grey-100;
 $middle-gray: $grey-400;
 $dark-gray: $grey-900;
 
-$body-background: $grey-100;
+$body-background: $secondary-color;

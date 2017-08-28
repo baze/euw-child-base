@@ -1,0 +1,5 @@
+{% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+'text': content.text | the_content,
+'link_type': 'internal',
+'link': content.link ? TimberPost(content.link).link : null,
+}} %}

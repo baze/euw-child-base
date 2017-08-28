@@ -1,0 +1,50 @@
+{% if tabs %}
+    <section class="_module-tabs" data-tab-placement="{{ tab_placement | default('left') }}">
+        <div class="tabs">
+            <div class="tabs-navigation">
+                <ul>
+                    {% for item in tabs %}
+                        <li class="tabs-navigation-entry">
+                            <a href="{{ TimberPost(item.link).link }}"
+                               data-content="tab-{{ item.title|default(TimberPost(item.link).title) | sanitize }}">
+
+                                {% if item.icon %}
+                                    <span class="tab-icon">{{ responsiveImage(item.icon, 'med') }}</span>
+                                {% endif %}
+
+                                <span class="tab-title">{{ item.title|default(TimberPost(item.link).title) }}</span>
+
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="tabs-content">
+                <ul>
+                    {% for item in tabs %}
+
+                        <li class="tabs-content-entry"
+                            data-content="tab-{{ item.title|default(TimberPost(item.link).title) | sanitize }}">
+                            <div class="tabs-content-inner">
+
+                                {% set image = item.image ? item.image : TimberPost(item.link).thumbnail ? TimberPost(item.link).thumbnail.ID : null %}
+
+                                {% include '_snippets/_snippet-flexible-content-article.twig' with {
+                                'content' : {
+                                'title' : null,
+                                'text' : null,
+                                'image' : image,
+                                'icon' : null,
+                                'link' : TimberPost(item.link).link
+                                },
+                                'lightbox' : false
+                                } %}
+                            </div>
+                        </li>
+
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+{% endif %}

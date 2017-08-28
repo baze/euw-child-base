@@ -1,50 +1,304 @@
 ._global-footer {
-  color: $grey-100;
-  line-height: 2.45;
+  @extend %z-layer-3;
+  font-size: 80%;
+  text-align: left;
+  border-top: 1px solid $highlight-color-1;
 
-  @include breakpoint($breakpoint-medium) {
-    font-size: 75%;
+  margin-bottom: $header-navbar-height - $header-padding;
+
+  &,
+  a {
+    //color: $secondary-color;
+  }
+
+  a {
+    text-decoration: none;
+    color: $highlight-color-1;
+
+    &:hover {
+      opacity: 0.5;
+    }
+  }
+
+  h3 {
+    @extend %reset;
+    margin-bottom: 1em;
+    font-size: 1em;
+
+    @include breakpoint($breakpoint-medium) {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  /* so nothing is hidden by the cta-button */
+  @include breakpoint($breakpoint-small) {
+    padding-bottom: 3rem;
+  }
+
+  .container-inner {
+    padding: 4 * $header-padding $header-padding;
     line-height: inherit;
   }
-}
 
-._global-footer-container {
-  padding: 3em 0.75em;
-  background-color: $primary-color;
-}
-
-.footer-headline {
-  color: $highlight-color-1;
-  margin-bottom: 0.5em;
-}
-
-._global-footer-navigation {
-  @include push(1 of 12);
-  @include span(4 of 12);
-
-  @include breakpoint($breakpoint-medium) {
-    @include push(0);
-    @include span(3 of 12);
+  &-logo,
+  &-navigation {
+    @extend %center;
+    margin-bottom: 2 * $header-padding;
   }
 
-}
+  &-logo {
+    width: span(2 of 12);
 
-._global-footer-navigation {
-}
+    //@include breakpoint($breakpoint-medium) {
+    //  @include span(6 of 12);
+    //  @include first;
+    //}
 
-._global-footer-contact {
-  @include span(7 of 12);
-  @include last;
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+      @include first;
 
-  @include breakpoint($breakpoint-medium) {
-    @include span(8 of 12);
+      a {
+        width: 80%;
+        display: block;
+      }
+    }
+
+    svg {
+      * {
+        @extend %transition;
+        fill: $highlight-color-1;
+      }
+    }
   }
-}
 
-._global-footer-copyright {
-  padding: 1.25em 0;
-  background-color: $highlight-color-2;
-  text-align: center;
-  font-size: 75%;
-  line-height: 1;
+  &-contact {
+    @extend %clear;
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(3 of 12);
+    }
+
+    @include breakpoint($breakpoint-wide) {
+      @include span(4 of 12);
+    }
+
+    * {
+      white-space: nowrap;
+    }
+
+    ._module-businessinfo {
+      @extend %reset;
+      @extend %clear;
+      margin-bottom: 1em;
+
+      .businessinfo-name {
+        color: inherit;
+
+        @include breakpoint($breakpoint-medium) {
+          //margin-bottom: 0;
+        }
+
+        &, * {
+          white-space: normal;
+        }
+      }
+
+      .businessinfo-address {
+        margin-bottom: 1em;
+
+        @include span(6 of 12);
+        @include first;
+
+        @include breakpoint($breakpoint-medium) {
+          margin: 0;
+          float: none;
+        }
+
+        &--address {
+          display: block;
+          margin-bottom: 1em;
+
+          @include breakpoint($breakpoint-medium) {
+            display: inline;
+            margin-bottom: 0;
+
+            &:after {
+              content: ',';
+              display: inline;
+            }
+          }
+        }
+      }
+
+      .businessinfo-contact {
+
+        @include span(6 of 12);
+        @include last;
+
+        @include breakpoint($breakpoint-medium) {
+          margin: 0;
+          float: none;
+        }
+
+        > * {
+          &:not(:last-child) {
+            @include breakpoint($breakpoint-medium) {
+              &:after {
+                //content: '|';
+                //margin: 0 $header-padding;
+              }
+            }
+          }
+        }
+
+        &--telephone,
+        &--telefax,
+        &--email {
+          display: block;
+          margin-bottom: 1em;
+
+          @include breakpoint($breakpoint-medium) {
+            //display: inline-block;
+            margin-bottom: 0;
+          }
+        }
+
+      }
+
+      .businessinfo-aux {
+        display: inline-block;
+        width: 4em;
+        text-align: left;
+
+        @include breakpoint($breakpoint-medium) {
+          width: auto;
+        }
+      }
+    }
+  }
+
+  &-navigation {
+    text-align: center;
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(2 of 12);
+      text-align: left;
+    }
+  }
+
+  &-posts {
+    @include breakpoint($breakpoint-medium) {
+      @include span(5 of 12);
+      @include last;
+
+      .section-title {
+        text-align: left;
+      }
+    }
+
+    @include breakpoint($breakpoint-wide) {
+      @include span(4 of 12);
+      @include last;
+    }
+
+    .event {
+      &--med {
+
+        background: none;
+        font-size: 0.9em;
+
+        &:not(:last-child) {
+          margin-bottom: 0.5em;
+        }
+
+        .event-header {
+          width: span(5 of 12);
+        }
+
+        .event-body {
+          display: none;
+        }
+
+        .event-footer {
+          width: span(4 of 12);
+        }
+
+        .flexible-content-link {
+          @include button-positive;
+          display: inline;
+        }
+
+        @include breakpoint($breakpoint-medium) {
+
+          > * {
+            padding: 0.5em;
+          }
+
+          .event-date--until {
+            display: none;
+          }
+        }
+
+      }
+
+    }
+  }
+
+  /* specific styles for modules, no layout */
+
+  ._module-opening-hours {
+    color: $primary-color;
+    width: 50%;
+
+    .opening-hours--hours {
+      margin-bottom: 1em;
+    }
+  }
+
+  ._module-trust-elements {
+    ul {
+      text-align: left;
+    }
+
+    li {
+      margin: 0;
+    }
+
+    .image {
+      max-width: none;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      @include span(3 of 12);
+      @include last;
+
+      ul {
+        text-align: right;
+      }
+    }
+  }
+
+  &-copyright {
+    text-align: center;
+    clear: both;
+
+    padding: 2 * $header-padding;
+
+    .copyright {
+      &-symbol {
+      }
+      &-date {
+        &::after {
+          content: ',';
+        }
+      }
+      &-all-rights-reserved {
+        @include breakpoint($breakpoint-medium) {
+          //display: block;
+        }
+      }
+    }
+  }
+
 }

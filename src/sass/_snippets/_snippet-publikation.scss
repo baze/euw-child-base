@@ -1,0 +1,101 @@
+.publikation {
+  @extend %clear;
+
+  &--med {
+
+    &.flexible-content-article {
+
+      @extend %layout--image-next-to-text;
+      @extend %card;
+      padding: 0;
+
+      > a {
+        vertical-align: middle;
+        padding-bottom: 0 !important;
+      }
+
+      .image-container {
+        position: static !important;
+        height: auto !important;
+
+        img {
+          position: static !important;
+        }
+      }
+
+      .image-container,
+      .content-container {
+        //position: relative;
+        //display: table-cell;
+        //vertical-align: middle;
+        padding: 0.5em !important;
+      }
+
+      &.has-image {
+        footer {
+          background: transparentize($primary-color, 0.6);
+          color: $secondary-color;
+        }
+      }
+
+      .content-wrapper {
+        padding: 1em 0.5em;
+        width: auto;
+      }
+
+      .flexible-content-headline {
+        text-align: left;
+      }
+
+      .flexible-content-text {
+        .btn {
+          margin-bottom: 1em;
+        }
+      }
+
+      .columns > & {
+        .content-container {
+          vertical-align: top;
+        }
+
+        .content-wrapper {
+          padding: 0;
+        }
+
+        .flexible-content-text,
+        .flexible-content-link {
+          display: none;
+        }
+      }
+
+      @include breakpoint($breakpoint-medium) {
+        > a,
+        > .image-container {
+          //padding-bottom: 30% !important;
+          width: 30%;
+        }
+
+        &.has-image {
+          > .content-container {
+            width: 70%;
+          }
+        }
+      }
+
+    }
+
+    footer {
+      position: absolute;
+      bottom: 0.5rem;
+      left: 0.5rem;
+      right: 0.5rem;
+      background: transparentize($primary-color, 0.9);
+      font-size: 70%;
+      padding: 0.5rem;
+
+      display: none;
+    }
+
+  }
+
+}

@@ -1,0 +1,31 @@
+{% if post.show_sidebar %}
+    <aside class="_module-sidebar">
+        {% if function('is_single') and post.post_type == 'post' %}
+
+            <section class="sidebar-section _module-sidebar--categories">
+                {% include ['_modules/_module-sidebar--categories.twig', 'blank.twig'] %}
+            </section>
+
+            <section class="sidebar-section _module-sidebar--social_sharing">
+                {% include ['_modules/_module-sidebar--social_sharing.twig', 'blank.twig'] %}
+            </section>
+
+        {% else %}
+
+            {% for content in post.get_field('sidebar_modules') %}
+            <section class="sidebar-section _module-sidebar--{{ content.acf_fc_layout }}">
+
+                {% if content.headline %}
+                    <{{ content.headline_type|default('h3') }} class="section-title">
+                    {{ content.headline }}
+                    </{{ content.headline_type|default('h3') }}>
+                {% endif %}
+
+                {% include ['_modules/_module-sidebar--' ~ content.acf_fc_layout ~ '.twig',
+                'blank.twig'] with {'content': content} %}
+                </section>
+            {% endfor %}
+
+        {% endif %}
+    </aside>
+{% endif %}

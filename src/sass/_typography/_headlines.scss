@@ -1,57 +1,7 @@
 h1, h2, h3, h4, h5, h6 {
-  font-family: $primary-font;
-  font-weight: $font-weight-normal;
-  line-height: 1;
-  margin: 0;
+  font-family: $secondary-font;
+  font-weight: $font-weight-medium;
+  color: $highlight-color-1;
+  text-transform: uppercase;
 }
 
-h1 {
-  font-size: 1.75em;
-  @include breakpoint($breakpoint-small-medium) {
-    font-size: 2.25em;
-  }
-  @include breakpoint($breakpoint-wide) {
-    font-size: 2.5em;
-  }
-
-  strong {
-    display: block;
-    @include breakpoint($breakpoint-medium) {
-      display: inline;
-    }
-  }
-}
-
-h2 {
-  font-size: 1.25em;
-  @include breakpoint($breakpoint-small-medium) {
-    font-size: 1.75em;
-  }
-  @include breakpoint($breakpoint-wide) {
-    font-size: 2em;
-  }
-
-  strong {
-    display: block;
-    @include breakpoint($breakpoint-medium) {
-      display: inline;
-    }
-  }
-}
-
-h3 {
-  font-size: 1.1em;
-  @include breakpoint($breakpoint-small-medium) {
-    font-size: 1.25em;
-  }
-  @include breakpoint($breakpoint-wide) {
-    font-size: 1.75em;
-  }
-
-  strong {
-    display: block;
-    @include breakpoint($breakpoint-medium) {
-      display: inline;
-    }
-  }
-}

@@ -1,0 +1,22 @@
+.grid {
+
+  .grid-item {
+    width: 200px;
+
+    &:nth-child(even) {
+      background: lightpink;
+      min-height: 4em;
+    }
+
+    &:nth-child(odd) {
+      background: lightcoral;
+      min-height: 4em;
+    }
+
+  }
+
+  .grid-item--width2 {
+    width: 400px;
+  }
+
+}

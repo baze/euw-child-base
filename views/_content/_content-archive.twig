@@ -1,0 +1,9 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <section class="_content _content-page _content-archive">
+
+        {% include('_modules/_module-posts.twig') with { 'columns' : 2 } %}
+
+    </section>
+{% endblock %}

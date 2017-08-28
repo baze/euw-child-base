@@ -1,0 +1,33 @@
+{% extends 'container.twig' %}
+
+{% block content %}
+    <section class="_content _content-page _content-front-page">
+        {% include('_modules/_module-entry-content.twig') %}
+        {% include('_modules/_module-flexible-content.twig') %}
+
+        {#<section class="flexible-content-row news">
+            <section class="news--supplemental single">
+                {% include ['_snippets/_snippet-flexible-content-article.twig'] with {'content': {
+                'headline_type' : 'h3',
+                'headline': post.supplemental_title ? post.supplemental_title : post.supplemental_link ? TimberPost(post.supplemental_link) : null,
+                'text': post.supplemental_text,
+                'image': post.supplemental_image,
+                'icon_type': post.supplemental_icon_type,
+                'icon_image': post.supplemental_icon_image,
+                'icon_svg': post.supplemental_icon_svg,
+                'icon_font': post.supplemental_icon_font,
+                'link_type': post.supplemental_link_type,
+                'link': post.supplemental_link ? TimberPost(post.supplemental_link).link : null,
+                'link_url': post.supplemental_link_url,
+                'link_text': post.supplemental_link_text
+                }, 'maxChars' : 140 } %}
+            </section>
+
+            {% if posts %}
+                <section class="news--posts">
+                    {% include('_modules/_module-posts.twig') with {'posts' : posts} %}
+                </section>
+            {% endif %}
+        </section>#}
+    </section>
+{% endblock %}

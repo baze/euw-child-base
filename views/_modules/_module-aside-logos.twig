@@ -1,0 +1,6 @@
+{% if post.get_field('aside_logos') %}
+    <section class="flexible-content-layout-images flexible-content-row">
+        {% include '_modules/_module-flexible-content-layout-images.twig' with {'content' : {'images' : post.get_field
+        ('aside_logos') }} %}
+    </section>
+{% endif %}

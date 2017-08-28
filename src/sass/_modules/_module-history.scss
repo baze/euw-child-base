@@ -1,0 +1,147 @@
+._module-history {
+  @extend %clear;
+
+  margin-bottom: gutter();
+
+  .history-events--navigation {
+    @extend %navigation;
+    height: $header-text-height;
+    position: relative;
+    background: transparentize($secondary-color, 0.25);
+
+    display: none;
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+    }
+
+    > ul {
+      @extend %container-inner;
+      @extend %center;
+    }
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: none;
+      height: 2px;
+      margin-top: -2px;
+      width: 100%;
+      left: 0;
+      bottom: 0;
+      top: 50%;
+      background: transparentize($primary-color, 0.85);
+    }
+
+    a {
+      color: $highlight-color-1;
+      font-weight: $font-weight-medium-bold;
+      display: block;
+      font-size: 80%
+    }
+
+    margin-bottom: gutter();
+  }
+
+  .container-inner {
+    @extend %container-inner;
+  }
+
+  .history-events {
+    position: relative;
+
+    &:before {
+      content: '';
+      width: 2px;
+      background: transparentize($primary-color, 0.5);
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      z-index: 20;
+      left: 50%;
+    }
+  }
+
+  .history-event {
+
+    .image-container {
+      @extend %z-layer-bg;
+      padding-bottom: 100vh;
+
+      img {
+        @extend %center-image-horizontally;
+        //position: fixed;
+      }
+    }
+
+    &.no-image {
+      .image-container {
+        display: none;
+      }
+    }
+
+    &.has-image {
+      .content-container {
+        position: absolute;
+      }
+    }
+
+    &.no-image {
+      .content-container {
+        position: relative;
+      }
+    }
+
+    .content-wrapper {
+      @extend %card;
+      @extend %center;
+      width: 90%;
+      margin-bottom: 1em;
+      padding: 1em 2em;
+
+      @include breakpoint($breakpoint-medium) {
+        width: 50%;
+      }
+    }
+
+    .content {
+      vertical-align: middle;
+      text-align: center;
+    }
+
+    &--date {
+      color: $highlight-color-1;
+      margin-bottom: 0;
+    }
+
+    &:nth-child(odd) {
+      .content-wrapper {
+        margin-left: 5%;
+      }
+
+      .content {
+        @include breakpoint($breakpoint-medium) {
+          text-align: right;
+        }
+      }
+    }
+
+    &:nth-child(even) {
+      .content-wrapper {
+        margin-left: 5%;
+
+        @include breakpoint($breakpoint-medium) {
+          margin-left: 45%;
+        }
+      }
+
+      .content {
+        @include breakpoint($breakpoint-medium) {
+          text-align: left;
+        }
+      }
+    }
+
+  }
+}

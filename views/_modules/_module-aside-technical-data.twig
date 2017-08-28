@@ -1,0 +1,20 @@
+{% if post.technical_data_rows %}
+    <section class="_module-aside-technical-data">
+
+        {% if post.technical_data_headline %}
+            <h4 class="section-headline">{{ post.technical_data_headline }}</h4>
+        {% endif %}
+
+        {% if post.get_field('technical_data_rows') %}
+            <div class="table">
+                {% for fact in post.get_field('technical_data_rows') %}
+                    <div class="row">
+                        <div class="cell">{{ fact['title'] }}</div>
+                        <div class="cell">{{ fact['description'] }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </section>
+{% endif %}

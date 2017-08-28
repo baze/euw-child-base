@@ -1,7 +1,42 @@
 ._global-main {
+  @extend %z-layer-2;
 
-  .container {
-    padding: 3em 0.75em;
+  margin: 4 * $header-padding auto;
+
+  > .container {
+
+    &:first-child {
+      > .container-inner {
+        padding: 0;
+      }
+    }
+
+    > .container-inner {
+      //max-width: none;
+    }
+
+    &.highlight {
+      padding: 0;
+      max-width: none;
+      background: transparentize($primary-color, 0.9);
+
+      > .container-inner {
+        @extend %container-inner;
+        padding: 2*$header-padding $header-padding;
+
+        .text,
+        .description {
+          margin-bottom: 1em;
+        }
+      }
+    }
+
+  }
+
+  .section-title {
+    //margin-top: 0;
+    //margin-bottom: 0.5rem;
+    //font-size: 1.618em;
   }
 
 }

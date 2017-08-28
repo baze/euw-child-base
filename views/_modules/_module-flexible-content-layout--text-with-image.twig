@@ -1,0 +1,24 @@
+<div class="{{ content.columns|length > 1 ? 'columns columns-' ~ content.columns|length : 'single' }}">
+    {% for column in content.columns %}
+
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'headline': column.title ? column.title : column.link ? TimberPost(column.link) : null,
+        'text': column.text,
+        'image': column.image ? column.image : TimberPost(column.link) and TimberPost(column.link).thumbnail ? TimberPost(column.link)
+        .thumbnail.ID : null,
+        'icon_type': column.icon_type,
+        'icon_image': column.icon_image,
+        'icon_svg': column.icon_svg,
+        'icon_font': column.icon_font,
+        'link_type': column.link_type,
+        'link': column.link ? TimberPost(column.link).link : null,
+        'link_url': column.link_url,
+        'link_text': column.link_text,
+            'color_scheme': not function('is_front_page') and column.link and TimberPost(column.link).color_scheme ? TimberPost(TimberPost(column.link)
+        .color_scheme).get_field('colors')[0]['primary'] : theme_color
+        },
+        'columnCount' : content.columns|length,
+        'maxChars' : 280
+        } %}
+    {% endfor %}
+</div>

@@ -1,0 +1,89 @@
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--full post--full">
+
+    <header class="post-header">
+        <h1 class="flexible-content-headline flexible-content-title">{{ post.post_title }}</h1>
+    </header>
+
+    <div class="flexible-content-text">
+        {% if post.get_field('_content-case-study-tldr-title') %}
+            <section>
+                <h3 class="flexible-content-headline">{{ post.get_field('_content-case-study-tldr-title') }}</h3>
+                <div class="flexible-content-text">{{ post.get_field('_content-case-study-tldr') }}</div>
+            </section>
+        {% endif %}
+
+        {% if post.get_field('_content-case-study-background-title') %}
+            <section>
+                <h3 class="flexible-content-headline">{{ post.get_field('_content-case-study-background-title') }}</h3>
+                <div class="flexible-content-text">{{ post.get_field('_content-case-study-background') }}</div>
+            </section>
+        {% endif %}
+
+        {% if post.get_field('_content-case-study-problem-title') %}
+            <section>
+                <h3 class="flexible-content-headline">{{ post.get_field('_content-case-study-problem-title') }}</h3>
+                <div class="flexible-content-text">{{ post.get_field('_content-case-study-problem') }}</div>
+            </section>
+        {% endif %}
+
+        {% include '_snippets/_snippet-testimonial.twig' with {'testimonial': {
+        'quote': post.get_field('_content-case-study-testimonial-1'),
+        'name': post.get_field('_content-case-study-testimonial-1-author')
+        }} %}
+
+        {% if post.get_field('_content-case-study-solution-title') %}
+            <section>
+                <h3 class="flexible-content-headline">{{ post.get_field('_content-case-study-solution-title') }}</h3>
+                <div class="flexible-content-text">{{ post.get_field('_content-case-study-solution') }}</div>
+            </section>
+        {% endif %}
+
+        <section class="case-study-gallery">
+            <div class="case-study-gallery-section--large">
+                <img src="{{ TimberImage(post.get_field('gallery-item-big')) }}"
+                     alt="{{ post.get_field('gallery-item-big-description') }}">
+            </div>
+
+            <div class="case-study-gallery-section--small">
+                {% for image in post.get_field('_content-case-study-gallery') %}
+                    <figure>
+                        <img src="{{ TimberImage(image['gallery-item-image'])|resize(480,240) }}"
+                             alt="{{ image['gallery-item-caption'] }}">
+                    </figure>
+                {% endfor %}
+            </div>
+        </section>
+
+        {% if post.get_field('_content-case-study-result-title') %}
+            <section>
+                <h3 class="flexible-content-headline">{{ post.get_field('_content-case-study-result-title') }}</h3>
+                <div class="flexible-content-text">{{ post.get_field('_content-case-study-result') }}</div>
+            </section>
+        {% endif %}
+
+        {% include '_snippets/_snippet-testimonial.twig' with {'testimonial': {
+        'quote': post.get_field('_content-case-study-testimonial-2'),
+        'name': post.get_field('_content-case-study-testimonial-2-author')
+        }} %}
+
+        {#{% if post.get_field('_content-case-study-reflection-title') %}
+            <section>
+                <h3 class="flexible-content-headline">{{ post.get_field('_content-case-study-reflection-title') }}</h3>
+                <div class="flexible-content-text">{{ post.get_field('_content-case-study-reflection') }}</div>
+            </section>
+        {% endif %}
+
+        {% if post.get_field('_content-case-study-call-to-action-link') %}
+            <section>
+                <a href="{{ post.get_field('_content-case-study-call-to-action-link') }}"
+                   class="flexible-content-link">
+                    {{ post.get_field('_content-case-study-call-to-action-text')|default(_e('Mehr erfahren')) }}</a>
+            </section>
+        {% endif %}#}
+
+
+        <h1>HERE GO THE LEISTUNGENS</h1>
+
+    </div>
+
+</article>

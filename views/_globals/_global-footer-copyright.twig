@@ -1,0 +1,11 @@
+<div class="_global-footer-copyright">
+    <div class="container">
+        <span class="copyright-symbol">{{ _e('©') }}</span>
+        {{ options.firmenbezeichnung }}
+        {% if creationDate != "now"|date('Y') %}
+            {{ creationDate }} -
+        {% endif %}
+        <span class="copyright-date">{{ "now"|date('Y') }}</span>
+        <span class="copyright-all-rights-reserved">{{ _e('alle Rechte vorbehalten.') }}</span>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<span class="wpcf7-form-control-wrap select-wrapper">
+    <select name="event_dates" class="wpcf7-form-control wpcf7-select">
+
+        <option value="">---</option>
+
+            {% for date in dates %}
+
+                {% set event_start = date['event-start'] | date('d.m.Y') %}
+                {% set event_start_time = date['event-start-time'] %}
+                {% set event_end = date['event-end'] | date('d.m.Y') %}
+                {% set event_end_time = date['event-end-time'] %}
+                {% set event_duration = date_diff(date['event-start'], date['event-end']) %}
+
+                <option>
+                {% if event_duration %}
+                    {{ event_start }} - {{ event_end }}
+                    {#<small>{{ event_duration }} {{ event_duration > 1 ? _e('Tage') : _e('Tag') }}</small>#}
+                {% else %}
+                    {{ event_start }}
+                {% endif %}
+            </option>
+
+            {% endfor %}
+    </select>
+</span>

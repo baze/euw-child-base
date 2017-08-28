@@ -1,0 +1,109 @@
+{% set image = post.thumbnail ? post.thumbnail.ID : null %}
+
+<article class="flexible-content-article person person--med {{ image ? 'has-image' : 'no-image' }} {{ post
+.show_link ? 'has-link' : 'no-link' }}" itemscope itemtype="http://schema.org/Person">
+
+    {% if image %}
+        <div class="image-container">
+            {{ responsiveImage(image, [120,120]) }}
+        </div>
+    {% endif %}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+
+                    {% if post.show_link %}
+                    <a href="{{ post.link }}">
+                    {% endif %}
+
+                    <h4 class="flexible-content-headline">
+                        {{ post.title }}
+                    </h4>
+
+                    {% if post.show_link %}
+                    </a>
+                    {% endif %}
+
+                    <div class="flexible-content-text">
+                        {% if post.jobtitle %}
+                            <div class="person-jobtitle">{{ post.jobtitle | raw | nl2br }}</div>
+                        {% endif %}
+
+                        {% if post.jurisdiction %}
+                            <div class="person-jurisdiction">{{ post.jurisdiction }}</div>
+                        {% endif %}
+
+                        <div class="person-contact-info">
+                            {% if post.phone %}
+                                <div class="person-contact-info--phone">
+                                    <span class="person-contact-info-aux">{{ _e('Telefon:') }}</span>
+                                    <i class="fa fa-phone" aria-hidden="true"></i>
+                                    <a href="tel:{{ post.phone }}">{{ post.phone }}</a>
+                                </div>
+                            {% endif %}
+
+                            {% if post.fax %}
+                                <div class="person-contact-info--fax">
+                                    <span class="person-contact-info-aux">{{ _e('Fax:') }}</span>
+                                    <i class="fa fa-fax" aria-hidden="true"></i>
+                                    {{ post.fax }}
+                                </div>
+                            {% endif %}
+
+                            {% if post.mobile %}
+                                <div class="person-contact-info--mobile">
+                                    <span class="person-contact-info-aux">{{ _e('Mobil:') }}</span>
+                                    <i class="fa fa-mobile" aria-hidden="true"></i>
+                                    <a href="tel:{{ post.mobile }}">{{ post.mobile }}</a>
+                                </div>
+                            {% endif %}
+
+                            {% if post.email %}
+                                <div class="person-contact-info--email">
+                                    <span class="person-contact-info-aux">{{ _e('E-Mail:') }}</span>
+                                    <i class="fa fa-envelope" aria-hidden="true"></i>
+                                    <a href="mailto:{{ post.email }}">{{ post.email }}</a>
+                                </div>
+                            {% endif %}
+
+                            {% if post.homepage %}
+                                <div class="person-contact-info--homepage">
+                                    <span class="person-contact-info-aux">{{ _e('Homepage:') }}</span>
+                                    <i class="fa fa-home" aria-hidden="true"></i>
+                                    {{ post.homepage }}
+                                </div>
+                            {% endif %}
+
+                            {% if post.hours %}
+                                <div class="person-contact-info--hours">
+                                    <span class="person-contact-info-aux">{{ _e('Geöffnet:') }}</span>
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {{ post.hours | nl2br }}
+                                </div>
+                            {% endif %}
+                        </div>
+
+                        {% if show_contact_button %}
+                            <div class="person-contact-button">
+                                <a href="#" class="btn btn--highlight btn--block overlay-open">
+                                    {{ _e('Kontakt aufnehmen') }} <i class="fa fa-comments" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    {% if post.show_link %}
+                        <div class="flexible-content-link-wrapper">
+                            <a class="btn flexible-content-link"
+                               href="{{ post.link }}">{{ post.link_text|default(_e('Mehr erfahren')) }}</a>
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</article>

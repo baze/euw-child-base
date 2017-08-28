@@ -1,0 +1,25 @@
+<div class="single">
+    <article class="flexible-content-article text-align-{{ content.text_align|default('default') }} {{ content.image
+    ? 'has-image' : 'no-image' }}">
+        {% if content.image %}
+            <div class="image-container">
+                {{ responsiveImage(content.image, 'slider') }}
+            </div>
+        {% endif %}
+
+        <div class="content-container">
+            <div class="content-container-inner">
+                <div class="content">
+                    <div class="content-wrapper">
+                        {% if content.subline %}
+                            <h3 class="flexible-content-headline">{{ content.subline }}</h3>
+                        {% endif %}
+
+                        {% include '_snippets/_snippet-search-form.twig' with { search_params : content.search_params
+                        } %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</div>

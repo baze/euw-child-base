@@ -1,0 +1,8 @@
+{% for item in content.linked_objects %}
+    {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+    'headline': item.title ? item.title : item.link ? TimberPost(item.link) : null,
+    'image': item.image ? item.image : TimberPost(item.link).thumbnail ? TimberPost(item.link).thumbnail.ID : null,
+        'link_type' : 'internal',
+    'link': item.link ? TimberPost(item.link).link : null
+    }} %}
+{% endfor %}

@@ -1,0 +1,101 @@
+<article class="flexible-content-article {{ post.post_type }} {{ post.post_type }}--full" itemscope
+         itemtype="http://schema.org/JobPosting">
+
+    <header class="post-header">
+
+        {#<span class="job-wanted">{{ _e('Wir suchen derzeit eine/n:') }}</span>
+        <h1 class="flexible-content-headline flexible-content-title">{{ post.post_title }}</h1>#}
+
+        {% if post.hours_type or post.hours_amount %}
+            <div class="job-hours">
+                <h3 class="job-subhead">{{ post.hours_headline }}</h3>
+                <span class="job-hours-type" itemprop="employmentType">{{ post.hours_type }}</span>
+                <span class="job-hours-amount" itemprop="workHours">{{ post.hours_amount }}</span>
+            </div>
+        {% endif %}
+
+        {% if post.salary_currency or post.salary_amount %}
+            <div class="job-salary">
+                <h3 class="job-subhead">{{ post.salary_headline }}</h3>
+                <span class="job-salary-currency"
+                      itemprop="salaryCurrency">{{ post.salary_currency }}</span>
+                <span class="job-salary-amount" itemprop="baseSalary">{{ post.salary_amount }}</span>
+            </div>
+        {% endif %}
+
+    </header>
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+
+                    <div class="flexible-content-text">
+                        <div class="job-body">
+
+                            {% if post.description %}
+                                <div class="job-description" itemprop="description">
+                                    <h3 class="job-subhead">{{ post.description_headline }}</h3>
+                                    <div class="job-description-content">{{ post.description }}</div>
+                                </div>
+                            {% endif %}
+
+                            {% if post.get_field('requirements') %}
+                                <h3 class="job-subhead">{{ post.requirements_headline }}</h3>
+                                <ul class="job-requirements">
+                                    {% for requirement in post.get_field('requirements') %}
+                                        <li>{{ requirement.text }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                            {% if post.get_field('offers') %}
+                                <h3 class="job-subhead">{{ post.offers_headline }}</h3>
+                                <ul class="job-offers">
+                                    {% for offer in post.get_field('offers') %}
+                                        <li>{{ offer.text }}</li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <footer class="post-footer">
+        {% if options['job_contact_form'] %}
+            <div class="job-cta">
+                <div class="job-cta-text">
+                    {{ options['job_contact_info'] }}
+                    <a class="job-cta-link btn" href="#bewerben">{{ post.cta_label }}</a>
+                </div>
+
+                {% if post.contact_person %}
+                    <div class="job-cta-contact">
+                        <h3 class="job-subhead">{{ post.contact_headline }}</h3>
+
+                        {% include '_snippets/_snippet-person--small.twig' with {'post' : TimberPost(post
+                        .contact_person)} %}
+                    </div>
+                {% elseif options['job_contact_person'] %}
+                    <div class="job-cta-contact">
+                        <h3 class="job-subhead">{{ post.contact_headline }}</h3>
+
+                        {% include '_snippets/_snippet-person--small.twig' with {'post' : TimberPost(options['job_contact_person'])} %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <section id="bewerben" class="job_contact_form _module-contactform">
+                {{ options['job_contact_form'] }}
+            </section>
+        {% endif %}
+    </footer>
+
+</article>

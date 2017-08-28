@@ -1,0 +1,14 @@
+{% if testimonial.quote %}
+    <article class="_snippet-testimonial">
+        <blockquote>
+            <div class="quote">{{ testimonial.quote }}</div>
+
+            <footer>
+                <h4>
+                    <span class="testimonial-name">{{ testimonial.name }}</span>
+                    <span class="testimonial-company">{{ testimonial.company }}</span>
+                </h4>
+            </footer>
+        </blockquote>
+    </article>
+{% endif %}

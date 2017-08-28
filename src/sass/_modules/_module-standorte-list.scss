@@ -1,0 +1,11 @@
+._module-standorte-list {
+
+  ul {
+    @extend %reset;
+
+    li {
+      display: block;
+    }
+  }
+
+}

@@ -1,0 +1,60 @@
+{% extends 'container.twig' %}
+
+{% block content %}
+
+
+
+
+    <section class="_module-page-header">
+        <div class="_module-slider">
+            <div class="flexible-content-article _snippet-slide text-align-{{ post.page_header_text_align|default('default') }} {{ image ? 'has-image' : 'no-image' }}">
+                {% if (image) %}
+                    <div class="image-container" data-darken="{{ darken|default(post.darken) }}">
+                        {{ responsiveImage(image, 'header') }}
+                    </div>
+                {% endif %}
+
+                <div class="content-container">
+                    <div class="content-container-inner">
+                        <div class="content">
+                            <div class="container">
+                                <div class="container-inner">
+                                    <div class="content-wrapper">
+
+                                        {% if supporting_headline %}
+                                            <h4 class="flexible-content-supporting-title">
+                                                {{ supporting_headline }}
+                                            </h4>
+                                        {% endif %}
+
+                                        <h1 class="flexible-content-headline">
+                                            {{ title|default(post.title) }}
+                                        </h1>
+
+                                        {% if text %}
+                                            <div class="flexible-content-text">
+                                                {{ text }}
+                                            </div>
+                                        {% endif %}
+
+                                        {% set page_header_link = subpages_cta_link ? subpages_cta_link : post.page_header_link.link %}
+                                        {% set page_header_link_text = subpages_cta_link_text ? subpages_cta_link_text : post.page_header_link %}
+
+                                        {% if page_header_link %}
+                                            <div class="flexible-content-link-wrapper">
+                                                <a href="{{ page_header_link }}" class="btn flexible-content-link">
+                                                    {{ page_header_link_text|default(_e('Mehr erfahren')) }}
+                                                </a>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+{% endblock %}

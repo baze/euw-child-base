@@ -1,0 +1,41 @@
+<div class="primary {{ content.invert_order ? 'invert_order' : 'default_order' }}">
+
+    {% for item in content.primary_objects %}
+
+        {% if item.post_type %}
+            {% set object = item %}
+        {% else %}
+            {% set object = TimberPost(item.object) %}
+        {% endif %}
+
+        {% set headline = item.title ? item.title : object.post_title %}
+        {% set image = item.image ? item.image : object.thumbnail.ID %}
+
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'headline' : headline,
+        'text' : object.post_excerpt,
+        'image' : image,
+        'link_raw' : object.link
+        }} %}
+    {% endfor %}
+</div>
+<div class="secondary {{ content.invert_order ? 'invert_order' : 'default_order' }}">
+    {% for item in content.secondary_objects %}
+
+        {% if item.post_type %}
+            {% set object = item %}
+        {% else %}
+            {% set object = TimberPost(item.object) %}
+        {% endif %}
+
+        {% set headline = item.title ? item.title : object.post_title %}
+        {% set image = item.image ? item.image : object.thumbnail.ID %}
+
+        {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' :  {
+        'headline' : headline,
+        'text' : object.post_excerpt,
+        'image' : image,
+        'link_raw' : object.link
+        }} %}
+    {% endfor %}
+</div>

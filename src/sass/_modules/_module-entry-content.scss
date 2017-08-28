@@ -1,18 +1,14 @@
 ._module-entry-content {
+  @extend %clear;
 
-  &:empty {
-    display: none;
-  }
+  > .flexible-content-article {
 
-  .content-title {
-    font-size: 3em;
-  }
+    .content-wrapper {
+      padding: 0;
+    }
 
-  .content-content {
-    img {
-      display: block;
-      width: 100%;
-      height: auto;
+    .flexible-content-text {
+      margin-top: 0;
     }
   }
 }

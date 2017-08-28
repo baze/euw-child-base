@@ -1,0 +1,35 @@
+{% extends "container.twig" %}
+
+{% block content %}
+    <div class="_content _content-page _content-404">
+
+        {#<img src="{{ TimberImage('http://www.euw.de/euw-wp/public/wordpress/wp-content/uploads/2016/04/404.jpg')#}
+        {#|tojpg|resize(1045) }}" alt="">#}
+
+        <h1>{{ _e('Leider können wir diese Seite nicht finden.') }}
+            {#<small>{{ _e("(Error 404)") }}.</small>#}
+        </h1>
+
+        <p>
+            <a href="{{ site.home }}" rel="home">Hier geht's zurück zur Startseite,</a> aber vielleicht können wir
+            Ihnen weiterhelfen:</p>
+
+        <p>Hier ein paar Vorschläge, um die Seite doch zu finden:</p>
+
+        <ol>
+            <li><strong>Suchen Sie</strong> nach der Seite:<br>
+                <form style="display:inline;" action="{{ site.home }}">
+                    <input type="text" value="" id="s" name="s"/>
+                    <p>
+                        <input type="submit" value="Search" class="btn"/>
+                    </p>
+                </form>
+            </li>
+            <li><strong>Wenn Sie die Adresse eingetippt haben...</strong> beachten Sie bitte Recht-, sowie GROSS- und
+                kleinschreibung.</li>
+            <li><strong>Suchen Sie</strong> in der <a href="{{ site.home }}/sitemap_index.xml"
+                                                      target="_blank">Sitemap</a>.</li>
+            <li><strong>Zurück</strong> zu unserer <a href="{{ site.home }}">Startseite</a>.</li>
+        </ol>
+    </div>
+{% endblock %}

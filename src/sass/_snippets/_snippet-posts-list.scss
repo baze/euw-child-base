@@ -1,0 +1,46 @@
+._snippet-posts-list {
+  display: none;
+
+  @include breakpoint($breakpoint-medium) {
+    display: block;
+  }
+
+  ul {
+    @extend %reset;
+  }
+
+  li {
+    display: block;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid darken($secondary-color, 25);
+    }
+
+    &.current {
+      background-color: $primary-color;
+      font-weight: $font-weight-normal;
+
+      a {
+        background: darken($secondary-color, 15);
+        //color: $highlight-color-1;
+      }
+    }
+
+    a {
+      @extend %clear;
+      display: block;
+      padding: 1em;
+
+      &:hover {
+        text-decoration: none;
+        background: darken($secondary-color, 5);
+        //color: $highlight-color-1;
+      }
+
+      .fa {
+        float: right;
+        color: $primary-color;
+      }
+    }
+  }
+}

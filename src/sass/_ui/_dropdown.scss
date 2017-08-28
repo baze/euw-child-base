@@ -1,93 +1,29 @@
 @charset "UTF-8";
 
+$arrow-size: 0.4em;
+
 %dropdown {
-
-  .menu {
-    @extend %transition;
-  }
-
-  @extend %z-layer-ui;
-  font-weight: $font-weight-normal;
-
-  a {
-    display: inline-block;
-    //width: 100%;
-    height: 100%;
-    padding: 0 1em;
-    position: relative;
-  }
-
-  .menu {
-    display: block;
-
-    @include breakpoint($breakpoint-medium) {
-      display: table;
-      table-layout: fixed;
-      width: 100%;
-      height: 100%;
-    }
-  }
 
   .menu-item-has-children {
 
-    & > a::before,
-    &.opened > a::before,
-    & > a::after,
-    &.opened > a::after {
-      @extend %transition;
-      display: block;
-      content: "";
-      position: absolute;
-      font-size: 50%;
-      color: purple;
-      width: 0;
-      height: 0;
-      border-style: solid;
-      border-color: purple transparent;
-      border-width: 0 1em;
-      top: 0;
-      right: -0.5em;
-      padding: 0;
-      margin-top: 1.75em;
-      opacity: 0.25;
-    }
+    @include toggle-indicators();
 
-    /* arrow down */
-    & > a::before,
-    &.opened > a::before {
-      top: 1em;
-      //border-top-color: green;
-      border-top-width: 1em;
-    }
+    /*> a {
+      &::before,
+      &::after {
+        margin-top: $arrow-size * 2 !important;
 
-    &.opened > a::before,
-    &:hover > a::before {
-      border-top-width: 0;
-      top: 2em;
-    }
-
-    /* arrow up */
-    & > a::after,
-    &.opened > a::after {
-      top: 1em;
-      //border-bottom-color: red;
-      border-bottom-width: 0;
-    }
-
-    &.opened > a::after,
-    &:hover > a::after {
-      border-bottom-width: 1em;
-      top: 1em;
-    }
+        @include breakpoint($breakpoint-medium) {
+          margin-top: $arrow-size !important;
+        }
+      }
+    }*/
 
     @include breakpoint($breakpoint-medium) {
 
-      > .sub-menu {
-        display: none;
-      }
       &:hover {
         > .sub-menu {
-          display: block;
+          //display: block;
         }
       }
 
@@ -95,102 +31,69 @@
 
   }
 
-  .main-menu-item {
-    position: relative;
-    &:hover {
-    }
-
-    @include breakpoint($breakpoint-medium) {
-      display: table-cell;
-      text-align: center;
-/*      &:first-child {
-        text-align: left;
-      }
-
-      &:last-child {
-        text-align: right;
-      }*/
-    }
-
-  }
-
-  .main-menu-link {
-    color: green;
-    &:hover {
-      color: yellow;
-    }
-  }
-
   .sub-menu {
+    @extend %reset;
 
-    //padding-left: 1em;
+    background: coral;
 
     @include breakpoint($breakpoint-medium) {
-
       position: absolute;
       top: 0;
       left: 100%;
-      padding-left: 0;
-    }
 
+      width: auto;
+      min-width: 15em;
+
+      display: none !important;
+    }
+  }
+
+  .menu-item {
+    z-index: 10;
+
+    &:hover {
+      z-index: 20;
+
+      > .sub-menu {
+        display: block !important;
+      }
+    }
   }
 
   .sub-menu-item {
+    line-height: 1;
 
     @include breakpoint($breakpoint-medium) {
       display: block;
       position: relative;
+      text-align: left;
     }
-
   }
 
   .sub-menu-link {
+    padding: 1em;
+    padding-right: 2em;
+    display: block;
   }
 
   .menu-depth-1 {
-    @extend %box-shadow;
     background-color: red;
+    z-index: 300;
 
     @include breakpoint($breakpoint-medium) {
-      top: 100%;
+      top: $header-navbar-height;
       left: 0;
-    }
-
-    .sub-menu-item {
-      &:hover {
-        background-color: magenta;
-      }
-    }
-    .sub-menu-link {
-      color: purple;
-      &:hover {
-        color: orange;
-      }
     }
   }
 
   .menu-depth-2 {
-    @extend %box-shadow;
     background-color: cyan;
-
-    .sub-menu-item {
-    }
-    .sub-menu-link {
-      &:hover {
-      }
-    }
+    z-index: 200;
   }
 
   .menu-depth-3 {
-    @extend %box-shadow;
-    background-color: pink;
-
-    .sub-menu-item {
-    }
-    .sub-menu-link {
-      &:hover {
-      }
-    }
+    background-color: mediumpurple;
+    z-index: 100;
   }
 
   //show certain links only on mobile
@@ -201,4 +104,150 @@
     }
   }
 
+}
+
+%menu-horizontal {
+
+  .container {
+    @extend %container-outer;
+  }
+
+  .container-inner {
+    @extend %container-inner;
+  }
+
+  .menu-item-has-children {
+    position: static;
+
+    @include breakpoint($breakpoint-medium) {
+
+      &:hover {
+        .menu-depth-1 {
+          opacity: 1;
+          position: absolute;
+          left: 0;
+          top: 100%;
+          clip: auto !important;
+          max-height: none !important;
+          width: 100%;
+          padding: 1rem 0 3rem;
+        }
+      }
+
+    }
+
+  }
+
+  .sub-menu-item {
+    padding: 1em;
+    line-height: 1;
+
+    @include breakpoint($breakpoint-medium) {
+      display: block;
+      position: relative;
+      text-align: left;
+    }
+  }
+
+  .menu-depth-1 {
+    background-color: deeppink;
+
+    @include breakpoint($breakpoint-medium) {
+      column-count: 3;
+
+      transition: opacity linear 0.1s;
+      opacity: 0;
+      position: absolute;
+      display: block;
+      overflow: hidden;
+      zoom: 1;
+      width: 0;
+      padding: 0;
+
+      &:after {
+        display: block;
+        content: '';
+        background-color: hotpink;
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: -500%;
+        width: 10000%;
+        height: 100%;
+      }
+    }
+
+    > li {
+      //padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+      //padding-bottom: 1.5em;
+
+      &:first-child {
+        //padding-top: 1em;
+      }
+    }
+  }
+
+  .menu-depth-2 {
+    background-color: cyan;
+    position: static !important;
+    //break-after: column;
+
+    > li {
+      padding-bottom: 0;
+    }
+  }
+
+  .menu-depth-3 {
+    background-color: pink;
+  }
+
+}
+
+%menu-fullscreen {
+  &.nav-collapse {
+    transition: opacity 185ms linear;
+    opacity: 0;
+
+    @include breakpoint($breakpoint-medium) {
+      opacity: 1;
+    }
+
+    &.opened {
+      @extend %reset;
+      @extend %z-layer-ui;
+      position: fixed !important;
+      width: 100%;
+      height: auto;
+      max-height: 100vh !important;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      opacity: 1;
+      clip: auto;
+      background-color: lightcoral;
+
+      > .menu {
+        display: table !important;
+        background: none !important;
+
+        > .main-menu-item {
+          display: table-row;
+          height: auto;
+
+          .main-menu-link {
+            display: table-cell !important;
+            vertical-align: middle;
+            height: auto;
+          }
+
+          .sub-menu {
+            display: none !important;
+          }
+        }
+      }
+    }
+  }
 }

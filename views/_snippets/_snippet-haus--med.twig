@@ -1,0 +1,29 @@
+<article class="flexible-content-article haus haus--med post post--med {{ post.post_type }} {{ post.post_type }}--med">
+
+    {% if post.thumbnail %}
+        <a href="{{ post.link }}">
+            <div class="image-container" data-darken="{{ content.darken|default(0) }}">
+                <img src="{{ TimberImage(post.thumbnail.ID)|tojpg|resize(404) }}"
+                     alt="{{ TimberImage(post.thumbnail.ID).caption }}"/>
+            </div>
+        </a>
+    {% endif %}
+
+    <div class="content-container">
+        <div class="content-container-inner">
+            <div class="content">
+                <div class="content-wrapper">
+                    <h4 class="flexible-content-headline">
+                        {{ post.post_title }}
+                    </h4>
+
+                    <div class="flexible-content-text">{{ post.post_excerpt }}</div>
+
+                    <a class="btn flexible-content-link" href="{{ post.link }}">
+                        {{ _e('Mehr erfahren') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

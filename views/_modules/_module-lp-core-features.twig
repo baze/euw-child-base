@@ -1,0 +1,25 @@
+<section class="_module-lp-core-features">
+
+    {% if post.core_features_headline %}
+        <h2 class="section-headline">{{ post.core_features_headline }}</h2>
+    {% endif %}
+
+    {% if post.core_features_text %}
+        <div class="section-text">{{ post.core_features_text }}</div>
+    {% endif %}
+
+    {% if post.core_features_subline %}
+        <h3 class="section-subline">{{ post.core_features_subline }}</h3>
+    {% endif %}
+
+    {% if post.core_features_items %}
+        <div class="flexible-content-row">
+            <div class="columns">
+                {% for feature in post.get_field('core_features_items') %}
+                    {% include '_snippets/_snippet-flexible-content-article.twig' with { 'content' : feature } %}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+
+</section>

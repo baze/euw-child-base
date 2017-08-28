@@ -1,0 +1,14 @@
+<div class="_snippet-posts-list">
+    <ul>
+        {% for p in posts %}
+
+            {% if not p.object_type %}
+                {% set p = TimberPost(p) %}
+            {% endif %}
+
+            <li class="{{ p.ID == post.ID ? 'current' : '' }}">
+                <a href="{{ p.link }}">{{ p.title }} <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

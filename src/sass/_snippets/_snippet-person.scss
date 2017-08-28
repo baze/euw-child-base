@@ -1,115 +1,135 @@
 .person {
-  padding: 1em;
-  text-align: center;
 
-  @include breakpoint($breakpoint-wide) {
-    text-align: left;
-  }
+  &--small,
+  &--med {
 
-  a {
-    text-decoration: none;
+    &.flexible-content-article {
+      //@extend %layout--square;
+      //@extend %layout--image-above-text;
+      @extend %layout--image-next-to-text;
 
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+      text-align: left;
+      padding: 0.5rem;
 
-  .person-image {
-    @extend %clear;
+      display: table;
+      table-layout: fixed;
+      direction: ltr;
+      position: relative !important;
 
-    img {
-      @include span(100%);
-      display: block;
-      float: none;
-      margin: auto;
-    }
-
-    margin-bottom: 1em;
-  }
-
-  .person-name {
-  }
-
-  .person-jobtitle {
-    font-size: 75%;
-  }
-
-  .person-description {
-
-  }
-
-  .person-content {
-    text-align: left;
-  }
-
-
-}
-
-.team-boss {
-  @extend %clear;
-}
-
-.person--small {
-
-  @include gallery(6 of 12);
-
-  @include breakpoint($breakpoint-medium) {
-    @include gallery(4 of 12);
-  }
-
-  @include breakpoint($breakpoint-wide) {
-    @include gallery(2 of 12);
-  }
-}
-
-.person--med,
-.person--full {
-  @extend %clear;
-
-  .person-image {
-    img {
-      @include span(75%);
-      float: none;
-      margin: 0 auto;
-    }
-    margin-bottom: 1em;
-  }
-
-  @include breakpoint($breakpoint-medium) {
-    .person-image {
-      img {
-        @include span(50%);
+      > a,
+      > .image-container {
+        display: table-cell;
         float: none;
-        margin: 0 auto;
+        padding-bottom: 15%;
+        width: 15%;
+
+        @include breakpoint($breakpoint-medium) {
+          padding-bottom: 35%;
+          width: 35%;
+        }
+      }
+
+      > .content-container {
+        display: table-cell;
+        width: 100%;
+        vertical-align: middle;
+        direction: ltr;
+        padding: $header-padding;
+      }
+
+      .content-wrapper {
+        padding: 0;
+      }
+
+      &.has-image {
+        > .content-container {
+          width: 85%;
+
+          @include breakpoint($breakpoint-medium) {
+            width: 65%;
+          }
+        }
+      }
+
+      .content-container {
+        background: $secondary-color;
+
+        .flexible-content-link {
+          @include button-positive;
+          padding: 0;
+          text-transform: none;
+          border: none;
+        }
+      }
+
+      .flexible-content-headline {
+        text-align: left;
+        white-space: nowrap;
+        font-size: 90%;
+      }
+
+      .flexible-content-text {
+        font-size: 60%;
       }
     }
+
+    .person-contact-info-aux {
+      display: none;
+    }
+
+    .person-contact-info--email {
+      //@include button-positive;
+      font-size: 100%;
+      margin-top: 1em;
+      text-transform: none;
+      text-align: left;
+    }
+
   }
 
-  @include breakpoint($breakpoint-wide) {
+  &--full {
 
-    .person-image {
-      @include span(2 of 12);
-      @include push(1 of 12);
-      img {
-        @include span(100%);
+    ul {
+      @extend %list;
+    }
+
+    > .image-container {
+      padding-bottom: 100%;
+    }
+
+    @include breakpoint($breakpoint-medium) {
+      > .image-container {
+        @include last;
+        width: span(4 of 12);
+        //padding-bottom: span(4 of 12);
+        padding-bottom: initial;
+        height: auto;
+
+        figure {
+          img {
+            position: static;
+            width: 100%;
+            min-height: 0;
+          }
+        }
+
       }
+
+      > .content-container {
+        @include first;
+        width: span(8 of 12);
+      }
+
+      .content-container {
+        position: static;
+      }
+
+      .content-wrapper {
+        padding: 0;
+      }
+
     }
 
-    .person-description,
-    .person-content {
-      @include span(9 of 12);
-      @include last;
-    }
   }
-}
 
-.person--full {
-  .person-name {
-    text-align: left !important;
-
-    .person-jobtitle {
-      display: block;
-      font-size: 50%;
-    }
-  }
 }

@@ -1,0 +1,20 @@
+{% set events = [] %}
+
+{% for cat in content.categories %}
+    {% set cat = TimberTerm(cat) %}
+    {% set events = events|merge(upcoming_events(cat.id, content.count)) %}
+{% endfor %}
+
+{% set events = events|slice(0, content.count) %}
+
+{% if events %}
+    <div class="events">
+        {% for event in events %}
+            {% include '_snippets/_snippet-event--small.twig' with {'post' : event} %}
+        {% endfor %}
+    </div>
+{% else %}
+    <div class="events">
+        <p>{{ __('Zur Zeit keine Veranstaltungen') }}</p>
+    </div>
+{% endif %}

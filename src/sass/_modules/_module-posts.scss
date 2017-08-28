@@ -1,5 +1,14 @@
 ._module-posts {
-
   @extend %clear;
+  margin-bottom: gutter();
 
+  .section-title {
+    //text-align: center;
+    //text-align: left;
+  }
+
+  .section-link {
+    @extend %center;
+    width: span(8 of 12);
+  }
 }

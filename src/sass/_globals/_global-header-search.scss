@@ -9,8 +9,8 @@
     @extend %clear;
     @extend %form-reset;
     width: 100%;
-    border: 1px solid lighten($black, 80%);
-    background-color: $highlight-color-2;
+    border: 1px solid transparentize($primary-color, 0.8);
+    //background-color: $highlight-color-2;
   }
 
   form input {
@@ -33,7 +33,7 @@
   }
   .search-submit {
     width: 25%;
-    background-color: $highlight-color-2;
+    //background-color: $highlight-color-2;
     color: transparent;
     //margin-left: -4px;
     &:hover {

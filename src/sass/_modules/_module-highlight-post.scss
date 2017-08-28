@@ -1,0 +1,46 @@
+._module-highlight-post {
+  padding: 0.5rem;
+  background: $highlight-color-3;
+  font-family: $secondary-font;
+  color: $secondary-color;
+  font-size: 85%;
+  overflow: hidden;
+  display: none;
+
+  .home & {
+    display: block;
+  }
+
+  .highlight_post {
+
+    &--container {
+      @extend %container-inner;
+    }
+
+    &--title {
+      @extend %reset;
+
+      @include breakpoint($breakpoint-medium) {
+        @include span(3 of 12 first);
+      }
+
+      //color: $highlight-color-3;
+    }
+
+    &--content {
+      @include span(7 of 12);
+      //font-size: 85%;
+    }
+
+    &--button {
+      @extend %center;
+
+      @include breakpoint($breakpoint-medium) {
+        @include span(2 of 12 last);
+      }
+
+      @include button($highlight-color-3, $secondary-color, $highlight-color-3, 0);
+    }
+  }
+
+}

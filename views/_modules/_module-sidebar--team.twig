@@ -1,0 +1,5 @@
+<div class="team-persons single">
+    {% for person in content.persons %}
+        {% include '_snippets/_snippet-person--med.twig' with {'post': TimberPost(person)} %}
+    {% endfor %}
+</div>

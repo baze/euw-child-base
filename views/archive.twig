@@ -1,0 +1,13 @@
+{% extends "base.twig" %}
+
+{% block page_header %}
+    {% include '_modules/_module-page-header.twig' with {
+    'supporting_headline' : subtitle,
+    'title' : title,
+    'image' : null
+    } %}
+{% endblock %}
+
+{% block content %}
+    {% include ['_content/_content-archive.twig', '_content/_content-page.twig'] %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% set post = TimberPost(options.highlight_post) %}
+{% set show_from = options.highlight_post_date_show_from %}
+{% set show_until = options.highlight_post_date_show_until %}
+{% set now = "now"|date("Ymd") %}
+
+{% if post and ((show_from <= now) and (show_until >= now )) %}
+    <article class="_module-highlight-post">
+        <div class="highlight_post--container">
+
+            <h4 class="highlight_post--title">
+                <a href="{{ post.link }}">{{ post.post_title }}</a>
+            </h4>
+
+            <div class="highlight_post--content">
+                {{ post.post_excerpt|excerpt(23) }}
+            </div>
+
+            <a href="{{ post.link }}" class="highlight_post--button btn">{{ _e('Mehr erfahren') }}</a>
+        </div>
+    </article>
+{% endif %}

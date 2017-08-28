@@ -1,0 +1,42 @@
+{% set team_sections = team_sections|default(post.get_field('team-sections')) %}
+{% set team_image = team_image|default(post.get_field('team-image')) %}
+
+<div class="_module-team">
+    {% for section in team_sections %}
+        <div class="flexible-content-row team-section">
+            {% if section.title %}
+                <h3 class="section-title">{{ section.title }}</h3>
+            {% endif %}
+
+            {% set columns = section.columns %}
+
+            <div class="team-persons {{ columns > 1 ? 'columns columns-'~columns : 'single' }}">
+                {% for person in section.persons %}
+                    {% include '_snippets/_snippet-person--med.twig' with {'post': TimberPost(person)} %}
+                {% endfor %}
+
+                {% if section.show_application_note %}
+                    {% include '_snippets/_snippet-flexible-content-article.twig' with {
+                        'classes' : ['application_note'],
+                        'content' : {
+                        'headline' : section.application_note_text,
+                        'link' : TimberPost(section.application_note_link).link
+                    }
+                    } %}
+                {% endif %}
+            </div>
+        </div>
+    {% endfor %}
+
+
+    {% if team_image %}
+        <article class="flexible-content-article text-align-default has-image no-text">
+            <div class="image-container">
+                {{ responsiveImage(post.get_field('team-image')) }}
+            </div>
+            <div>
+                <p><small>{{ TimberImage(post.get_field('team-image')).caption }}</small></p>
+            </div>
+        </article>
+    {% endif %}
+</div>

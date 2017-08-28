@@ -1,0 +1,10 @@
+{% if post.aside_posts_post_type %}
+    <section class="_module-aside-posts">
+        <h4 class="section-headline">{{ post.aside_posts_headline }}</h4>
+
+        {% for p in aside_posts %}
+            {% include ['_snippets/_snippet-' ~ p.post_type ~ '--small.twig', '_snippets/_snippet-post--small.twig']
+            with {'post' : p} %}
+        {% endfor %}
+    </section>
+{% endif %}
